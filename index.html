@@ -19,8 +19,10 @@
     <header class="site-header">
       <div class="header-inner">
         <h1 class="logo">
-          <span class="logo-main">松山よさこい風舞人</span>
-          <span class="logo-sub">MATSUYAMYOSAKOIKABUTO</span>
+          <a href="index.html">
+            <span class="logo-main">風舞人</span>
+            <span class="logo-sub">KABUTO</span>
+          </a>
         </h1>
 
         <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
@@ -32,11 +34,32 @@
         <nav class="main-nav" id="nav">
           <ul>
             <li><a href="index.html">トップ</a></li>
-            <li><a href="#about">風舞人とは</a></li>
-            <li><a href="family.html">メンバー</a></li>
-            <li><a href="#schedule">スケジュール</a></li>
-            <li><a href="#gallery">写真館</a></li>
-            <li><a href="#contact">お問い合わせ</a></li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">風舞人とは</a>
+              <ul class="submenu">
+                <li><a href="about/overview.html">概要</a></li>
+                <li><a href="about/organization.html">風舞人組織図</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">メンバー</a>
+              <ul class="submenu">
+                <li><a href="member/recruit.html">メンバー募集</a></li>
+                <li><a href="member/family.html">ファミリー紹介</a></li>
+                <li><a href="member/core.html">コアファミリー</a></li>
+              </ul>
+            </li>
+            <li><a href="schedule/schedule.html">スケジュール</a></li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">コンテンツ</a>
+              <ul class="submenu">
+                <li><a href="contents/report.html">活動報告</a></li>
+                <li><a href="contents/photo.html">写真館</a></li>
+                <li><a href="contents/video.html">動画館</a></li>
+                <li><a href="contents/board.html">掲示板</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html">お問い合わせ</a></li>
           </ul>
         </nav>
       </div>
@@ -45,20 +68,11 @@
     <main>
       <!-- メインビジュアル -->
       <section class="hero">
-        <div class="hero-content">
-          <div class="camellia-decoration"></div>
-          <h2 class="hero-title">
-            心を一つに、<br class="sp-only" />魂を込めて舞う
-          </h2>
-          <p class="hero-subtitle">愛媛県松山市のよさこいチーム</p>
-        </div>
-        <div class="hero-video">
-          <iframe
-            src="https://www.youtube.com/embed/pmT6-Jjhjg8"
-            title="松山よさこい風舞人"
-            allowfullscreen
-          ></iframe>
-        </div>
+        <img
+          src="images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg"
+          alt="トップページのメイン画像"
+          width="100%"
+        />
       </section>
 
       <!-- お知らせ -->
@@ -72,12 +86,25 @@
             <div class="news-item">
               <span class="news-badge">募集中</span>
               <p class="news-text">まもなく20周年！新メンバー募集中</p>
+              <a href="member/recruit.html" class="news-link">詳細 →</a>
             </div>
             <div class="news-item">
               <span class="news-badge">イベント</span>
               <p class="news-text">次回イベント：2月28日（土）とにかく宴！</p>
+              <a href="schedule/index.html" class="news-link">詳細 →</a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- 今年の曲のyoutube pv -->
+      <section class="hero">
+        <div class="hero-video">
+          <iframe
+            src="https://www.youtube.com/embed/pmT6-Jjhjg8"
+            title="松山よさこい風舞人"
+            allowfullscreen
+          ></iframe>
         </div>
       </section>
 
@@ -90,31 +117,32 @@
           </h2>
           <div class="about-content">
             <p class="about-lead">
-              2006年に結成し、まもなく20周年を迎える松山のよさこいチーム。<br />
+              松山よさこい風舞人は地元愛媛県松山市を中心として
+              活動する、踊り連です。<br />
               踊りはもちろん、仲間との絆を大切に。練習後の宴会も楽しみの一つです。
             </p>
             <div class="about-features">
               <div class="feature-card">
                 <div class="feature-icon">🎌</div>
-                <h3>伝統と革新</h3>
-                <p>
-                  よさこいの伝統を守りながら、新しい表現に挑戦し続けています。
-                </p>
+                <h3>宴会</h3>
+                <p>月一で宴会を開催しています。</p>
               </div>
               <div class="feature-card">
                 <div class="feature-icon">🍻</div>
-                <h3>仲間との絆</h3>
+                <h3>チームカラーとシンボル</h3>
                 <p>
-                  練習も本番も、そして宴会も全力で。仲間との時間を大切にしています。
+                  チームカラーは赤と白です。<br />
+                  衣装には松山市の花の椿を取り入れています。
                 </p>
               </div>
               <div class="feature-card">
                 <div class="feature-icon">🌸</div>
-                <h3>地域への愛</h3>
-                <p>
-                  松山市の花・椿のように、地域に根差した活動を続けています。
-                </p>
+                <h3>伝統芸能</h3>
+                <p>松山の伝統芸能野球拳を曲中に取り入れています。</p>
               </div>
+            </div>
+            <div class="btn-center">
+              <a href="about/overview.html" class="btn-primary">もっと詳しく</a>
             </div>
           </div>
         </div>
@@ -128,48 +156,97 @@
             <span class="title-en">CONTENTS</span>
           </h2>
           <div class="content-grid">
-            <a class="content-card" href="family.html">
+            <a class="content-card" href="member/family.html">
               <div class="content-icon">👥</div>
               <h3>メンバー紹介</h3>
               <p>個性豊かなメンバーたち</p>
             </a>
-            <a
-              class="content-card"
-              href="https://www.youtube.com/@okasyoukai2"
-              target="_blank"
-            >
+            <a class="content-card" href="contents/photo.html">
+              <div class="content-icon">📷</div>
+              <h3>写真館</h3>
+              <p>活動の様子をチェック</p>
+            </a>
+            <a class="content-card" href="contents/video.html">
               <div class="content-icon">📹</div>
-              <h3>YouTube</h3>
+              <h3>動画館</h3>
               <p>演舞の動画をチェック</p>
             </a>
-            <a
-              class="content-card"
-              href="https://www.tiktok.com/@kabuto_2006"
-              target="_blank"
-            >
-              <div class="content-icon">📱</div>
-              <h3>SNS</h3>
-              <p>最新情報を発信中</p>
+            <a class="content-card" href="member/recruit.html">
+              <div class="content-icon">✨</div>
+              <h3>メンバー募集</h3>
+              <p>一緒に踊りませんか？</p>
+            </a>
+            <a class="content-card" href="schedule/index.html">
+              <div class="content-icon">📅</div>
+              <h3>スケジュール</h3>
+              <p>練習日・イベント情報</p>
+            </a>
+            <a class="content-card" href="contents/board.html">
+              <div class="content-icon">💬</div>
+              <h3>掲示板</h3>
+              <p>メンバーの交流の場</p>
             </a>
           </div>
         </div>
       </section>
 
-      <!-- スケジュール（サンプル） -->
-      <section id="schedule" class="schedule-section">
+      <!-- SNSリンク -->
+      <section class="sns-section">
         <div class="container">
           <h2 class="section-title">
-            <span class="title-ja">スケジュール</span>
-            <span class="title-en">SCHEDULE</span>
+            <span class="title-ja">SNS</span>
+            <span class="title-en">FOLLOW US</span>
           </h2>
-          <div class="schedule-placeholder">
-            <p>練習日程やイベント情報はSNSでお知らせしています</p>
+          <div class="sns-links">
+            <a
+              href="https://www.youtube.com/@okasyoukai2"
+              target="_blank"
+              class="sns-link youtube"
+            >
+              <span class="sns-icon">
+                <img src="images/sns-icon/YouTubeicon.png" alt="youtube" />
+              </span>
+              <span class="sns-name">YouTube</span>
+            </a>
             <a
               href="https://www.tiktok.com/@kabuto_2006"
               target="_blank"
-              class="btn-primary"
+              class="sns-link tiktok"
             >
-              SNSをチェック
+              <span class="sns-icon">
+                <img src="images/sns-icon/x-icon.png" alt="TikTok" />
+              </span>
+              <span class="sns-name">TikTok</span>
+            </a>
+            <a
+              href="https://www.tiktok.com/@kabuto_2006"
+              target="_blank"
+              class="sns-link Instagram"
+            >
+              <span class="sns-icon">
+                <img src="images/sns-icon/instagram.jpg" alt="Facebook" />
+              </span>
+              <span class="sns-name">Instagram</span>
+            </a>
+            <a
+              href="https://www.tiktok.com/@kabuto_2006"
+              target="_blank"
+              class="sns-link Facebook"
+            >
+              <span class="sns-icon">
+                <img src="images/sns-icon/facebook.png" alt="Facebook" />
+              </span>
+              <span class="sns-name">Facebook</span>
+            </a>
+            <a
+              href="https://www.tiktok.com/@kabuto_2006"
+              target="_blank"
+              class="sns-link twitter"
+            >
+              <span class="sns-icon">
+                <img src="images/sns-icon/x-icon.png" alt="X" />
+              </span>
+              <span class="sns-name">X(旧Twitter)</span>
             </a>
           </div>
         </div>
@@ -179,17 +256,39 @@
     <!-- フッター -->
     <footer class="site-footer">
       <div class="footer-content">
-        <div class="footer-logo">
+        <div class="footer-section">
           <h3>松山よさこい風舞人</h3>
           <p>Matsuyama Yosakoi KABUTO</p>
+          <p class="footer-text">愛媛県松山市を拠点に活動するよさこいチーム</p>
         </div>
-        <div class="footer-links">
-          <a href="index.html">トップ</a>
-          <a href="family.html">メンバー</a>
-          <a href="#contact">お問い合わせ</a>
+        <div class="footer-section">
+          <h4>風舞人とは</h4>
+          <ul class="footer-links">
+            <li><a href="about/overview.html">概要</a></li>
+            <li><a href="about/organization.html">組織図</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>メンバー</h4>
+          <ul class="footer-links">
+            <li><a href="member/recruit.html">メンバー募集</a></li>
+            <li><a href="member/family.html">ファミリー紹介</a></li>
+            <li><a href="member/core.html">コアファミリー</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>コンテンツ</h4>
+          <ul class="footer-links">
+            <li><a href="contents/report.html">活動報告</a></li>
+            <li><a href="contents/photo.html">写真館</a></li>
+            <li><a href="contents/video.html">動画館</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
         </div>
       </div>
-      <p class="copyright">© 2006-2026 Matsuyama Yosakoi Kabuto</p>
+      <p class="copyright">
+        © 2006-2026 Matsuyama Yosakoi Kabuto. All Rights Reserved.
+      </p>
     </footer>
 
     <script src="js/main.js"></script>

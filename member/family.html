@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ファミリー紹介｜松山よさこい風舞人</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="logo">
+          <a href="../index.html">
+            <span class="logo-main">風舞人</span>
+            <span class="logo-sub">KABUTO</span>
+          </a>
+        </h1>
+        <button class="menu-toggle" id="menuToggle">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" id="nav">
+          <ul>
+            <li><a href="../index.html">トップ</a></li>
+            <li class="has-submenu">
+              <a href="#">風舞人とは</a>
+              <ul class="submenu">
+                <li><a href="../about/overview.html">概要</a></li>
+                <li><a href="../about/organization.html">組織図</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">メンバー</a>
+              <ul class="submenu">
+                <li><a href="recruit.html">メンバー募集</a></li>
+                <li><a href="family.html">ファミリー紹介</a></li>
+                <li><a href="core.html">コアファミリー</a></li>
+              </ul>
+            </li>
+            <li><a href="../schedule/schedule.html">スケジュール</a></li>
+            <li class="has-submenu">
+              <a href="#">コンテンツ</a>
+              <ul class="submenu">
+                <li><a href="../contents/report.html">活動報告</a></li>
+                <li><a href="../contents/photo.html">写真館</a></li>
+                <li><a href="../contents/video.html">動画館</a></li>
+                <li><a href="../contents/board.html">掲示板</a></li>
+              </ul>
+            </li>
+            <li><a href="../contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="page-main family-page">
+      <section class="page-header">
+        <div class="container">
+          <h2 class="page-title">
+            <span class="title-ja">ファミリー紹介</span
+            ><span class="title-en">FAMILY</span>
+          </h2>
+          <p class="page-description">
+            風舞人で活躍するメンバーたちを紹介します
+          </p>
+        </div>
+      </section>
+      <nav class="year-nav">
+        <div class="container">
+          <a href="#current" class="year-link active">現行メンバー</a
+          ><a href="#2024" class="year-link">2024年</a
+          ><a href="#2023" class="year-link">2023年</a>
+        </div>
+      </nav>
+      <section class="member-section" id="current">
+        <div class="container">
+          <h3 class="member-group-title">現行メンバー</h3>
+          <div class="members-grid">
+            <div class="member-card" data-member="member1">
+              <div class="member-avatar">
+                <img
+                  src="../images/avatar-placeholder.jpg"
+                  alt="田中太郎"
+                  onerror="
+                    this.src =
+                      'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23dc143c%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E👤%3C/text%3E%3C/svg%3E'
+                  "
+                />
+              </div>
+              <div class="member-info">
+                <h4 class="member-name">田中 太郎</h4>
+                <p class="member-role">代表</p>
+              </div>
+            </div>
+            <div class="member-card" data-member="member2">
+              <div class="member-avatar">
+                <img
+                  src="../images/avatar-placeholder.jpg"
+                  alt="佐藤花子"
+                  onerror="
+                    this.src =
+                      'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23dc143c%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E👤%3C/text%3E%3C/svg%3E'
+                  "
+                />
+              </div>
+              <div class="member-info">
+                <h4 class="member-name">佐藤 花子</h4>
+                <p class="member-role">副代表</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="modal" id="memberModal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <div class="modal-image"><img id="modalImage" src="" alt="" /></div>
+          <div class="modal-info">
+            <h3 id="modalName" class="modal-name"></h3>
+            <p id="modalRole" class="modal-role"></p>
+            <div class="modal-details">
+              <div class="detail-item">
+                <h4>💭 意気込み</h4>
+                <p id="modalMessage"></p>
+              </div>
+              <div class="detail-item">
+                <h4>🎯 趣味</h4>
+                <p id="modalHobby"></p>
+              </div>
+              <div class="detail-item">
+                <h4>🍜 好きな食べ物</h4>
+                <p id="modalFood"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section"><h3>松山よさこい風舞人</h3></div>
+      </div>
+      <p class="copyright">© 2006-2026 Matsuyama Yosakoi Kabuto</p>
+    </footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/members.js"></script>
+  </body>
+</html>

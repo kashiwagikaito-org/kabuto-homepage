@@ -117,3 +117,19 @@ console.log(
   '%c松山市のよさこいチーム - 宴会も全力！',
   'color: #666; font-size: 14px;'
 );
+// ========================================
+// サブメニュー制御(モバイル)
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+  const submenuToggles = document.querySelectorAll('.submenu-toggle');
+  
+  submenuToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parent = this.closest('.has-submenu');
+        parent.classList.toggle('active');
+      }
+    });
+  });
+});

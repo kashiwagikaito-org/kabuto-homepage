@@ -2,24 +2,39 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>コアファミリー｜松山よさこい風舞人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>お知らせ一覧｜松山よさこい風舞人</title>
+    <meta
+      name="description"
+      content="松山よさこい風舞人からのお知らせ一覧です。"
+    />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Bebas+Neue&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
+    <!-- ヘッダー -->
     <header class="site-header">
       <div class="header-inner">
         <h1 class="logo">
           <a href="../index.html">
-            <span class="logo-main">風舞人</span>
-            <span class="logo-sub">KABUTO</span>
+            <img
+              src="../images/logo.png"
+              alt="松山よさこい風舞人"
+              class="logo-img"
+            />
           </a>
         </h1>
-        <button class="menu-toggle" id="menuToggle">
-          <span></span><span></span><span></span>
+        <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
                 <nav class="main-nav" id="nav">
           <ul>
@@ -48,23 +63,51 @@
         </nav>
       </div>
     </header>
+
     <main class="page-main">
+      <!-- ページヘッダー -->
       <section class="page-header">
         <div class="container">
-          <h2 class="page-title">
-            <span class="title-ja">コアファミリー</span
-            ><span class="title-en">CORE_FAMILY</span>
-          </h2>
+          <h2 class="page-header-title">お知らせ</h2>
+          <p class="page-header-en">NEWS</p>
         </div>
       </section>
-      <section class="content-section-detail">
+
+      <!-- お知らせ一覧 -->
+      <section class="news-section">
         <div class="container">
-          <div class="detail-content">
-            <p class="content-text">このページは準備中です。</p>
+          <div class="news-list">
+
+            <!-- ★ お知らせを追加する場合はここに news-item を追加してください -->
+
+            <div class="news-item">
+              <span class="news-badge news-badge--info">動画</span>
+              <p class="news-text">風舞人の舞2025「躍導」PV公開中！</p>
+              <a href="../contents/video.html" class="news-link">詳細 →</a>
+            </div>
+
+            <div class="news-item">
+              <span class="news-badge">募集中</span>
+              <p class="news-text">まもなく20周年！新メンバー募集中</p>
+              <a href="../member/recruit.html" class="news-link">詳細 →</a>
+            </div>
+
+            <div class="news-item">
+              <span class="news-badge">イベント</span>
+              <p class="news-text">次回イベント：2月28日（土）とにかく宴！</p>
+              <a href="../schedule/schedule.html" class="news-link">詳細 →</a>
+            </div>
+
+          </div>
+
+          <div class="btn-center" style="margin-top: 2rem;">
+            <a href="../index.html" class="btn-secondary">← トップに戻る</a>
           </div>
         </div>
       </section>
     </main>
+
+    <!-- フッター -->
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-section">
@@ -102,6 +145,7 @@
         © 2006-2026 Matsuyama Yosakoi Kabuto. All Rights Reserved.
       </p>
     </footer>
+
     <script src="../js/main.js"></script>
   </body>
 </html>

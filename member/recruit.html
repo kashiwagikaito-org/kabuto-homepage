@@ -1,12 +1,17 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>メンバー募集｜松山よさこい風舞人</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Bebas+Neue&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
@@ -15,14 +20,13 @@
       <div class="header-inner">
         <h1 class="logo">
           <a href="../index.html">
-            <span class="logo-main">風舞人</span>
-            <span class="logo-sub">KABUTO</span>
+            <img src="../images/logo.png" alt="松山よさこい風舞人" class="logo-img" />
           </a>
         </h1>
-        <button class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
           <span></span><span></span><span></span>
         </button>
-                <nav class="main-nav" id="nav">
+        <nav class="main-nav" id="nav">
           <ul>
             <li class="has-submenu">
               <a href="#" class="submenu-toggle">チーム紹介</a>
@@ -44,116 +48,129 @@
                 <li><a href="../contents/board.html">掲示板</a></li>
               </ul>
             </li>
-            <li><a href="../contact.html">演舞依頼・お問い合わせ</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main class="page-main">
-      <section class="page-header recruit-header">
-        <div class="container">
-          <h2 class="page-title">
-            <span class="title-ja">メンバー募集</span
-            ><span class="title-en">JOIN US</span>
-          </h2>
-          <p class="page-description">
-            一緒に踊って、笑って、最高の仲間になりませんか？
-          </p>
+
+      <!-- ページヒーロー -->
+      <section
+        class="page-hero-header"
+        style="background-image: url('../images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg');"
+      >
+        <div class="page-hero-overlay"></div>
+        <div class="container" style="position:relative; z-index:1; text-align:center;">
+          <nav class="ov-breadcrumb">
+            <a href="../index.html">ホーム</a>
+            <span> &gt; </span>
+            <strong>メンバー募集</strong>
+          </nav>
+          <h2 class="page-hero-title">メンバー募集</h2>
+          <p class="page-hero-en">JOIN US</p>
         </div>
       </section>
 
-      <section class="content-section-detail">
+      <!-- ① 募集要項 -->
+      <section class="ov-section">
         <div class="container">
-          <div class="detail-content">
-            <div class="recruit-hero">
-              <h3>🌸 20周年に向けて、新メンバー大募集！</h3>
-              <p>
-                風舞人では、よさこいを一緒に楽しんでくれる新しい仲間を募集しています。<br />経験・年齢・性別は一切問いません。「楽しそう！」と思ったら、ぜひお気軽にお問い合わせください。
-              </p>
+          <h2 class="ov-section-title">
+            <span class="ov-title-ja">募集要項</span>
+            <span class="ov-title-en">REQUIREMENTS</span>
+          </h2>
+          <div class="rec-bosyu-wrap">
+            <!-- 募集画像（クリックで拡大） -->
+            <div class="rec-bosyu-img">
+              <span class="lightbox-trigger" data-src="../images/bosyu/memberbosyu2014.jpg">
+                <img src="../images/bosyu/memberbosyu2014.jpg" alt="メンバー募集" />
+              </span>
             </div>
-
-            <h3 class="content-heading">こんな方を募集しています</h3>
-            <div class="recruit-targets">
-              <div class="target-card">
-                <div class="target-icon">✨</div>
-                <h4>初心者大歓迎</h4>
-                <p>ダンス経験がなくても大丈夫！先輩が丁寧に教えます。</p>
-              </div>
-              <div class="target-card">
-                <div class="target-icon">👥</div>
-                <h4>仲間がほしい</h4>
-                <p>
-                  一生の仲間と出会えるチャンス。楽しい時間を共有しましょう。
-                </p>
-              </div>
-              <div class="target-card">
-                <div class="target-icon">🎌</div>
-                <h4>よさこいが好き</h4>
-                <p>よさこいに興味がある、観るのが好き、そんな方も大歓迎！</p>
-              </div>
-              <div class="target-card">
-                <div class="target-icon">🍻</div>
-                <h4>宴会が好き</h4>
-                <p>練習後の宴会も楽しみの一つ。飲んで語って盛り上がろう！</p>
-              </div>
-            </div>
-
-            <h3 class="content-heading">募集要項</h3>
-            <div class="recruit-info">
-              <dl class="info-list">
+            <!-- 募集内容テキスト（後から編集できるよう枠を用意） -->
+            <div class="rec-bosyu-text">
+              <dl class="rec-info-list">
                 <dt>募集対象</dt>
-                <dd>高校生以上（年齢上限なし）</dd>
+                <dd><!-- ここに入力 -->高校生以上（年齢上限なし）</dd>
                 <dt>性別</dt>
-                <dd>男女問わず</dd>
+                <dd><!-- ここに入力 -->男女問わず</dd>
                 <dt>経験</dt>
-                <dd>不問（初心者大歓迎）</dd>
+                <dd><!-- ここに入力 -->不問（初心者大歓迎）</dd>
                 <dt>練習日</dt>
-                <dd>週1〜2回（平日夜・週末）※スケジュールページ参照</dd>
+                <dd><!-- ここに入力 -->週1〜2回（平日夜・週末）</dd>
                 <dt>練習場所</dt>
-                <dd>松山市内の公民館・体育館など</dd>
+                <dd><!-- ここに入力 -->松山市内の公民館・体育館など</dd>
                 <dt>会費</dt>
-                <dd>月額3,000円（衣装代・イベント参加費は別途）</dd>
+                <dd><!-- ここに入力 -->月額3,000円（衣装代・イベント参加費は別途）</dd>
+                <dt>その他</dt>
+                <dd><!-- ここに入力 --></dd>
               </dl>
-            </div>
-
-            <h3 class="content-heading">入会までの流れ</h3>
-            <div class="flow-steps">
-              <div class="flow-step">
-                <div class="flow-number">1</div>
-                <h4>お問い合わせ</h4>
-                <p>フォームまたはSNSからご連絡</p>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-step">
-                <div class="flow-number">2</div>
-                <h4>見学・体験</h4>
-                <p>実際の練習を見学・体験</p>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-step">
-                <div class="flow-number">3</div>
-                <h4>面談</h4>
-                <p>代表や先輩と気軽にお話</p>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-step">
-                <div class="flow-number">4</div>
-                <h4>入会</h4>
-                <p>正式メンバーに！</p>
-              </div>
-            </div>
-
-            <div class="cta-section">
-              <h3>まずはお問い合わせください！</h3>
-              <p>少しでも興味を持っていただけたら、お気軽にご連絡ください。</p>
-              <a href="../contact.html" class="btn-primary"
-                >お問い合わせフォームへ</a
-              >
             </div>
           </div>
         </div>
       </section>
+
+      <!-- ② 入会までの流れ -->
+      <section class="ov-section ov-section--gray">
+        <div class="container">
+          <h2 class="ov-section-title">
+            <span class="ov-title-ja">入会までの流れ</span>
+            <span class="ov-title-en">HOW TO JOIN</span>
+          </h2>
+          <div class="rec-flow-grid">
+
+            <div class="rec-flow-card">
+              <div class="rec-flow-num">01</div>
+              <div class="rec-flow-icon"><i class="fas fa-envelope"></i></div>
+              <h3>お問い合わせ</h3>
+              <p>フォームまたはSNSからお気軽にご連絡ください。</p>
+            </div>
+
+            <div class="rec-flow-arrow"><i class="fas fa-chevron-right"></i></div>
+
+            <div class="rec-flow-card">
+              <div class="rec-flow-num">02</div>
+              <div class="rec-flow-icon"><i class="fas fa-eye"></i></div>
+              <h3>見学・体験</h3>
+              <p>実際の練習を見学・体験して雰囲気を感じてください。</p>
+            </div>
+
+            <div class="rec-flow-arrow"><i class="fas fa-chevron-right"></i></div>
+
+            <div class="rec-flow-card">
+              <div class="rec-flow-num">03</div>
+              <div class="rec-flow-icon"><i class="fas fa-file-signature"></i></div>
+              <h3>入会手続き</h3>
+              <p>入会申込書の記入と初月会費のお支払いをお願いします。</p>
+            </div>
+
+            <div class="rec-flow-arrow"><i class="fas fa-chevron-right"></i></div>
+
+            <div class="rec-flow-card">
+              <div class="rec-flow-num">04</div>
+              <div class="rec-flow-icon"><i class="fas fa-star"></i></div>
+              <h3>入会</h3>
+              <p>正式メンバーに！一緒に楽しく踊りましょう！</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ③ CTA -->
+      <section class="ov-recruit-cta">
+        <div class="container">
+          <div class="ov-recruit-inner">
+            <h3>まずはお問い合わせください！</h3>
+            <p>
+              少しでも興味を持っていただけたら、お気軽にご連絡ください。<br />
+              経験・年齢・性別は一切問いません。見学だけでもOKです！
+            </p>
+            <a href="../contact/contact.html" class="btn-primary">お問い合わせフォームへ</a>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer">
@@ -185,7 +202,7 @@
             <li><a href="../contents/photo.html">写真館</a></li>
             <li><a href="../contents/video.html">動画館</a></li>
             <li><a href="../contents/board.html">掲示板</a></li>
-            <li><a href="../contact.html">演舞依頼・お問い合わせ</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
           </ul>
         </div>
       </div>
@@ -193,6 +210,45 @@
         © 2006-2026 Matsuyama Yosakoi Kabuto. All Rights Reserved.
       </p>
     </footer>
+
+    <!-- ライトボックス -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="画像拡大表示">
+      <button class="lightbox-close" aria-label="閉じる">&times;</button>
+      <img class="lightbox-img" src="" alt="" />
+    </div>
+
     <script src="../js/main.js"></script>
+    <script>
+      (function () {
+        var lightbox = document.getElementById('lightbox');
+        var lbImg = lightbox.querySelector('.lightbox-img');
+        var closeBtn = lightbox.querySelector('.lightbox-close');
+
+        document.querySelectorAll('.lightbox-trigger').forEach(function (el) {
+          el.addEventListener('click', function () {
+            var src = el.dataset.src || el.querySelector('img').src;
+            var alt = el.querySelector('img').alt || '';
+            lbImg.src = src;
+            lbImg.alt = alt;
+            lightbox.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+
+        function closeLightbox() {
+          lightbox.classList.remove('is-open');
+          document.body.style.overflow = '';
+          lbImg.src = '';
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function (e) {
+          if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeLightbox();
+        });
+      })();
+    </script>
   </body>
 </html>

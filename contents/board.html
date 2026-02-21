@@ -1,11 +1,17 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>掲示板｜松山よさこい風舞人</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Bebas+Neue&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
@@ -14,14 +20,13 @@
       <div class="header-inner">
         <h1 class="logo">
           <a href="../index.html">
-            <span class="logo-main">風舞人</span>
-            <span class="logo-sub">KABUTO</span>
+            <img src="../images/logo.png" alt="松山よさこい風舞人" class="logo-img" />
           </a>
         </h1>
-        <button class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
           <span></span><span></span><span></span>
         </button>
-                <nav class="main-nav" id="nav">
+        <nav class="main-nav" id="nav">
           <ul>
             <li class="has-submenu">
               <a href="#" class="submenu-toggle">チーム紹介</a>
@@ -43,28 +48,49 @@
                 <li><a href="../contents/board.html">掲示板</a></li>
               </ul>
             </li>
-            <li><a href="../contact.html">演舞依頼・お問い合わせ</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
           </ul>
         </nav>
       </div>
     </header>
+
     <main class="page-main">
-      <section class="page-header">
-        <div class="container">
-          <h2 class="page-title">
-            <span class="title-ja">掲示板</span
-            ><span class="title-en">BOARD</span>
-          </h2>
+
+      <!-- ページヒーロー -->
+      <section
+        class="page-hero-header"
+        style="background-image: url('../images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg');"
+      >
+        <div class="page-hero-overlay"></div>
+        <div class="container" style="position:relative; z-index:1; text-align:center;">
+          <nav class="ov-breadcrumb">
+            <a href="../index.html">ホーム</a>
+            <span> &gt; </span>
+            <a href="#">コンテンツ</a>
+            <span> &gt; </span>
+            <strong>掲示板</strong>
+          </nav>
+          <h2 class="page-hero-title">掲示板</h2>
+          <p class="page-hero-en">BOARD</p>
         </div>
       </section>
-      <section class="content-section-detail">
+
+      <!-- 掲示板 -->
+      <section class="ov-section">
         <div class="container">
-          <div class="detail-content">
-            <p class="content-text">このページは準備中です。</p>
+          <div class="board-frame-wrap">
+            <iframe
+              class="board-iframe"
+              src="http://www3.rocketbbs.com/604/kabuto.html"
+              frameborder="0"
+              scrolling="auto"
+            ></iframe>
           </div>
         </div>
       </section>
+
     </main>
+
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-section">
@@ -94,7 +120,7 @@
             <li><a href="../contents/photo.html">写真館</a></li>
             <li><a href="../contents/video.html">動画館</a></li>
             <li><a href="../contents/board.html">掲示板</a></li>
-            <li><a href="../contact.html">演舞依頼・お問い合わせ</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
           </ul>
         </div>
       </div>
@@ -102,6 +128,7 @@
         © 2006-2026 Matsuyama Yosakoi Kabuto. All Rights Reserved.
       </p>
     </footer>
+
     <script src="../js/main.js"></script>
   </body>
 </html>

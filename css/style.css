@@ -1324,7 +1324,7 @@ a {
 .contact-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 3rem 0; }
 .contact-card { background: var(--light-gray); padding: 3rem; border-radius: 8px; text-align: center; }
 .contact-card h3 { font-size: 1.3rem; color: var(--primary-red); margin-bottom: 2rem; }
-.contact-card a { color: var(--primary-red); font-weight: 700; text-decoration: underline; }
+.contact-card a.btn-primary { color: #ffffff; text-decoration: none; }
 .sns-section { padding: 4rem 0; background: var(--white); }
 .sns-links { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
 .sns-link { display: flex; flex-direction: column; align-items: center; gap: 1rem; background: var(--white); padding: 3rem; border-radius: 8px; min-width: 150px; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
@@ -1359,7 +1359,54 @@ a {
 .submenu a { display: block; padding: 1rem 2rem; color: var(--dark-gray); transition: all 0.3s; }
 .submenu a::before { display: none; }
 .submenu a:hover { background: var(--light-gray); color: var(--primary-red); }
-.news-link { color: var(--primary-red); font-weight: 700; margin-left: auto; }
+.news-link { color: var(--primary-red); font-weight: 700; margin-left: auto; white-space: nowrap; }
+
+/* お知らせ日付 */
+.news-date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray);
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+/* ページネーション */
+.news-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.news-page-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gray);
+  background: var(--white);
+  border: 2px solid #ddd;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.news-page-btn:hover:not(:disabled) {
+  color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.news-page-btn.is-active {
+  color: var(--white);
+  background: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.news-page-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
 @media (max-width: 768px) {
   .submenu { 
     position: static; 
@@ -1381,4 +1428,1688 @@ a {
   .flow-arrow { transform: rotate(90deg); }
   .timeline-item { grid-template-columns: 1fr; }
   .org-level { flex-direction: column; align-items: center; }
+}
+
+/* ========================================
+   Overview Page (風舞人とは)
+======================================== */
+
+/* ページヒーローヘッダー */
+.page-hero-header {
+  position: relative;
+  min-height: 340px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0 4rem;
+  margin-top: 70px;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.page-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+}
+
+.page-hero-en {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.35em;
+}
+
+.ov-breadcrumb {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: var(--spacing-sm);
+}
+
+.ov-breadcrumb a {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+}
+
+.ov-breadcrumb a:hover { color: var(--white); }
+.ov-breadcrumb strong { color: var(--white); }
+
+/* セクション共通 */
+.ov-section {
+  padding: var(--spacing-xl) 0;
+  background: var(--white);
+}
+
+.ov-section--gray {
+  background: var(--light-gray);
+}
+
+.ov-section-title {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.ov-title-ja {
+  display: block;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 900;
+  color: var(--primary-red);
+  margin-bottom: 0.25rem;
+}
+
+.ov-title-en {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray);
+  letter-spacing: 0.3em;
+}
+
+/* ① Aboutセクション */
+.ov-about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+.ov-lead {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: var(--dark-gray);
+}
+
+.ov-info-box {
+  background: var(--light-gray);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  border-left: 4px solid var(--primary-red);
+}
+
+.ov-info-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: var(--spacing-sm);
+}
+
+.ov-info-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.ov-info-list dt {
+  font-weight: 700;
+  color: var(--dark-gray);
+  white-space: nowrap;
+}
+
+.ov-info-list dd {
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* ② コンセプトカード */
+.ov-concept-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.ov-concept-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ov-concept-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ov-concept-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--primary-red);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto var(--spacing-sm);
+}
+
+.ov-concept-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 0.5rem;
+}
+
+.ov-concept-card p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* ③ 4大活動カード */
+.ov-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.ov-activity-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ov-activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ov-activity-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  color: rgba(220, 20, 60, 0.1);
+  position: absolute;
+  top: 0.25rem;
+  right: 0.75rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.ov-activity-icon {
+  font-size: 1.8rem;
+  color: var(--primary-red);
+  margin-bottom: 0.75rem;
+}
+
+.ov-activity-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark-gray);
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-red);
+  padding-bottom: 0.5rem;
+}
+
+.ov-activity-card p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* ④ 演舞テーマの歴史 */
+.ov-history-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: var(--spacing-md);
+}
+
+.ov-history-table-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.ov-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.ov-history-table thead th {
+  background: var(--primary-red);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.ov-history-table tbody td {
+  padding: 0.65rem 1.25rem;
+  border-bottom: 1px solid #e0e0e0;
+  color: var(--dark-gray);
+}
+
+.ov-history-table tbody tr:nth-child(even) td {
+  background: var(--white);
+}
+
+.ov-history-table tbody tr:nth-child(odd) td {
+  background: var(--off-white);
+}
+
+.ov-history-current td {
+  background: #fff0f3 !important;
+  font-weight: 700;
+  color: var(--primary-red) !important;
+}
+
+/* ⑤ 一緒に踊りませんか？ */
+.ov-recruit-cta {
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+  text-align: center;
+}
+
+.ov-recruit-inner h3 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: var(--spacing-sm);
+}
+
+.ov-recruit-inner p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.9;
+  margin-bottom: var(--spacing-md);
+}
+
+.ov-recruit-inner .btn-primary {
+  background: var(--white);
+  color: var(--primary-red);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ov-recruit-inner .btn-primary:hover {
+  background: var(--off-white);
+  color: var(--dark-red);
+}
+
+/* レスポンシブ */
+@media (max-width: 900px) {
+  .ov-about-inner { grid-template-columns: 1fr; }
+  .ov-concept-grid { grid-template-columns: repeat(2, 1fr); }
+  .ov-activity-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .page-hero-header { min-height: 260px; padding: 5rem 0 3rem; }
+  .ov-concept-grid { grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
+  .ov-activity-grid { grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
+  .ov-history-table-wrap { font-size: 0.85rem; }
+}
+
+/* ========================================
+   Organization Page - 組織図
+======================================== */
+
+/* 約束事セクション */
+.org-rules-lead {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: var(--spacing-lg);
+}
+
+.org-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+.org-rule-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.org-rule-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.org-rule-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: rgba(220, 20, 60, 0.08);
+  position: absolute;
+  top: 0.2rem;
+  right: 0.75rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.org-rule-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-red);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto var(--spacing-sm);
+}
+
+.org-rule-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 0.5rem;
+}
+
+.org-rule-card p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* 組織図チャート（上から下ツリー）*/
+.org-chart-note {
+  text-align: center;
+  font-size: 0.83rem;
+  color: var(--gray);
+  margin-bottom: var(--spacing-lg);
+}
+
+.octree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* 統括カード群（総長・副長）*/
+.octree-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* カード共通 */
+.octree-card {
+  background: var(--white);
+  border: 2px solid var(--primary-red);
+  border-radius: var(--radius);
+  padding: 0.65rem 1.1rem;
+  text-align: center;
+  min-width: 180px;
+  max-width: 240px;
+}
+
+.octree-card--chief {
+  background: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.octree-card--core {
+  background: #fff0f3;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.octree-card--member {
+  border-color: #ccc;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  font-size: 0.9rem;
+}
+
+.octree-role {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 0.2rem;
+  line-height: 1.4;
+}
+
+.octree-card--chief .octree-role { color: rgba(255, 255, 255, 0.8); }
+
+.octree-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  line-height: 1.4;
+}
+
+.octree-card--chief .octree-name { color: var(--white); }
+.octree-card--member .octree-role { color: var(--gray); font-weight: 600; }
+.octree-card--member .octree-name { font-size: 0.82rem; color: var(--gray); font-weight: 400; }
+
+/* 縦線 */
+.octree-vline {
+  width: 2px;
+  height: 20px;
+  background: var(--primary-red);
+  margin: 0 auto;
+}
+
+/* 副長→コアファミリー行のブランチ */
+.octree-core-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  width: 100%;
+  /* padding-topを設けてその空間に横線を引く */
+  padding-top: 0;
+}
+
+/* 横線（コアファミリー全体をまたぐ） */
+.octree-core-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(100% / 8);
+  right: calc(100% / 8);
+  height: 2px;
+  background: var(--primary-red);
+}
+
+/* 各コアグループ：横線から下に縦線を伸ばす */
+.octree-core-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 22px;
+}
+
+.octree-core-group::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 22px;
+  background: var(--primary-red);
+}
+
+/* コアカード → メンバーの縦線 */
+.octree-members-conn {
+  width: 2px;
+  height: 18px;
+  background: var(--primary-red);
+  margin: 0 auto;
+}
+
+/* メンバー行 */
+.octree-members {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: relative;
+  gap: 0.5rem;
+}
+
+/* 2子の場合：横線 */
+.octree-members--2 {
+  padding-top: 20px;
+}
+
+.octree-members--2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: var(--primary-red);
+}
+
+/* 各メンバーアイテム */
+.octree-member-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* 2子の場合：各メンバーへの縦線 */
+.octree-members--2 .octree-member-item {
+  padding-top: 20px;
+  align-items: flex-start;
+}
+
+.octree-members--2 .octree-member-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: var(--primary-red);
+}
+
+/* 1子の場合：横線・縦線不要（members-connで済む） */
+.octree-members--1 {
+  padding-top: 0;
+}
+
+.octree-members--1 .octree-member-item {
+  padding-top: 0;
+}
+
+/* レスポンシブ：スマホは縦積み＋左インデント */
+@media (max-width: 900px) {
+  .org-rules-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .octree-root .octree-card {
+    min-width: 0;
+    max-width: 280px;
+    width: 100%;
+  }
+
+  .octree-core-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  /* 横線・縦コネクタを非表示 */
+  .octree-core-row::before,
+  .octree-core-group::before,
+  .octree-members--2::before,
+  .octree-members--2 .octree-member-item::before { display: none; }
+
+  .octree-core-group {
+    padding-top: 0;
+    align-items: stretch;
+  }
+
+  .octree-members-conn { display: none; }
+
+  /* メンバー行：縦積み＋左ボーダーでインデント */
+  .octree-members {
+    flex-direction: column;
+    padding-top: 0;
+    padding-left: 1.25rem;
+    margin-left: 0.75rem;
+    margin-top: 0.5rem;
+    border-left: 3px solid var(--primary-red);
+    gap: 0.5rem;
+  }
+
+  .octree-members--2 { padding-top: 0; }
+
+  .octree-member-item {
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  .octree-card--member {
+    max-width: 100%;
+  }
+
+  /* スマホでは横線・縦線の代わりに vline を非表示 */
+  .octree-vline { display: none; }
+}
+
+@media (max-width: 600px) {
+  .org-rules-grid { grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
+  .octree-card { min-width: 0; width: 100%; }
+}
+
+/* ========================================
+   Recruit Page - メンバー募集
+======================================== */
+
+/* 募集要項：画像 + テキスト横並び */
+.rec-bosyu-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+.rec-bosyu-img img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  display: block;
+}
+
+.rec-bosyu-text {
+  background: var(--light-gray);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  border-left: 4px solid var(--primary-red);
+}
+
+.rec-info-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem 1rem;
+  font-size: 0.92rem;
+}
+
+.rec-info-list dt {
+  font-weight: 700;
+  color: var(--primary-red);
+  white-space: nowrap;
+  padding-top: 0.1rem;
+}
+
+.rec-info-list dd {
+  color: var(--dark-gray);
+  line-height: 1.7;
+  min-height: 1.5rem;
+  border-bottom: 1px dashed #ddd;
+  padding-bottom: 0.4rem;
+}
+
+/* 入会までの流れ：4ステップ */
+.rec-flow-grid {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  justify-content: center;
+}
+
+.rec-flow-card {
+  flex: 1;
+  max-width: 220px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rec-flow-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.rec-flow-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  color: rgba(220, 20, 60, 0.08);
+  position: absolute;
+  top: 0.2rem;
+  right: 0.6rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.rec-flow-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--primary-red);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin: 0 auto var(--spacing-sm);
+}
+
+.rec-flow-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 0.4rem;
+}
+
+.rec-flow-card p {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+.rec-flow-arrow {
+  flex: 0 0 auto;
+  padding: 0 0.75rem;
+  font-size: 1.4rem;
+  color: var(--primary-red);
+  padding-bottom: 1rem;
+}
+
+/* レスポンシブ - 募集ページ */
+@media (max-width: 900px) {
+  .rec-bosyu-wrap { grid-template-columns: 1fr; }
+  .rec-flow-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+  }
+  .rec-flow-arrow { display: none; }
+  .rec-flow-card { max-width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .rec-flow-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ========================================
+   Lightbox - 画像拡大表示
+======================================== */
+.lightbox-trigger {
+  display: block;
+  cursor: zoom-in;
+}
+
+.lightbox-trigger img {
+  transition: opacity 0.2s;
+}
+
+.lightbox-trigger:hover img {
+  opacity: 0.85;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+}
+
+/* ========================================
+   Family Page - ファミリー紹介
+======================================== */
+
+/* 年度タブ */
+.fam-year-nav {
+  background: var(--white);
+  border-bottom: 2px solid #eee;
+}
+
+.fam-year-tabs {
+  display: flex;
+  gap: 0;
+}
+
+.fam-year-btn {
+  padding: 1rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gray);
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.fam-year-btn:hover {
+  color: var(--primary-red);
+}
+
+.fam-year-btn.is-active {
+  color: var(--primary-red);
+  border-bottom-color: var(--primary-red);
+}
+
+/* ========================================
+   Schedule / Calendar
+======================================== */
+/* 案内バナー */
+.cal-info-banner {
+  background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+  border: 2px solid var(--primary-red);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cal-info-welcome {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 900;
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cal-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cal-info-list li {
+  font-size: 0.92rem;
+  color: var(--dark-gray);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.cal-info-list li i {
+  color: var(--primary-red);
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
+
+.cal-info-list a {
+  color: var(--primary-red);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* カレンダー枠 */
+.cal-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+/* 横スクロール対応ラッパー */
+.cal-frame-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+}
+
+.cal-iframe {
+  display: block;
+  width: 100%;
+  min-width: 600px;
+  height: 680px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .cal-iframe {
+    height: 560px;
+  }
+  .cal-info-banner {
+    padding: 1.25rem;
+  }
+}
+
+/* ========================================
+   Contact Page
+======================================== */
+.contact-lead {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--dark-gray);
+  line-height: 1.9;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.contact-card {
+  background: var(--white);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.contact-card-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: var(--white);
+}
+
+.contact-card-icon--blue { background: #2a7bbf; }
+.contact-card-icon--red  { background: var(--primary-red); }
+
+.contact-card-title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--dark-gray);
+}
+
+.contact-card-desc {
+  font-size: 0.92rem;
+  color: var(--gray);
+  line-height: 1.8;
+  flex: 1;
+}
+
+.contact-card-note {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--primary-red);
+  font-weight: 700;
+}
+
+.contact-card-btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.contact-card-btn:hover,
+.contact-card-btn:visited {
+  color: #ffffff;
+}
+
+/* メール代替 */
+.contact-email-wrap {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  box-shadow: var(--shadow);
+}
+
+.contact-email-icon {
+  font-size: 2.5rem;
+  color: var(--primary-red);
+  flex-shrink: 0;
+}
+
+.contact-email-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark-gray);
+  margin-bottom: 0.35rem;
+}
+
+.contact-email-body p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+}
+
+.contact-email-addr {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.contact-email-addr:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-email-wrap {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+/* 旧サイトへCTA（2025年以前タブ） */
+.fam-old-site-cta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1rem;
+  gap: 1.75rem;
+  text-align: center;
+}
+
+.fam-old-site-cta p {
+  color: var(--gray);
+  font-size: 1rem;
+}
+
+/* メンバーグリッド */
+.fam-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--spacing-sm);
+}
+
+/* メンバーカード */
+.fam-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: var(--shadow);
+}
+
+.fam-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 男性：赤背景・白テキスト */
+.fam-card--male .fam-card-photo {
+  background: var(--primary-red);
+}
+
+.fam-card--male .fam-card-info {
+  background: var(--primary-red);
+}
+
+.fam-card--male .fam-card-name,
+.fam-card--male .fam-card-role {
+  color: var(--white);
+}
+
+/* 女性：白背景・赤テキスト */
+.fam-card--female .fam-card-photo {
+  background: var(--white);
+  border: 2px solid var(--primary-red);
+  border-bottom: none;
+}
+
+.fam-card--female .fam-card-info {
+  background: var(--white);
+  border: 2px solid var(--primary-red);
+  border-top: none;
+}
+
+.fam-card--female .fam-card-name {
+  color: var(--primary-red);
+}
+
+.fam-card--female .fam-card-role {
+  color: var(--gray);
+}
+
+.fam-card-photo {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fam-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fam-card-icon {
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.fam-card--female .fam-card-icon {
+  color: rgba(220, 20, 60, 0.3);
+}
+
+.fam-card-info {
+  padding: 0.5rem 0.5rem 0.6rem;
+  text-align: center;
+}
+
+.fam-card-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+  line-height: 1.3;
+}
+
+.fam-card-role {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  line-height: 1.3;
+}
+
+/* =====================
+   メンバーモーダル
+===================== */
+.fam-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.fam-modal-overlay.is-open {
+  display: flex;
+}
+
+.fam-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  grid-template-rows: 1fr auto;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+  max-height: 90vh;
+}
+
+.fam-modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2.2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.fam-modal-close:hover { opacity: 1; }
+
+/* 左パネル（赤：男性） */
+.fam-modal-left {
+  background: var(--primary-red);
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  grid-row: 1;
+  min-height: 300px;
+}
+
+/* 女性の場合：左パネルを白に */
+.fam-modal-left--female {
+  background: var(--white);
+}
+
+.fam-modal-left--female .fam-modal-header-label {
+  color: var(--primary-red);
+}
+
+.fam-modal-left--female .fam-modal-name {
+  color: var(--primary-red);
+}
+
+.fam-modal-left--female .fam-modal-role {
+  color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.fam-modal-left--female .fam-modal-photo-placeholder {
+  color: rgba(220, 20, 60, 0.3);
+}
+
+/* 右パネル（白） */
+.fam-modal-right {
+  background: var(--white);
+  padding: 1.25rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  grid-row: 1;
+  overflow: hidden;
+}
+
+/* ヘッダーラベル（黄色） */
+.fam-modal-header-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #ffd700;
+  margin-bottom: 0.2rem;
+}
+
+.fam-modal-header-label--dark {
+  color: var(--primary-red);
+}
+
+/* 風舞人名（大きく） */
+.fam-modal-name {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+/* 写真エリア */
+.fam-modal-photo-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fam-modal-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+.fam-modal-photo-placeholder {
+  font-size: 3.5rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* 役職 */
+.fam-modal-role {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+/* メッセージ */
+.fam-modal-message {
+  font-size: 0.88rem;
+  line-height: 2;
+  color: var(--dark-gray);
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 家紋 */
+.fam-modal-kamon {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  opacity: 0.75;
+}
+
+/* 下段インフォバー */
+.fam-modal-bottom {
+  background: #1a1a1a;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  padding: 0.65rem 1.25rem;
+}
+
+.fam-modal-info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.2rem;
+}
+
+.fam-modal-info-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: #ffd700;
+  min-width: 65px;
+  flex-shrink: 0;
+}
+
+.fam-modal-info-val {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.fam-modal-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 0.4rem;
+}
+
+/* レスポンシブ - ファミリーページ */
+@media (max-width: 1100px) {
+  .fam-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .fam-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .fam-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .fam-modal-card { grid-template-columns: 1fr; grid-template-rows: auto auto auto; max-height: 85vh; overflow-y: auto; }
+  .fam-modal-left { grid-row: 1; min-height: 180px; }
+  .fam-modal-right { grid-row: 2; grid-column: 1; }
+  .fam-modal-bottom { grid-row: 3; grid-column: 1; }
+  .fam-modal-kamon { width: 50px; height: 50px; }
+}
+
+/* =============================================
+   活動報告
+   ============================================= */
+
+.report-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.report-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 0.92rem;
+}
+
+.report-table thead tr {
+  background: var(--primary-red, #c8102e);
+  color: #fff;
+}
+
+.report-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+.report-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+  color: #333;
+}
+
+.report-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.report-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.report-table tbody tr:hover {
+  background: #fff5f5;
+}
+
+.report-td-date {
+  white-space: nowrap;
+  color: #666;
+  font-size: 0.87rem;
+}
+
+.report-td-event {
+  font-weight: 600;
+  color: #222;
+}
+
+.report-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.report-link:hover { opacity: 0.75; }
+
+.report-link--photo {
+  background: #e8f4fd;
+  color: #1a73e8;
+}
+
+.report-link--blog {
+  background: #fff0e8;
+  color: #e06c00;
+}
+
+.report-link-none {
+  color: #bbb;
+  font-size: 0.88rem;
+}
+
+/* =============================================
+   掲示板
+   ============================================= */
+
+.board-frame-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.board-iframe {
+  display: block;
+  width: 100%;
+  min-width: 320px;
+  height: 800px;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .board-iframe { height: 600px; }
+}
+
+/* =============================================
+   動画館・写真館
+   ============================================= */
+
+/* 動画グリッド */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.video-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 16:9 アスペクト比 */
+.video-card-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-card-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-card-body {
+  padding: 0.85rem 1rem;
+}
+
+.video-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 写真グリッド */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.photo-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.photo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+}
+
+.photo-card-thumb {
+  background: linear-gradient(135deg, #c8102e 0%, #8b0b1f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.photo-card-body {
+  padding: 0.85rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.photo-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.photo-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--primary-red, #c8102e);
+  font-weight: 600;
+}
+
+/* レスポンシブ - 動画・写真 */
+@media (max-width: 900px) {
+  .video-grid,
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .video-grid,
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }

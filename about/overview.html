@@ -1,12 +1,17 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>概要｜松山よさこい風舞人</title>
+    <title>風舞人とは｜松山よさこい風舞人</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Bebas+Neue&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
@@ -15,14 +20,13 @@
       <div class="header-inner">
         <h1 class="logo">
           <a href="../index.html">
-            <span class="logo-main">風舞人</span>
-            <span class="logo-sub">KABUTO</span>
+            <img src="../images/logo.png" alt="松山よさこい風舞人" class="logo-img" />
           </a>
         </h1>
-        <button class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
           <span></span><span></span><span></span>
         </button>
-                <nav class="main-nav" id="nav">
+        <nav class="main-nav" id="nav">
           <ul>
             <li class="has-submenu">
               <a href="#" class="submenu-toggle">チーム紹介</a>
@@ -44,160 +48,204 @@
                 <li><a href="../contents/board.html">掲示板</a></li>
               </ul>
             </li>
-            <li><a href="../contact.html">演舞依頼・お問い合わせ</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main class="page-main">
-      <section class="page-header">
-        <div class="container">
-          <h2 class="page-title">
-            <span class="title-ja">風舞人とは</span>
-            <span class="title-en">ABOUT KABUTO</span>
-          </h2>
+
+      <!-- ページヒーロー -->
+      <section
+        class="page-hero-header"
+        style="background-image: url('../images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg');"
+      >
+        <div class="page-hero-overlay"></div>
+        <div class="container" style="position:relative; z-index:1; text-align:center;">
+          <nav class="ov-breadcrumb">
+            <a href="../index.html">ホーム</a>
+            <span> &gt; </span>
+            <a href="#">チーム紹介</a>
+            <span> &gt; </span>
+            <strong>風舞人とは</strong>
+          </nav>
+          <h2 class="page-hero-title">風舞人とは</h2>
+          <p class="page-hero-en">ABOUT KABUTO</p>
         </div>
       </section>
 
-      <section class="content-section-detail">
+      <!-- ① 松山よさこい風舞人について -->
+      <section class="ov-section">
         <div class="container">
-          <div class="detail-content">
-            <h3 class="content-heading">松山よさこい風舞人について</h3>
-            <p class="content-text">
-              ”松山よさこい風舞人”は地元愛媛県松山市を中心として
-              活動する、踊り連です。<br />
+          <h2 class="ov-section-title">
+            <span class="ov-title-ja">松山よさこい風舞人について</span>
+            <span class="ov-title-en">ABOUT</span>
+          </h2>
+          <div class="ov-about-inner">
+            <p class="ov-lead">
+              "松山よさこい風舞人"は地元愛媛県松山市を中心として活動する踊り連です。<br />
               チームカラーは赤と白。松山市の花である『椿』をシンボルとし、赤椿と白椿が華やかに舞います。<br />
-              お祭りが大好き、よさこいが好き、踊ることが好きな人たちが
-              集まった活気あふれるチームです。<br />
-              松山の伝統芸能である野球拳踊りの魅力やよさこい祭りの迫力
-              と楽しさを沢山の人に感じてもらい、<br />
-              祭りを通して県外の方々とも交流を深め、愛媛県の良さ
-              を伝えていけたらいいなと思っています。
+              お祭りが大好き、よさこいが好き、踊ることが好きな人たちが集まった活気あふれるチームです。<br />
+              松山の伝統芸能である野球拳踊りの魅力やよさこい祭りの迫力と楽しさを沢山の人に感じてもらい、<br />
+              祭りを通して県外の方々とも交流を深め、愛媛県の良さを伝えていけたらいいなと思っています。
             </p>
-
-            <div class="info-box">
+            <div class="ov-info-box">
               <h4>チーム情報</h4>
-              <dl class="info-list">
+              <dl class="ov-info-list">
                 <dt>チーム名</dt>
                 <dd>松山よさこい風舞人（まつやまよさこいかぶと）</dd>
-
                 <dt>結成年</dt>
                 <dd>2006年</dd>
-
                 <dt>拠点</dt>
                 <dd>愛媛県松山市</dd>
-
                 <dt>メンバー数</dt>
                 <dd>約30名（2026年2月現在）</dd>
-
                 <dt>活動内容</dt>
                 <dd>
-                  ・よさこい祭りへの参加<br />
-                  ・地域イベントでの演舞披露<br />
-                  ・定期練習（週1〜2回）<br />
-                  ・交流会・宴会（随時）
+                  よさこい祭りへの参加 / 地域イベントでの演舞披露<br />
+                  定期練習（週1〜2回）/ 交流会・宴会（随時）
                 </dd>
               </dl>
-            </div>
-
-            <h3 class="content-heading">私たちの想い</h3>
-            <div class="thought-grid">
-              <div class="thought-card">
-                <div class="thought-icon">💪</div>
-                <h4>全力で楽しむ</h4>
-                <p>
-                  練習も本番も宴会も、何事にも全力で取り組みます。楽しむことを忘れずに、常に前向きな姿勢を大切にしています。
-                </p>
-              </div>
-              <div class="thought-card">
-                <div class="thought-icon">🤝</div>
-                <h4>仲間を大切に</h4>
-                <p>
-                  一人ひとりの個性を尊重し、お互いを支え合う。そんな温かい仲間との絆が、私たちの最大の財産です。
-                </p>
-              </div>
-              <div class="thought-card">
-                <div class="thought-icon">🌟</div>
-                <h4>感動を届ける</h4>
-                <p>
-                  私たちの演舞を通じて、観る人の心に感動を届けたい。その想いを胸に、日々練習に励んでいます。
-                </p>
-              </div>
-              <div class="thought-card">
-                <div class="thought-icon">🏮</div>
-                <h4>伝統を繋ぐ</h4>
-                <p>
-                  よさこいの伝統を大切にしながら、新しい表現にも挑戦。次の世代へと文化を繋いでいきます。
-                </p>
-              </div>
-            </div>
-
-            <h3 class="content-heading">チームカラーとシンボル</h3>
-            <div class="symbol-section">
-              <div class="symbol-item">
-                <h4>チームカラー</h4>
-                <div class="color-display">
-                  <div class="color-box red"></div>
-                  <div class="color-box white"></div>
-                </div>
-                <p>
-                  赤と白をチームカラーとしています。赤は情熱と力強さ、白は純粋さと一体感を表現しています。
-                </p>
-              </div>
-              <div class="symbol-item">
-                <h4>シンボル</h4>
-                <div class="camellia-symbol"></div>
-                <p>
-                  松山市の花である椿をシンボルとしています。椿のように美しく、そして力強く咲き誇りたいという想いを込めています。
-                </p>
-              </div>
-            </div>
-
-            <h3 class="content-heading">年間活動</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-date">春（3〜5月）</div>
-                <div class="timeline-content">
-                  <h4>新メンバー歓迎・春の祭りシーズン</h4>
-                  <p>新メンバーを迎え、各地の春祭りに参加します。</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">夏（6〜8月）</div>
-                <div class="timeline-content">
-                  <h4>夏祭り・よさこい祭り参戦</h4>
-                  <p>各地のよさこい祭りに参加。最も活動が活発な時期です。</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">秋（9〜11月）</div>
-                <div class="timeline-content">
-                  <h4>地域イベント・演舞披露</h4>
-                  <p>地域のイベントで演舞を披露し、交流を深めます。</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">冬（12〜2月）</div>
-                <div class="timeline-content">
-                  <h4>忘年会・新年会・次年度準備</h4>
-                  <p>仲間との絆を深め、来年の活動に向けて準備します。</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="cta-section">
-              <h3>一緒に踊りませんか？</h3>
-              <p>
-                風舞人では新メンバーを随時募集しています。<br />経験や年齢は問いません。まずは見学からでもOK！
-              </p>
-              <a href="../member/recruit.html" class="btn-primary"
-                >メンバー募集ページへ</a
-              >
             </div>
           </div>
         </div>
       </section>
+
+      <!-- ② チームコンセプト -->
+      <section class="ov-section ov-section--gray">
+        <div class="container">
+          <h2 class="ov-section-title">
+            <span class="ov-title-ja">チームコンセプト</span>
+            <span class="ov-title-en">CONCEPT</span>
+          </h2>
+          <div class="ov-concept-grid">
+            <div class="ov-concept-card">
+              <div class="ov-concept-icon">
+                <i class="fas fa-glass-cheers"></i>
+              </div>
+              <h3>宴会</h3>
+              <p>宴が大好き！月一で宴会を開催。踊りだけじゃなく、食べて飲んで笑って、仲間との絆を深めます。</p>
+            </div>
+            <div class="ov-concept-card">
+              <div class="ov-concept-icon">
+                <i class="fas fa-palette"></i>
+              </div>
+              <h3>チームカラー</h3>
+              <p>チームカラーは赤と白。赤は情熱と力強さ、白は純粋さと一体感を表現しています。</p>
+            </div>
+            <div class="ov-concept-card">
+              <div class="ov-concept-icon">
+                <i class="fas fa-seedling"></i>
+              </div>
+              <h3>シンボル</h3>
+              <p>松山市の花「椿」をシンボルに。椿のように美しく力強く咲き誇る演舞を目指しています。</p>
+            </div>
+            <div class="ov-concept-card">
+              <div class="ov-concept-icon">
+                <i class="fas fa-baseball-ball"></i>
+              </div>
+              <h3>伝統芸能</h3>
+              <p>松山の伝統芸能・野球拳踊りを演舞に取り入れ、地域の文化を大切に受け継いでいます。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ③ 風舞人の4大活動 -->
+      <section class="ov-section">
+        <div class="container">
+          <h2 class="ov-section-title">
+            <span class="ov-title-ja">風舞人の4大活動</span>
+            <span class="ov-title-en">4 ACTIVITIES</span>
+          </h2>
+          <div class="ov-activity-grid">
+            <div class="ov-activity-card">
+              <div class="ov-activity-num">01</div>
+              <div class="ov-activity-icon"><i class="fas fa-torii-gate"></i></div>
+              <h3>祭・イベント参加</h3>
+              <p>各地のよさこい祭りや地域イベントに積極的に参加。迫力ある演舞で観客を魅了します。</p>
+            </div>
+            <div class="ov-activity-card">
+              <div class="ov-activity-num">02</div>
+              <div class="ov-activity-icon"><i class="fas fa-truck"></i></div>
+              <h3>地方車製作</h3>
+              <p>演舞を盛り上げるオリジナルの地方車を毎年メンバーの手で製作。チームの個性を表現します。</p>
+            </div>
+            <div class="ov-activity-card">
+              <div class="ov-activity-num">03</div>
+              <div class="ov-activity-icon"><i class="fas fa-music"></i></div>
+              <h3>練習</h3>
+              <p>週1〜2回の定期練習で技術を磨きます。初心者も経験者も一緒に楽しく踊れる環境です。</p>
+            </div>
+            <div class="ov-activity-card">
+              <div class="ov-activity-num">04</div>
+              <div class="ov-activity-icon"><i class="fas fa-beer"></i></div>
+              <h3>宴</h3>
+              <p>飲み会・パーティー・上映会など、オフの時間も全力で楽しみます。仲間との絆が深まる大切な時間。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ④ 演舞テーマの歴史 -->
+      <section class="ov-section ov-section--gray">
+        <div class="container">
+          <h2 class="ov-section-title">
+            <span class="ov-title-ja">演舞テーマの歴史</span>
+            <span class="ov-title-en">THEME HISTORY</span>
+          </h2>
+          <p class="ov-history-note">※ テーマ名は順次更新予定です。</p>
+          <div class="ov-history-table-wrap">
+            <table class="ov-history-table">
+              <thead>
+                <tr>
+                  <th>年度</th>
+                  <th>テーマ曲名</th>
+                  <th>備考</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>2006年</td><td>—</td><td>結成・初参加</td></tr>
+                <tr><td>2007年</td><td>—</td><td></td></tr>
+                <tr><td>2008年</td><td>—</td><td></td></tr>
+                <tr><td>2009年</td><td>—</td><td></td></tr>
+                <tr><td>2010年</td><td>—</td><td></td></tr>
+                <tr><td>2011年</td><td>—</td><td></td></tr>
+                <tr><td>2012年</td><td>—</td><td></td></tr>
+                <tr><td>2013年</td><td>—</td><td></td></tr>
+                <tr><td>2014年</td><td>—</td><td></td></tr>
+                <tr><td>2015年</td><td>—</td><td></td></tr>
+                <tr><td>2016年</td><td>—</td><td></td></tr>
+                <tr><td>2017年</td><td>—</td><td></td></tr>
+                <tr><td>2018年</td><td>—</td><td></td></tr>
+                <tr><td>2019年</td><td>—</td><td></td></tr>
+                <tr><td>2020年</td><td>—</td><td>新型コロナウイルス感染症の影響</td></tr>
+                <tr><td>2021年</td><td>—</td><td></td></tr>
+                <tr><td>2022年</td><td>—</td><td></td></tr>
+                <tr><td>2023年</td><td>—</td><td></td></tr>
+                <tr><td>2024年</td><td>—</td><td></td></tr>
+                <tr class="ov-history-current"><td>2025年</td><td>躍　導</td><td>風舞人の舞2025</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ⑤ 一緒に踊りませんか？ -->
+      <section class="ov-recruit-cta">
+        <div class="container">
+          <div class="ov-recruit-inner">
+            <h3>一緒に踊りませんか？</h3>
+            <p>
+              風舞人では新メンバーを随時募集しています。<br />
+              経験や年齢は問いません。まずは見学からでもOK！
+            </p>
+            <a href="../member/recruit.html" class="btn-primary">メンバー募集ページへ</a>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer">
@@ -229,7 +277,7 @@
             <li><a href="../contents/photo.html">写真館</a></li>
             <li><a href="../contents/video.html">動画館</a></li>
             <li><a href="../contents/board.html">掲示板</a></li>
-            <li><a href="../contact.html">演舞依頼・お問い合わせ</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
           </ul>
         </div>
       </div>

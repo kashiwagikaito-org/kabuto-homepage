@@ -9,7 +9,7 @@
       content="愛媛県松山市のよさこいチーム 松山よさこい風舞人 公式サイト"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -20,8 +20,11 @@
       <div class="header-inner">
         <h1 class="logo">
           <a href="index.html">
-            <span class="logo-main">風舞人</span>
-            <span class="logo-sub">KABUTO</span>
+            <img
+              src="images/logo.png"
+              alt="松山よさこい風舞人"
+              class="logo-img"
+            />
           </a>
         </h1>
 
@@ -66,13 +69,100 @@
     </header>
 
     <main>
-      <!-- メインビジュアル -->
-      <section class="hero">
-        <img
-          src="images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg"
-          alt="トップページのメイン画像"
-          width="100%"
-        />
+      <!-- ============================================================
+           メインビジュアル
+           ★ 動画ファイルは images/top/hero.mp4 に配置してください
+           　 動画がない間は poster 属性の画像がフォールバック表示されます
+      ============================================================ -->
+      <section class="hero-video-section" id="heroSection">
+        <!--
+          ★ 動画を使う場合: images/top/ フォルダに hero.mp4 を置いてください
+          ★ 動画がない場合: poster に指定した画像がそのまま背景として表示されます
+             poster のパスは英数字のみのファイル名にしてください（日本語NG）
+             例: images/top/hero-poster.jpg にリネームして配置
+        -->
+        <video
+          class="hero-video-bg"
+          autoplay
+          loop
+          muted
+          playsinline
+          poster="images/top/hero.mp4"
+          id="heroVideo"
+        >
+          <source src="images/top/hero.mp4" type="video/mp4" />
+          <source src="images/top/hero.webm" type="video/webm" />
+        </video>
+
+        <!-- グラデーションオーバーレイ -->
+        <div class="hero-overlay"></div>
+
+        <!-- 左右分割コンテンツ -->
+        <div class="hero-inner">
+          <!-- 左: メインキャッチ -->
+          <div class="hero-left">
+            <h2 class="hero-catch">
+              <span>松山よさこい風舞人</span>
+              <span>20期メンバー募集</span>
+            </h2>
+          </div>
+
+          <!-- 右: NEXT EVENT カード群 -->
+          <div class="hero-right">
+            <p class="hero-next-label">NEXT EVENT</p>
+
+            <!-- よさこい演舞情報カード -->
+            <a class="hero-event-card" href="schedule/schedule.html">
+              <p class="hero-event-category">YOSAKOI PERFORMANCE</p>
+              <p class="hero-event-title">よさこい演舞情報</p>
+              <p class="hero-event-date">
+                最新のイベント・スケジュールはこちら
+              </p>
+            </a>
+
+            <!-- 宴会情報カード -->
+            <a class="hero-event-card" href="schedule/schedule.html">
+              <p class="hero-event-category">PARTY INFO</p>
+              <p class="hero-event-title">とにかく宴！</p>
+              <p class="hero-event-date">2025年2月28日（土）開催</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 風舞人とは -->
+      <section id="about" class="about-section">
+        <div class="container">
+          <h2 class="section-title">
+            <span class="title-ja">松山よさこい風舞人とは</span>
+            <span class="title-en">ABOUT</span>
+          </h2>
+          <div class="about-content">
+            <p class="about-lead">
+              松山よさこい風舞人は地元愛媛県松山市を中心として活動する踊り連です。
+            </p>
+            <div class="about-features">
+              <div class="feature-card">
+                <h3>宴会</h3>
+                <p>宴が大好き！<br />月一で宴会開催！</p>
+              </div>
+              <div class="feature-card">
+                <h3>チームカラーとシンボル</h3>
+                <p>
+                  チームカラーは赤と白！<br />
+                  松山市の花の椿がシンボル！
+                </p>
+              </div>
+              <div class="feature-card">
+                <h3>伝統芸能</h3>
+                <p>松山の伝統芸能野球拳を曲中に！</p>
+              </div>
+            </div>
+            <div class="btn-center">
+              <a href="about/overview.html" class="btn-primary">もっと詳しく</a>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- お知らせ -->
@@ -91,59 +181,25 @@
             <div class="news-item">
               <span class="news-badge">イベント</span>
               <p class="news-text">次回イベント：2月28日（土）とにかく宴！</p>
-              <a href="schedule/index.html" class="news-link">詳細 →</a>
+              <a href="schedule/schedule.html" class="news-link">詳細 →</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 今年の曲のyoutube pv -->
-      <section class="hero">
-        <div class="hero-video">
-          <iframe
-            src="https://www.youtube.com/embed/pmT6-Jjhjg8"
-            title="松山よさこい風舞人"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </section>
-
-      <!-- 風舞人とは -->
-      <section id="about" class="about-section">
+      <!-- 演舞動画 (YouTube) -->
+      <section class="youtube-section">
         <div class="container">
           <h2 class="section-title">
-            <span class="title-ja">風舞人とは</span>
-            <span class="title-en">ABOUT</span>
+            <span class="title-ja">演舞動画</span>
+            <span class="title-en">PERFORMANCE</span>
           </h2>
-          <div class="about-content">
-            <p class="about-lead">
-              松山よさこい風舞人は地元愛媛県松山市を中心として
-              活動する、踊り連です。<br />
-              踊りはもちろん、仲間との絆を大切に。練習後の宴会も楽しみの一つです。
-            </p>
-            <div class="about-features">
-              <div class="feature-card">
-                <div class="feature-icon">🎌</div>
-                <h3>宴会</h3>
-                <p>月一で宴会を開催しています。</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon">🍻</div>
-                <h3>チームカラーとシンボル</h3>
-                <p>
-                  チームカラーは赤と白です。<br />
-                  衣装には松山市の花の椿を取り入れています。
-                </p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon">🌸</div>
-                <h3>伝統芸能</h3>
-                <p>松山の伝統芸能野球拳を曲中に取り入れています。</p>
-              </div>
-            </div>
-            <div class="btn-center">
-              <a href="about/overview.html" class="btn-primary">もっと詳しく</a>
-            </div>
+          <div class="youtube-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/pmT6-Jjhjg8"
+              title="松山よさこい風舞人"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
       </section>
@@ -176,7 +232,7 @@
               <h3>メンバー募集</h3>
               <p>一緒に踊りませんか？</p>
             </a>
-            <a class="content-card" href="schedule/index.html">
+            <a class="content-card" href="schedule/schedule.html">
               <div class="content-icon">📅</div>
               <h3>スケジュール</h3>
               <p>練習日・イベント情報</p>
@@ -203,9 +259,9 @@
               target="_blank"
               class="sns-link youtube"
             >
-              <span class="sns-icon">
-                <img src="images/sns-icon/YouTubeicon.png" alt="youtube" />
-              </span>
+              <span class="sns-icon"
+                ><img src="images/sns-icon/YouTubeicon.png" alt="YouTube"
+              /></span>
               <span class="sns-name">YouTube</span>
             </a>
             <a
@@ -213,29 +269,29 @@
               target="_blank"
               class="sns-link tiktok"
             >
-              <span class="sns-icon">
-                <img src="images/sns-icon/x-icon.png" alt="TikTok" />
-              </span>
+              <span class="sns-icon"
+                ><img src="images/sns-icon/x-icon.png" alt="TikTok"
+              /></span>
               <span class="sns-name">TikTok</span>
             </a>
             <a
               href="https://www.tiktok.com/@kabuto_2006"
               target="_blank"
-              class="sns-link Instagram"
+              class="sns-link instagram"
             >
-              <span class="sns-icon">
-                <img src="images/sns-icon/instagram.jpg" alt="Facebook" />
-              </span>
+              <span class="sns-icon"
+                ><img src="images/sns-icon/instagram.jpg" alt="Instagram"
+              /></span>
               <span class="sns-name">Instagram</span>
             </a>
             <a
               href="https://www.tiktok.com/@kabuto_2006"
               target="_blank"
-              class="sns-link Facebook"
+              class="sns-link facebook"
             >
-              <span class="sns-icon">
-                <img src="images/sns-icon/facebook.png" alt="Facebook" />
-              </span>
+              <span class="sns-icon"
+                ><img src="images/sns-icon/facebook.png" alt="Facebook"
+              /></span>
               <span class="sns-name">Facebook</span>
             </a>
             <a
@@ -243,9 +299,9 @@
               target="_blank"
               class="sns-link twitter"
             >
-              <span class="sns-icon">
-                <img src="images/sns-icon/x-icon.png" alt="X" />
-              </span>
+              <span class="sns-icon"
+                ><img src="images/sns-icon/x-icon.png" alt="X"
+              /></span>
               <span class="sns-name">X(旧Twitter)</span>
             </a>
           </div>
@@ -292,5 +348,32 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+      // 動画が読み込めない・再生できない場合のフォールバック処理
+      const video = document.getElementById("heroVideo");
+      const section = document.getElementById("heroSection");
+
+      function showFallback() {
+        if (!section) return;
+        // poster画像を背景として表示
+        const poster = video ? video.getAttribute("poster") : "";
+        if (poster) {
+          section.style.backgroundImage = `url('${poster}')`;
+          section.style.backgroundSize = "cover";
+          section.style.backgroundPosition = "center";
+        }
+        if (video) video.style.display = "none";
+      }
+
+      if (video) {
+        // ソースエラー時
+        video.addEventListener("error", showFallback);
+
+        // 3秒経っても再生開始しない場合もフォールバック
+        const fallbackTimer = setTimeout(showFallback, 3000);
+        video.addEventListener("playing", () => clearTimeout(fallbackTimer));
+        video.addEventListener("canplay", () => clearTimeout(fallbackTimer));
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,225 @@
+﻿<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>お知らせ一覧｜松山よさこい風舞人</title>
+    <meta
+      name="description"
+      content="松山よさこい風舞人からのお知らせ一覧です。"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- ヘッダー -->
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="logo">
+          <a href="../index.html">
+            <img
+              src="../images/logo.png"
+              alt="松山よさこい風舞人"
+              class="logo-img"
+            />
+          </a>
+        </h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="main-nav" id="nav">
+          <ul>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">チーム紹介</a>
+              <ul class="submenu">
+                <li><a href="../about/overview.html">風舞人とは</a></li>
+                <li><a href="../about/organization.html">風舞人組織図</a></li>
+                <li><a href="../member/family.html">ファミリー紹介</a></li>
+              </ul>
+            </li>
+            <li><a href="../member/recruit.html">メンバー募集</a></li>
+            <li><a href="../news/news.html">お知らせ一覧</a></li>
+            <li><a href="../schedule/schedule.html">スケジュール</a></li>
+            <li class="has-submenu">
+              <a href="#" class="submenu-toggle">コンテンツ</a>
+              <ul class="submenu">
+                <li><a href="../contents/report.html">活動報告</a></li>
+                <li><a href="../contents/photo.html">写真館</a></li>
+                <li><a href="../contents/video.html">動画館</a></li>
+                <li><a href="../contents/board.html">掲示板</a></li>
+              </ul>
+            </li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+
+      <!-- ページヒーロー -->
+      <section
+        class="page-hero-header"
+        style="background-image: url('../images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg');"
+      >
+        <div class="page-hero-overlay"></div>
+        <div class="container" style="position:relative; z-index:1; text-align:center;">
+          <nav class="ov-breadcrumb">
+            <a href="../index.html">ホーム</a>
+            <span> &gt; </span>
+            <strong>お知らせ一覧</strong>
+          </nav>
+          <h2 class="page-hero-title">お知らせ一覧</h2>
+          <p class="page-hero-en">NEWS</p>
+        </div>
+      </section>
+
+      <!-- お知らせ一覧 -->
+      <section class="ov-section">
+        <div class="container">
+          <div class="news-list" id="newsList">
+            <!-- JavaScriptで生成 -->
+          </div>
+
+          <!-- ページネーション -->
+          <div class="news-pagination" id="newsPagination"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>松山よさこい風舞人</h3>
+          <p>Matsuyama Yosakoi KABUTO</p>
+        </div>
+        <div class="footer-section">
+          <h4>チーム紹介</h4>
+          <ul class="footer-links">
+            <li><a href="../about/overview.html">風舞人とは</a></li>
+            <li><a href="../about/organization.html">風舞人組織図</a></li>
+            <li><a href="../member/family.html">ファミリー紹介</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>メンバー・お知らせ</h4>
+          <ul class="footer-links">
+            <li><a href="../member/recruit.html">メンバー募集</a></li>
+            <li><a href="../news/news.html">お知らせ一覧</a></li>
+            <li><a href="../schedule/schedule.html">スケジュール</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>コンテンツ</h4>
+          <ul class="footer-links">
+            <li><a href="../contents/report.html">活動報告</a></li>
+            <li><a href="../contents/photo.html">写真館</a></li>
+            <li><a href="../contents/video.html">動画館</a></li>
+            <li><a href="../contents/board.html">掲示板</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">
+        © 2006-2026 Matsuyama Yosakoi Kabuto. All Rights Reserved.
+      </p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+    // =============================================
+    // お知らせデータ
+    // 新しいお知らせを追加するときはここに追記する（新しいものを上に）
+    // badge クラス: '' = 赤（デフォルト）, 'news-badge--info' = 青
+    // =============================================
+    var NEWS_DATA = [
+      { date: '2026.02.01', badge: '動画',   badgeClass: 'news-badge--info', text: '風舞人の舞2025「躍導」PV公開中！',          href: '../contents/video.html' },
+      { date: '2026.01.15', badge: '募集中', badgeClass: '',                 text: 'まもなく20周年！新メンバー募集中',            href: '../member/recruit.html' },
+      { date: '2026.01.10', badge: 'イベント', badgeClass: '',               text: '次回イベント：2月28日（土）とにかく宴！',      href: '../schedule/schedule.html' }
+      // 追加例:
+      // , { date: '2026.03.01', badge: 'お知らせ', badgeClass: '', text: '新しいお知らせ内容', href: '#' }
+    ];
+
+    var PER_PAGE = 30;
+    var currentPage = 1;
+
+    // =============================================
+    // 一覧描画
+    // =============================================
+    function renderNews(page) {
+      var list = document.getElementById('newsList');
+      var start = (page - 1) * PER_PAGE;
+      var end   = Math.min(start + PER_PAGE, NEWS_DATA.length);
+      var html  = '';
+
+      for (var i = start; i < end; i++) {
+        var n = NEWS_DATA[i];
+        html += '<div class="news-item">';
+        html += '  <span class="news-date">' + n.date + '</span>';
+        html += '  <span class="news-badge ' + n.badgeClass + '">' + n.badge + '</span>';
+        html += '  <p class="news-text">' + n.text + '</p>';
+        html += '  <a href="' + n.href + '" class="news-link">詳細 →</a>';
+        html += '</div>';
+      }
+
+      list.innerHTML = html || '<p style="text-align:center;color:#999;">お知らせはありません</p>';
+    }
+
+    // =============================================
+    // ページネーション描画
+    // =============================================
+    function renderPagination() {
+      var totalPages = Math.ceil(NEWS_DATA.length / PER_PAGE);
+      var nav = document.getElementById('newsPagination');
+
+      if (totalPages <= 1) {
+        nav.innerHTML = '';
+        return;
+      }
+
+      var html = '';
+      html += '<button class="news-page-btn" id="pagePrev" ' + (currentPage === 1 ? 'disabled' : '') + '><i class="fas fa-chevron-left"></i> 前へ</button>';
+      for (var p = 1; p <= totalPages; p++) {
+        html += '<button class="news-page-btn' + (p === currentPage ? ' is-active' : '') + '" data-page="' + p + '">' + p + '</button>';
+      }
+      html += '<button class="news-page-btn" id="pageNext" ' + (currentPage === totalPages ? 'disabled' : '') + '>次へ <i class="fas fa-chevron-right"></i></button>';
+      nav.innerHTML = html;
+
+      nav.querySelectorAll('[data-page]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          goToPage(parseInt(btn.dataset.page));
+        });
+      });
+      document.getElementById('pagePrev').addEventListener('click', function() {
+        if (currentPage > 1) goToPage(currentPage - 1);
+      });
+      document.getElementById('pageNext').addEventListener('click', function() {
+        if (currentPage < totalPages) goToPage(currentPage + 1);
+      });
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      renderNews(currentPage);
+      renderPagination();
+      document.getElementById('newsList').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // 初期描画
+    renderNews(1);
+    renderPagination();
+    </script>
+  </body>
+</html>

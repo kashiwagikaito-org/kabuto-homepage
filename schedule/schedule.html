@@ -1,11 +1,17 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>スケジュール｜松山よさこい風舞人</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Bebas+Neue&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
@@ -14,34 +20,27 @@
       <div class="header-inner">
         <h1 class="logo">
           <a href="../index.html">
-            <span class="logo-main">風舞人</span>
-            <span class="logo-sub">KABUTO</span>
+            <img src="../images/logo.png" alt="松山よさこい風舞人" class="logo-img" />
           </a>
         </h1>
-        <button class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
           <span></span><span></span><span></span>
         </button>
         <nav class="main-nav" id="nav">
           <ul>
-            <li><a href="../index.html">トップ</a></li>
             <li class="has-submenu">
-              <a href="#">風舞人とは</a>
+              <a href="#" class="submenu-toggle">チーム紹介</a>
               <ul class="submenu">
-                <li><a href="../about/overview.html">概要</a></li>
-                <li><a href="../about/organization.html">組織図</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="#">メンバー</a>
-              <ul class="submenu">
-                <li><a href="../member/recruit.html">メンバー募集</a></li>
+                <li><a href="../about/overview.html">風舞人とは</a></li>
+                <li><a href="../about/organization.html">風舞人組織図</a></li>
                 <li><a href="../member/family.html">ファミリー紹介</a></li>
-                <li><a href="../member/core.html">コアファミリー</a></li>
               </ul>
             </li>
-            <li><a href="schedule.html">スケジュール</a></li>
+            <li><a href="../member/recruit.html">メンバー募集</a></li>
+            <li><a href="../news/news.html">お知らせ一覧</a></li>
+            <li><a href="../schedule/schedule.html">スケジュール</a></li>
             <li class="has-submenu">
-              <a href="#">コンテンツ</a>
+              <a href="#" class="submenu-toggle">コンテンツ</a>
               <ul class="submenu">
                 <li><a href="../contents/report.html">活動報告</a></li>
                 <li><a href="../contents/photo.html">写真館</a></li>
@@ -49,57 +48,108 @@
                 <li><a href="../contents/board.html">掲示板</a></li>
               </ul>
             </li>
-            <li><a href="../contact.html">お問い合わせ</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
           </ul>
         </nav>
       </div>
     </header>
+
     <main class="page-main">
-      <section class="page-header">
-        <div class="container">
-          <h2 class="page-title">
-            <span class="title-ja">スケジュール</span
-            ><span class="title-en">SCHEDULE</span>
-          </h2>
+
+      <!-- ページヒーロー -->
+      <section
+        class="page-hero-header"
+        style="background-image: url('../images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg');"
+      >
+        <div class="page-hero-overlay"></div>
+        <div class="container" style="position:relative; z-index:1; text-align:center;">
+          <nav class="ov-breadcrumb">
+            <a href="../index.html">ホーム</a>
+            <span> &gt; </span>
+            <strong>スケジュール</strong>
+          </nav>
+          <h2 class="page-hero-title">スケジュール</h2>
+          <p class="page-hero-en">SCHEDULE</p>
         </div>
       </section>
-      <section class="content-section-detail">
+
+      <!-- カレンダーセクション -->
+      <section class="ov-section">
         <div class="container">
-          <div class="detail-content">
-            <h3 class="content-heading">2026年 活動予定</h3>
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <div class="schedule-date">2月28日（土）</div>
-                <div class="schedule-content">
-                  <h4>とにかく宴！</h4>
-                  <p>場所: 松山市内<br />時間: 18:00〜</p>
-                </div>
-              </div>
-              <div class="schedule-item">
-                <div class="schedule-date">3月中旬</div>
-                <div class="schedule-content">
-                  <h4>春の練習スタート</h4>
-                  <p>新メンバー歓迎練習</p>
-                </div>
-              </div>
-            </div>
-            <div class="info-box">
-              <h4>練習日程について</h4>
-              <p>
-                練習日程は随時SNSで更新しています。最新情報は<a
-                  href="https://www.tiktok.com/@kabuto_2006"
-                  target="_blank"
-                  >TikTok</a
-                >をチェックしてください！
-              </p>
+
+          <h2 class="ov-section-title">
+            <span class="ov-title-ja">活動カレンダー</span>
+            <span class="ov-title-en">CALENDAR</span>
+          </h2>
+
+          <!-- 案内バナー -->
+          <div class="cal-info-banner">
+            <p class="cal-info-welcome">
+              <i class="fas fa-hand-point-right"></i>
+              見学・体験、大・大・大歓迎です!!!
+            </p>
+            <ul class="cal-info-list">
+              <li><i class="fas fa-calendar-check"></i> イベントや練習予定随時追加中！チェックしてね(^-^)♪</li>
+              <li><i class="fas fa-exclamation-circle"></i> 予定の変更もありますので、詳細はお問い合わせ下さい。</li>
+              <li><i class="fas fa-envelope"></i> ※見学希望などは<a href="../contact/contact.html">「お問い合わせ」フォーム</a>からご連絡下さい。</li>
+            </ul>
+          </div>
+
+          <div class="cal-wrap">
+            <!-- カレンダー本体（横スクロール対応） -->
+            <div class="cal-frame-wrap">
+              <iframe
+                class="cal-iframe"
+                src="https://www.google.com/calendar/embed?showTitle=0&showTz=0&wkst=2&bgcolor=%23ffffff&src=yosakoikabuto1%40gmail.com&color=%23D50000&src=modek8rkok0rkf428jj20fvci4%40group.calendar.google.com&color=%230B8043&src=1981a7hefvgtb953qq8i3vvh28%40group.calendar.google.com&color=%23E67C73&src=78qp1a8hpiq67bbkj62uhvai7c%40group.calendar.google.com&color=%23F4511E&src=ja.japanese%23holiday%40group.v.calendar.google.com&color=%23F6BF26&ctz=Asia%2FTokyo"
+                frameborder="0"
+                scrolling="no"
+              ></iframe>
             </div>
           </div>
+
         </div>
       </section>
+
     </main>
+
     <footer class="site-footer">
-      <p class="copyright">© 2006-2026 Matsuyama Yosakoi Kabuto</p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>松山よさこい風舞人</h3>
+          <p>Matsuyama Yosakoi KABUTO</p>
+        </div>
+        <div class="footer-section">
+          <h4>チーム紹介</h4>
+          <ul class="footer-links">
+            <li><a href="../about/overview.html">風舞人とは</a></li>
+            <li><a href="../about/organization.html">風舞人組織図</a></li>
+            <li><a href="../member/family.html">ファミリー紹介</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>メンバー・お知らせ</h4>
+          <ul class="footer-links">
+            <li><a href="../member/recruit.html">メンバー募集</a></li>
+            <li><a href="../news/news.html">お知らせ一覧</a></li>
+            <li><a href="../schedule/schedule.html">スケジュール</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>コンテンツ</h4>
+          <ul class="footer-links">
+            <li><a href="../contents/report.html">活動報告</a></li>
+            <li><a href="../contents/photo.html">写真館</a></li>
+            <li><a href="../contents/video.html">動画館</a></li>
+            <li><a href="../contents/board.html">掲示板</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">
+        © 2006-2026 Matsuyama Yosakoi Kabuto. All Rights Reserved.
+      </p>
     </footer>
+
     <script src="../js/main.js"></script>
   </body>
 </html>

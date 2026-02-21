@@ -1,12 +1,17 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ファミリー紹介｜松山よさこい風舞人</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Bebas+Neue&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
@@ -15,34 +20,27 @@
       <div class="header-inner">
         <h1 class="logo">
           <a href="../index.html">
-            <span class="logo-main">風舞人</span>
-            <span class="logo-sub">KABUTO</span>
+            <img src="../images/logo.png" alt="松山よさこい風舞人" class="logo-img" />
           </a>
         </h1>
-        <button class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
           <span></span><span></span><span></span>
         </button>
         <nav class="main-nav" id="nav">
           <ul>
-            <li><a href="../index.html">トップ</a></li>
             <li class="has-submenu">
-              <a href="#">風舞人とは</a>
+              <a href="#" class="submenu-toggle">チーム紹介</a>
               <ul class="submenu">
-                <li><a href="../about/overview.html">概要</a></li>
-                <li><a href="../about/organization.html">組織図</a></li>
+                <li><a href="../about/overview.html">風舞人とは</a></li>
+                <li><a href="../about/organization.html">風舞人組織図</a></li>
+                <li><a href="../member/family.html">ファミリー紹介</a></li>
               </ul>
             </li>
-            <li class="has-submenu">
-              <a href="#">メンバー</a>
-              <ul class="submenu">
-                <li><a href="recruit.html">メンバー募集</a></li>
-                <li><a href="family.html">ファミリー紹介</a></li>
-                <li><a href="core.html">コアファミリー</a></li>
-              </ul>
-            </li>
+            <li><a href="../member/recruit.html">メンバー募集</a></li>
+            <li><a href="../news/news.html">お知らせ一覧</a></li>
             <li><a href="../schedule/schedule.html">スケジュール</a></li>
             <li class="has-submenu">
-              <a href="#">コンテンツ</a>
+              <a href="#" class="submenu-toggle">コンテンツ</a>
               <ul class="submenu">
                 <li><a href="../contents/report.html">活動報告</a></li>
                 <li><a href="../contents/photo.html">写真館</a></li>
@@ -50,104 +48,287 @@
                 <li><a href="../contents/board.html">掲示板</a></li>
               </ul>
             </li>
-            <li><a href="../contact.html">お問い合わせ</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
           </ul>
         </nav>
       </div>
     </header>
-    <main class="page-main family-page">
-      <section class="page-header">
-        <div class="container">
-          <h2 class="page-title">
-            <span class="title-ja">ファミリー紹介</span
-            ><span class="title-en">FAMILY</span>
-          </h2>
-          <p class="page-description">
-            風舞人で活躍するメンバーたちを紹介します
-          </p>
+
+    <main class="page-main">
+
+      <!-- ページヒーロー -->
+      <section
+        class="page-hero-header"
+        style="background-image: url('../images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg');"
+      >
+        <div class="page-hero-overlay"></div>
+        <div class="container" style="position:relative; z-index:1; text-align:center;">
+          <nav class="ov-breadcrumb">
+            <a href="../index.html">ホーム</a>
+            <span> &gt; </span>
+            <a href="#">チーム紹介</a>
+            <span> &gt; </span>
+            <strong>ファミリー紹介</strong>
+          </nav>
+          <h2 class="page-hero-title">ファミリー紹介</h2>
+          <p class="page-hero-en">FAMILY</p>
         </div>
       </section>
-      <nav class="year-nav">
+
+      <!-- 年度タブ -->
+      <nav class="fam-year-nav">
         <div class="container">
-          <a href="#current" class="year-link active">現行メンバー</a
-          ><a href="#2024" class="year-link">2024年</a
-          ><a href="#2023" class="year-link">2023年</a>
+          <div class="fam-year-tabs">
+            <!-- 現在の年度 -->
+            <button class="fam-year-btn is-active" data-year="2026">2026年</button>
+            <!-- 過去年度タブ -->
+            <button class="fam-year-btn" data-year="old">2025年以前</button>
+            <!--
+              新年度追加方法：
+              <button class="fam-year-btn" data-year="2027">2027年</button>
+              ※ members_data に2027のデータも追加すること
+            -->
+          </div>
         </div>
       </nav>
-      <section class="member-section" id="current">
+
+      <!-- メンバーグリッド -->
+      <section class="ov-section">
         <div class="container">
-          <h3 class="member-group-title">現行メンバー</h3>
-          <div class="members-grid">
-            <div class="member-card" data-member="member1">
-              <div class="member-avatar">
-                <img
-                  src="../images/avatar-placeholder.jpg"
-                  alt="田中太郎"
-                  onerror="
-                    this.src =
-                      'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23dc143c%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E👤%3C/text%3E%3C/svg%3E'
-                  "
-                />
-              </div>
-              <div class="member-info">
-                <h4 class="member-name">田中 太郎</h4>
-                <p class="member-role">代表</p>
-              </div>
-            </div>
-            <div class="member-card" data-member="member2">
-              <div class="member-avatar">
-                <img
-                  src="../images/avatar-placeholder.jpg"
-                  alt="佐藤花子"
-                  onerror="
-                    this.src =
-                      'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23dc143c%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E👤%3C/text%3E%3C/svg%3E'
-                  "
-                />
-              </div>
-              <div class="member-info">
-                <h4 class="member-name">佐藤 花子</h4>
-                <p class="member-role">副代表</p>
-              </div>
-            </div>
+          <div class="fam-grid" id="famGrid">
+            <!-- JavaScriptで生成 -->
           </div>
         </div>
       </section>
+
     </main>
-    <div class="modal" id="memberModal">
-      <div class="modal-overlay"></div>
-      <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <div class="modal-body">
-          <div class="modal-image"><img id="modalImage" src="" alt="" /></div>
-          <div class="modal-info">
-            <h3 id="modalName" class="modal-name"></h3>
-            <p id="modalRole" class="modal-role"></p>
-            <div class="modal-details">
-              <div class="detail-item">
-                <h4>💭 意気込み</h4>
-                <p id="modalMessage"></p>
-              </div>
-              <div class="detail-item">
-                <h4>🎯 趣味</h4>
-                <p id="modalHobby"></p>
-              </div>
-              <div class="detail-item">
-                <h4>🍜 好きな食べ物</h4>
-                <p id="modalFood"></p>
-              </div>
+
+    <!-- メンバーカードモーダル -->
+    <div class="fam-modal-overlay" id="famModal" aria-hidden="true">
+      <div class="fam-modal-card" id="famModalCard">
+        <button class="fam-modal-close" aria-label="閉じる">&times;</button>
+
+        <!-- 上段：左（赤）＋右（白） -->
+        <div class="fam-modal-left">
+          <div class="fam-modal-header-label">KABUTO NAME</div>
+          <div class="fam-modal-name" id="fmName"></div>
+          <div class="fam-modal-photo-wrap">
+            <div class="fam-modal-photo" id="fmPhotoWrap">
+              <i class="fas fa-user fam-modal-photo-placeholder"></i>
             </div>
           </div>
+          <div class="fam-modal-role" id="fmRole"></div>
+        </div>
+
+        <div class="fam-modal-right">
+          <div class="fam-modal-header-label fam-modal-header-label--dark">MESSAGE</div>
+          <div class="fam-modal-message" id="fmMessage"></div>
+          <img class="fam-modal-kamon" src="../images/kamon.jpg" alt="家紋" />
+        </div>
+
+        <!-- 下段：情報バー -->
+        <div class="fam-modal-bottom">
+          <div class="fam-modal-info-row">
+            <span class="fam-modal-info-label">HOBBY</span>
+            <span class="fam-modal-info-val" id="fmHobby"></span>
+          </div>
+          <div class="fam-modal-info-row">
+            <span class="fam-modal-info-label">FAVORITE</span>
+            <span class="fam-modal-info-val" id="fmFavorite"></span>
+          </div>
+          <div class="fam-modal-brand">MATSUYAMA YOSAKOI KABUTO</div>
         </div>
       </div>
     </div>
+
     <footer class="site-footer">
       <div class="footer-content">
-        <div class="footer-section"><h3>松山よさこい風舞人</h3></div>
+        <div class="footer-section">
+          <h3>松山よさこい風舞人</h3>
+          <p>Matsuyama Yosakoi KABUTO</p>
+        </div>
+        <div class="footer-section">
+          <h4>チーム紹介</h4>
+          <ul class="footer-links">
+            <li><a href="../about/overview.html">風舞人とは</a></li>
+            <li><a href="../about/organization.html">風舞人組織図</a></li>
+            <li><a href="../member/family.html">ファミリー紹介</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>メンバー・お知らせ</h4>
+          <ul class="footer-links">
+            <li><a href="../member/recruit.html">メンバー募集</a></li>
+            <li><a href="../news/news.html">お知らせ一覧</a></li>
+            <li><a href="../schedule/schedule.html">スケジュール</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>コンテンツ</h4>
+          <ul class="footer-links">
+            <li><a href="../contents/report.html">活動報告</a></li>
+            <li><a href="../contents/photo.html">写真館</a></li>
+            <li><a href="../contents/video.html">動画館</a></li>
+            <li><a href="../contents/board.html">掲示板</a></li>
+            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
+          </ul>
+        </div>
       </div>
-      <p class="copyright">© 2006-2026 Matsuyama Yosakoi Kabuto</p>
+      <p class="copyright">
+        © 2006-2026 Matsuyama Yosakoi Kabuto. All Rights Reserved.
+      </p>
     </footer>
+
     <script src="../js/main.js"></script>
-    <script src="../js/members.js"></script>
+    <script>
+    // =============================================
+    // メンバーデータ
+    // gender: 'male' = 赤カード, 'female' = 白カード
+    // photo: 画像パス（空文字の場合はアイコン表示）
+    // =============================================
+    var MEMBERS_DATA = {
+      2026: [
+        { id:  1, kabutoName: 'のぼる',    role: '連長・デザイナー・ミュージシャン', gender: 'male',   photo: '', hobby: '撮影・編集・人間観察', favorite: 'カレー、オムライス、ハンバーグ、焼肉、甘味', message: '結成から19年の月日が経ち、若気の至りで日焼けや頭皮のダメージを考えずに突き進んだ結果、いろんなところが限界を迎えつつありますが、今期も楽しみたいと思います！' },
+        { id:  2, kabutoName: 'とっすぃ～', role: '副連長・金融庁',               gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id:  3, kabutoName: 'そると',    role: '踊りリーダー',                 gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id:  4, kabutoName: 'わち',      role: '宴会係長',                    gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id:  5, kabutoName: 'メンバー05', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id:  6, kabutoName: 'メンバー06', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id:  7, kabutoName: 'メンバー07', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id:  8, kabutoName: 'メンバー08', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id:  9, kabutoName: 'メンバー09', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 10, kabutoName: 'メンバー10', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 11, kabutoName: 'メンバー11', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 12, kabutoName: 'メンバー12', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 13, kabutoName: 'メンバー13', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 14, kabutoName: 'メンバー14', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 15, kabutoName: 'メンバー15', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 16, kabutoName: 'メンバー16', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 17, kabutoName: 'メンバー17', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 18, kabutoName: 'メンバー18', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 19, kabutoName: 'メンバー19', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 20, kabutoName: 'メンバー20', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 21, kabutoName: 'メンバー21', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 22, kabutoName: 'メンバー22', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 23, kabutoName: 'メンバー23', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 24, kabutoName: 'メンバー24', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 25, kabutoName: 'メンバー25', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 26, kabutoName: 'メンバー26', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 27, kabutoName: 'メンバー27', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 28, kabutoName: 'メンバー28', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 29, kabutoName: 'メンバー29', role: '---',                         gender: 'male',   photo: '', hobby: '---', favorite: '---', message: '---' },
+        { id: 30, kabutoName: 'メンバー30', role: '---',                         gender: 'female', photo: '', hobby: '---', favorite: '---', message: '---' }
+      ]
+      // 新年度追加例：
+      // , 2027: [ { id:1, kabutoName:'...', ... }, ... ]
+    };
+
+    // =============================================
+    // グリッド描画
+    // =============================================
+    function renderGrid(year) {
+      var grid = document.getElementById('famGrid');
+      if (year === 'old') {
+        grid.innerHTML = [
+          '<div class="fam-old-site-cta">',
+          '  <p>2025年以前のメンバーは旧サイトでご覧いただけます。</p>',
+          '  <a href="../member/before19/index.html" class="btn-primary" target="_blank" rel="noopener">',
+          '    旧サイトへ &nbsp;<i class="fas fa-external-link-alt" style="font-size:0.8em;"></i>',
+          '  </a>',
+          '</div>'
+        ].join('');
+        return;
+      }
+      var data = MEMBERS_DATA[year];
+      if (!data) { grid.innerHTML = '<p style="text-align:center;color:#999;">データがありません</p>'; return; }
+      grid.innerHTML = data.map(function(m) {
+        var photoSrc = m.photo || '../images/logo.png';
+        var photoHTML = '<img src="' + photoSrc + '" alt="' + m.kabutoName + '" class="fam-card-logo-img" />';
+        return [
+          '<div class="fam-card fam-card--' + m.gender + '" data-id="' + m.id + '" data-year="' + year + '" tabindex="0" role="button" aria-label="' + m.kabutoName + 'のプロフィールを開く">',
+          '  <div class="fam-card-photo">' + photoHTML + '</div>',
+          '  <div class="fam-card-info">',
+          '    <p class="fam-card-name">' + m.kabutoName + '</p>',
+          '    <p class="fam-card-role">' + m.role + '</p>',
+          '  </div>',
+          '</div>'
+        ].join('');
+      }).join('');
+
+      // カードクリックイベント
+      grid.querySelectorAll('.fam-card').forEach(function(card) {
+        card.addEventListener('click', function() { openModal(parseInt(card.dataset.id), parseInt(card.dataset.year)); });
+        card.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') openModal(parseInt(card.dataset.id), parseInt(card.dataset.year)); });
+      });
+    }
+
+    // =============================================
+    // モーダル開閉
+    // =============================================
+    function openModal(id, year) {
+      var data = MEMBERS_DATA[year];
+      if (!data) return;
+      var m = data.find(function(x) { return x.id === id; });
+      if (!m) return;
+
+      var overlay = document.getElementById('famModal');
+      var card = document.getElementById('famModalCard');
+
+      document.getElementById('fmName').textContent = m.kabutoName;
+      document.getElementById('fmRole').textContent = m.role;
+      document.getElementById('fmMessage').textContent = m.message;
+      document.getElementById('fmHobby').textContent = m.hobby;
+      document.getElementById('fmFavorite').textContent = m.favorite;
+
+      // 写真（個別指定がなければ性別デフォルト画像）
+      var photoWrap = document.getElementById('fmPhotoWrap');
+      var defaultPhoto = m.gender === 'male'
+        ? '../images/member/20/66noboru.jpg'
+        : '../images/member/20/65tossui.jpg';
+      var photoSrc = m.photo || defaultPhoto;
+      photoWrap.innerHTML = '<img src="' + photoSrc + '" alt="' + m.kabutoName + '" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" />';
+
+      // 性別でカードの左側背景色を変える
+      var leftPanel = card.querySelector('.fam-modal-left');
+      if (m.gender === 'female') {
+        leftPanel.classList.add('fam-modal-left--female');
+      } else {
+        leftPanel.classList.remove('fam-modal-left--female');
+      }
+
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      var overlay = document.getElementById('famModal');
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // =============================================
+    // 年度タブ切り替え
+    // =============================================
+    document.querySelectorAll('.fam-year-btn[data-year]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.fam-year-btn').forEach(function(b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        var year = btn.dataset.year === 'old' ? 'old' : parseInt(btn.dataset.year);
+        renderGrid(year);
+      });
+    });
+
+    // モーダルクローズ
+    document.getElementById('famModal').querySelector('.fam-modal-close').addEventListener('click', closeModal);
+    document.getElementById('famModal').addEventListener('click', function(e) {
+      if (e.target === document.getElementById('famModal')) closeModal();
+    });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+    // 初期描画（2026年）
+    renderGrid(2026);
+    </script>
   </body>
 </html>

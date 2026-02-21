@@ -1179,6 +1179,35 @@ a {
 }
 
 
+/* フッター SNS アイコン */
+.footer-sns {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.footer-sns-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.footer-sns-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.footer-sns-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
 .copyright {
   text-align: center;
   padding-top: var(--spacing-md);
@@ -1242,8 +1271,25 @@ a {
   }
 
   /* ② 演舞依頼カード縦長修正 */
+  .cta-section {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .cta-cards {
+    padding: 0 var(--spacing-md);
+  }
+
+  .cta-card {
+    padding: 2rem 1.5rem 1.75rem;
+  }
+
+  .cta-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+  }
+
   .cta-card h3 {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     word-break: normal;
     overflow-wrap: break-word;
   }
@@ -1252,6 +1298,19 @@ a {
     font-size: 0.9rem;
     word-break: normal;
     overflow-wrap: break-word;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: var(--primary-red);
+    color: #fff;
+    border-radius: 6px;
+    border-bottom: none;
+    font-size: 1rem;
+    text-align: center;
   }
 
   /* ③ YouTube動画を大きく */
@@ -1259,20 +1318,37 @@ a {
     padding: 0;
   }
 
-  /* ④ お知らせ改行修正 */
+  /* ④ お知らせ縦レイアウト */
   .news-item {
-    gap: 0.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    padding: 1rem 1.25rem;
   }
 
-  .news-text {
+  .news-item-date {
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 500;
+  }
+
+  .news-item .news-badge {
+    font-size: 0.78rem;
+    padding: 0.18rem 0.7rem;
+  }
+
+  .news-item .news-text {
     min-width: 0;
     word-break: normal;
     overflow-wrap: break-word;
+    font-size: 0.97rem;
+    margin: 0.1rem 0;
   }
 
-  .news-link {
-    white-space: nowrap;
-    flex-shrink: 0;
+  .news-item .news-link {
+    font-size: 0.82rem;
+    margin-left: 0;
+    margin-top: 0.1rem;
   }
 
   /* ⑤ フォトループ画像を小さく */

@@ -11,10 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
       nav.classList.toggle('active');
     });
 
-    // メニュー項目をクリックしたらメニューを閉じる
+    // メニュー項目をクリックしたらメニューを閉じる（サブメニュートグルは除く）
     const navLinks = nav.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
+        if (link.classList.contains('submenu-toggle')) return;
         menuToggle.classList.remove('active');
         nav.classList.remove('active');
       });
@@ -127,8 +128,14 @@ document.addEventListener('DOMContentLoaded', function() {
     toggle.addEventListener('click', function(e) {
       if (window.innerWidth <= 768) {
         e.preventDefault();
+        e.stopPropagation();
         const parent = this.closest('.has-submenu');
-        parent.classList.toggle('active');
+        const isActive = parent.classList.contains('active');
+        // 他のサブメニューをすべて閉じる
+        document.querySelectorAll('.has-submenu.active').forEach(function(el) {
+          if (el !== parent) el.classList.remove('active');
+        });
+        parent.classList.toggle('active', !isActive);
       }
     });
   });

@@ -1216,7 +1216,8 @@ a {
   }
 
   .main-nav.active {
-    max-height: 400px;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
   }
 
   .main-nav ul {
@@ -1238,6 +1239,46 @@ a {
 
   .modal-body {
     grid-template-columns: 1fr;
+  }
+
+  /* ② 演舞依頼カード縦長修正 */
+  .cta-card h3 {
+    font-size: 1.15rem;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .cta-card p {
+    font-size: 0.9rem;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* ③ YouTube動画を大きく */
+  .youtube-wrap {
+    padding: 0;
+  }
+
+  /* ④ お知らせ改行修正 */
+  .news-item {
+    gap: 0.6rem;
+  }
+
+  .news-text {
+    min-width: 0;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .news-link {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ⑤ フォトループ画像を小さく */
+  .photo-item {
+    width: 220px;
+    height: 150px;
   }
 
   .footer-content {

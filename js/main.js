@@ -1,34 +1,62 @@
 // ========================================
-// モバイルメニュートグル
+// メニュー・サブメニュー制御
 // ========================================
 document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.getElementById('nav');
-  
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', function() {
-      this.classList.toggle('active');
-      nav.classList.toggle('active');
-    });
 
-    // メニュー項目をクリックしたらメニューを閉じる（サブメニュートグルは除く）
-    const navLinks = nav.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (link.classList.contains('submenu-toggle')) return;
-        menuToggle.classList.remove('active');
-        nav.classList.remove('active');
+  if (!menuToggle || !nav) return;
+
+  // ハンバーガーメニュー 開閉
+  menuToggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+
+  // サブメニュートグル（モバイルのみ）
+  nav.querySelectorAll('.submenu-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth > 768) return; // PC は CSS hover で動作
+      e.preventDefault();
+      e.stopPropagation();
+
+      var parent = this.closest('.has-submenu');
+      var isOpen = parent.classList.contains('active');
+
+      // 他のサブメニューを閉じる
+      nav.querySelectorAll('.has-submenu.active').forEach(function(el) {
+        el.classList.remove('active');
       });
-    });
 
-    // メニュー外をクリックしたら閉じる
-    document.addEventListener('click', function(e) {
-      if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-        menuToggle.classList.remove('active');
-        nav.classList.remove('active');
+      // 自分を開閉
+      if (!isOpen) {
+        parent.classList.add('active');
       }
     });
-  }
+  });
+
+  // サブメニュー以外のリンクをクリック → メニューを閉じる
+  nav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (link.classList.contains('submenu-toggle')) return;
+      menuToggle.classList.remove('active');
+      nav.classList.remove('active');
+      nav.querySelectorAll('.has-submenu.active').forEach(function(el) {
+        el.classList.remove('active');
+      });
+    });
+  });
+
+  // メニュー外クリック → 閉じる
+  document.addEventListener('click', function(e) {
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.classList.remove('active');
+      nav.classList.remove('active');
+      nav.querySelectorAll('.has-submenu.active').forEach(function(el) {
+        el.classList.remove('active');
+      });
+    }
+  });
 });
 
 // ========================================
@@ -39,18 +67,18 @@ const header = document.querySelector('.site-header');
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
-  
+
   if (currentScroll <= 0) {
     header.classList.remove('hidden');
     return;
   }
-  
+
   if (currentScroll > lastScroll && currentScroll > 100) {
     header.classList.add('hidden');
   } else {
     header.classList.remove('hidden');
   }
-  
+
   lastScroll = currentScroll;
 });
 
@@ -60,18 +88,12 @@ window.addEventListener('scroll', () => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
-    
-    // 空のハッシュまたは#のみの場合はスキップ
-    if (!href || href === '#') {
-      return;
-    }
-    
+    if (!href || href === '#') return;
     const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
-      const offsetTop = target.offsetTop - 80;
       window.scrollTo({
-        top: offsetTop,
+        top: target.offsetTop - 80,
         behavior: 'smooth'
       });
     }
@@ -85,11 +107,6 @@ const yearLinks = document.querySelectorAll('.year-link');
 const sections = document.querySelectorAll('.member-section');
 
 if (yearLinks.length > 0 && sections.length > 0) {
-  const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '-100px 0px -50% 0px'
-  };
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -102,7 +119,7 @@ if (yearLinks.length > 0 && sections.length > 0) {
         });
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
 
   sections.forEach(section => observer.observe(section));
 }
@@ -110,33 +127,5 @@ if (yearLinks.length > 0 && sections.length > 0) {
 // ========================================
 // コンソールメッセージ
 // ========================================
-console.log(
-  '%c風舞人 KABUTO',
-  'color: #dc143c; font-size: 24px; font-weight: bold;'
-);
-console.log(
-  '%c松山市のよさこいチーム - 宴会も全力！',
-  'color: #666; font-size: 14px;'
-);
-// ========================================
-// サブメニュー制御(モバイル)
-// ========================================
-document.addEventListener('DOMContentLoaded', function() {
-  const submenuToggles = document.querySelectorAll('.submenu-toggle');
-  
-  submenuToggles.forEach(toggle => {
-    toggle.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        e.stopPropagation();
-        const parent = this.closest('.has-submenu');
-        const isActive = parent.classList.contains('active');
-        // 他のサブメニューをすべて閉じる
-        document.querySelectorAll('.has-submenu.active').forEach(function(el) {
-          if (el !== parent) el.classList.remove('active');
-        });
-        parent.classList.toggle('active', !isActive);
-      }
-    });
-  });
-});
+console.log('%c風舞人 KABUTO', 'color: #dc143c; font-size: 24px; font-weight: bold;');
+console.log('%c松山市のよさこいチーム - 宴会も全力！', 'color: #666; font-size: 14px;');

@@ -1,49 +1,24 @@
 // ========================================
-// メニュー・サブメニュー制御
+// ハンバーガーメニュー開閉
 // ========================================
 document.addEventListener('DOMContentLoaded', function() {
-  const menuToggle = document.getElementById('menuToggle');
-  const nav = document.getElementById('nav');
+  var menuToggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('nav');
 
   if (!menuToggle || !nav) return;
 
-  // ハンバーガーメニュー 開閉
+  // ハンバーガーボタン
   menuToggle.addEventListener('click', function() {
     this.classList.toggle('active');
     nav.classList.toggle('active');
   });
 
-  // サブメニュートグル（モバイルのみ）
-  nav.querySelectorAll('.submenu-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function(e) {
-      if (window.innerWidth > 768) return; // PC は CSS hover で動作
-      e.preventDefault();
-      e.stopPropagation();
-
-      var parent = this.closest('.has-submenu');
-      var isOpen = parent.classList.contains('active');
-
-      // 他のサブメニューを閉じる
-      nav.querySelectorAll('.has-submenu.active').forEach(function(el) {
-        el.classList.remove('active');
-      });
-
-      // 自分を開閉
-      if (!isOpen) {
-        parent.classList.add('active');
-      }
-    });
-  });
-
-  // サブメニュー以外のリンクをクリック → メニューを閉じる
+  // ナビリンクをクリック → メニューを閉じる（サブメニュー親は除く）
   nav.querySelectorAll('a').forEach(function(link) {
     link.addEventListener('click', function() {
       if (link.classList.contains('submenu-toggle')) return;
       menuToggle.classList.remove('active');
       nav.classList.remove('active');
-      nav.querySelectorAll('.has-submenu.active').forEach(function(el) {
-        el.classList.remove('active');
-      });
     });
   });
 
@@ -52,9 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
       menuToggle.classList.remove('active');
       nav.classList.remove('active');
-      nav.querySelectorAll('.has-submenu.active').forEach(function(el) {
-        el.classList.remove('active');
-      });
     }
   });
 });
@@ -62,11 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // ========================================
 // ヘッダーのスクロール制御
 // ========================================
-let lastScroll = 0;
-const header = document.querySelector('.site-header');
+var lastScroll = 0;
+var header = document.querySelector('.site-header');
 
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
+window.addEventListener('scroll', function() {
+  var currentScroll = window.pageYOffset;
 
   if (currentScroll <= 0) {
     header.classList.remove('hidden');
@@ -85,17 +57,14 @@ window.addEventListener('scroll', () => {
 // ========================================
 // スムーススクロール
 // ========================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
   anchor.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
+    var href = this.getAttribute('href');
     if (!href || href === '#') return;
-    const target = document.querySelector(href);
+    var target = document.querySelector(href);
     if (target) {
       e.preventDefault();
-      window.scrollTo({
-        top: target.offsetTop - 80,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
     }
   });
 });
@@ -103,17 +72,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ========================================
 // 年別ナビゲーションのアクティブ状態管理
 // ========================================
-const yearLinks = document.querySelectorAll('.year-link');
-const sections = document.querySelectorAll('.member-section');
+var yearLinks = document.querySelectorAll('.year-link');
+var sections = document.querySelectorAll('.member-section');
 
 if (yearLinks.length > 0 && sections.length > 0) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        yearLinks.forEach(link => {
+        var id = entry.target.getAttribute('id');
+        yearLinks.forEach(function(link) {
           link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
+          if (link.getAttribute('href') === '#' + id) {
             link.classList.add('active');
           }
         });
@@ -121,7 +90,7 @@ if (yearLinks.length > 0 && sections.length > 0) {
     });
   }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
 
-  sections.forEach(section => observer.observe(section));
+  sections.forEach(function(section) { observer.observe(section); });
 }
 
 // ========================================

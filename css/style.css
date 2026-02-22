@@ -1526,30 +1526,29 @@ a {
   cursor: default;
 }
 @media (max-width: 768px) {
+  /* スマホ: サブメニューは常時展開 */
   .submenu {
     position: static;
+    display: block;
     box-shadow: none;
     background: var(--light-gray);
-    display: none;
     padding-left: 2rem;
     opacity: 1;
     visibility: visible;
     transform: none;
     transition: none;
   }
-  /* スマホでは :hover によるサブメニュー表示を無効化（JSのみで制御） */
+  /* スマホ: hover による表示変化を無効化 */
   .has-submenu:hover .submenu {
-    display: none;
-    opacity: 1;
-    visibility: visible;
-  }
-  .has-submenu.active .submenu {
     display: block;
-    opacity: 1;
-    visibility: visible;
+    transform: none;
   }
-  .submenu-toggle::after { content: ' ▼'; font-size: 0.8rem; }
-  .has-submenu.active .submenu-toggle::after { content: ' ▲'; }
+  /* スマホ: 親メニュー（チーム紹介・コンテンツ）はポインタを無効化 */
+  .submenu-toggle {
+    cursor: default;
+    pointer-events: none;
+    color: var(--gray) !important;
+  }
   .flow-steps { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); }
   .timeline-item { grid-template-columns: 1fr; }

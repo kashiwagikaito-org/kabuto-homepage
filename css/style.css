@@ -1442,12 +1442,13 @@ a {
 .contact-card { background: var(--light-gray); padding: 3rem; border-radius: 8px; text-align: center; }
 .contact-card h3 { font-size: 1.3rem; color: var(--primary-red); margin-bottom: 2rem; }
 .contact-card a.btn-primary { color: #ffffff; text-decoration: none; }
-.sns-section { padding: 4rem 0; background: var(--white); }
-.sns-links { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-.sns-link { display: flex; flex-direction: column; align-items: center; gap: 1rem; background: var(--white); padding: 3rem; border-radius: 8px; min-width: 150px; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-.sns-link:hover { transform: translateY(-5px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
-.sns-icon { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; }
-.sns-name { font-weight: 700; }
+.sns-section { padding: 3rem 0; background: var(--white); }
+.sns-links { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+.sns-link { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; background: var(--white); padding: 1.25rem 1rem; border-radius: 8px; min-width: 80px; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.sns-link:hover { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+.sns-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; }
+.sns-icon img { width: 36px; height: 36px; object-fit: contain; }
+.sns-name { font-weight: 700; font-size: 0.78rem; }
 .has-submenu { position: relative; }
 .submenu { 
   display: none; 
@@ -1536,8 +1537,10 @@ a {
     transform: none;
     transition: none;
   }
-  .has-submenu.active .submenu { 
-    display: block; 
+  .has-submenu.active .submenu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
   }
   .submenu-toggle::after { content: ' ▼'; font-size: 0.8rem; }
   .has-submenu.active .submenu-toggle::after { content: ' ▲'; }
@@ -3228,5 +3231,86 @@ a {
   .photo-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+}
+
+/* =============================================
+   スマホ上書き（後方グローバル規則を再上書き）
+   ============================================= */
+@media (max-width: 768px) {
+  /* CTAセクション */
+  .cta-section {
+    padding: 2.5rem var(--spacing-md);
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .cta-cards {
+    padding: 0;
+  }
+
+  .cta-card {
+    padding: 2rem 1.5rem 1.75rem;
+  }
+
+  .cta-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .cta-card h3 {
+    font-size: 1.2rem;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .cta-card p {
+    font-size: 0.9rem;
+    word-break: normal;
+    overflow-wrap: break-word;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: var(--primary-red);
+    color: #fff;
+    border-radius: 6px;
+    border-bottom: none;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* お知らせ縦レイアウト */
+  .news-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .news-item-date {
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 500;
+  }
+
+  .news-item .news-badge {
+    font-size: 0.78rem;
+    padding: 0.18rem 0.7rem;
+  }
+
+  .news-item .news-text {
+    word-break: normal;
+    overflow-wrap: break-word;
+    font-size: 0.97rem;
+    margin: 0.1rem 0;
+  }
+
+  .news-item .news-link {
+    font-size: 0.82rem;
+    margin-left: 0;
   }
 }

@@ -1526,16 +1526,22 @@ a {
   cursor: default;
 }
 @media (max-width: 768px) {
-  .submenu { 
-    position: static; 
-    box-shadow: none; 
-    background: var(--light-gray); 
-    display: none; 
+  .submenu {
+    position: static;
+    box-shadow: none;
+    background: var(--light-gray);
+    display: none;
     padding-left: 2rem;
     opacity: 1;
     visibility: visible;
     transform: none;
     transition: none;
+  }
+  /* スマホでは :hover によるサブメニュー表示を無効化（JSのみで制御） */
+  .has-submenu:hover .submenu {
+    display: none;
+    opacity: 1;
+    visibility: visible;
   }
   .has-submenu.active .submenu {
     display: block;

@@ -305,9 +305,6 @@ a {
   color: #fff;
   display: block;
 }
-.hero-event-card:hover {
-  background: rgba(255,255,255,0.22);
-}
 
 .hero-event-category {
   font-size: 0.6rem;
@@ -358,11 +355,9 @@ a {
   text-align: center;
   font-size: 0.6rem;
   padding: 0.05rem 0;
-  transition: color 0.2s, transform 0.25s;
-  transform-origin: center;
+  transition: color 0.2s;
 }
 .hero-event-toggle:hover { color: rgba(255,255,255,0.9); }
-.hero-event-toggle.is-open { transform: rotate(180deg); }
 
 /* ========================================
    Photo Loop Section
@@ -516,14 +511,14 @@ a {
   
   /* スマホでは縦並びに、上部に余裕を持たせる */
   .hero-inner {
-    padding: 15% 4% 8%; /* 上部のpaddingを増やす */
+    padding: 15% 4% 2%; /* 上部のpaddingを増やす */
     gap: 2rem;
   }
   
   .hero-right {
     flex-direction: column; /* スマホは縦並び */
     width: 100%;
-    gap: 0.6rem;
+    gap: 0.15rem;
   }
 
   .hero-event-card {
@@ -534,6 +529,7 @@ a {
   .hero-next-label {
     width: 100%;
     flex: none;
+    margin-bottom: 0.1rem;
   }
 }
 
@@ -2333,6 +2329,9 @@ a {
   color: var(--primary-red);
   white-space: nowrap;
   padding-top: 0.1rem;
+  width: 4em;
+  text-align: justify;
+  text-align-last: justify;
 }
 
 .rec-info-list dd {

@@ -32,6 +32,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ========================================
+// NEXT EVENT 場所トグル（▼ボタン）
+// ========================================
+document.querySelectorAll('.hero-event-toggle').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var card = btn.closest('.hero-event-card');
+    var loc = card.querySelector('.hero-event-location');
+    var isOpen = !loc.hidden;
+    loc.hidden = isOpen;
+    btn.classList.toggle('is-open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+});
+
+// ========================================
 // ヘッダーのスクロール制御
 // ========================================
 var lastScroll = 0;

@@ -16,7 +16,7 @@ function renderGrid(year) {
     grid.innerHTML = [
       '<div class="fam-old-site-cta">',
       '  <p>2025年以前の写真は旧サイトでご覧いただけます。</p>',
-      '  <a href="../member/before19/index.html" class="btn-primary" target="_blank" rel="noopener">',
+      '  <a href="../before19/index.html" class="btn-primary" target="_blank" rel="noopener">',
       '    旧サイトへ &nbsp;<i class="fas fa-external-link-alt" style="font-size:0.8em;"></i>',
       '  </a>',
       '</div>'

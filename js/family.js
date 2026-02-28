@@ -16,7 +16,7 @@ function renderGrid(year) {
     grid.innerHTML = [
       '<div class="fam-old-site-cta">',
       '  <p>2025年以前のメンバーは旧サイトでご覧いただけます。</p>',
-      '  <a href="../member/before19/index.html" class="btn-primary" target="_blank" rel="noopener">',
+      '  <a href="../before19/index.html" class="btn-primary" target="_blank" rel="noopener">',
       '    旧サイトへ &nbsp;<i class="fas fa-external-link-alt" style="font-size:0.8em;"></i>',
       '  </a>',
       '</div>'
@@ -56,8 +56,10 @@ function _renderGridData(year) {
 
   grid.innerHTML = data.map(function(m) {
     // カードは facePhoto（顔写真）を使用。未設定なら kamon.jpg
+    var isDefaultFace = !m.facePhoto;
     var cardPhotoSrc = m.facePhoto || '../images/kamon.jpg';
-    var photoHTML = '<img src="' + cardPhotoSrc + '" alt="' + m.kabutoName + '" class="fam-card-logo-img" />';
+    var imgClass = 'fam-card-logo-img' + (isDefaultFace ? ' fam-card-logo-img--kamon' : '');
+    var photoHTML = '<img src="' + cardPhotoSrc + '" alt="' + m.kabutoName + '" class="' + imgClass + '" />';
     return [
       '<div class="fam-card fam-card--' + m.color + '" data-id="' + m.id + '" data-year="' + year + '" tabindex="0" role="button" aria-label="' + m.kabutoName + 'のプロフィールを開く">',
       '  <div class="fam-card-photo">' + photoHTML + '</div>',
@@ -97,10 +99,14 @@ function openModal(id, year) {
   document.getElementById('fmFavorite').textContent = m.favorite;
 
   // モーダル左パネルの写真（デフォルトは kamon.jpg）
+  var isDefaultPhoto = !m.photo;
   var photoSrc = m.photo || '../images/kamon.jpg';
   var photoWrap = document.getElementById('fmPhotoWrap');
+  var photoStyle = isDefaultPhoto
+    ? 'width:100%;height:100%;object-fit:fill;border-radius:4px;cursor:zoom-in;'
+    : 'width:100%;height:100%;object-fit:cover;border-radius:4px;cursor:zoom-in;';
   photoWrap.innerHTML =
-    '<img src="' + photoSrc + '" alt="' + m.kabutoName + '" style="width:100%;height:100%;object-fit:cover;border-radius:4px;cursor:zoom-in;" />';
+    '<img src="' + photoSrc + '" alt="' + m.kabutoName + '" style="' + photoStyle + '" />';
 
   // 写真クリックで拡大
   photoWrap.querySelector('img').addEventListener('click', function() {

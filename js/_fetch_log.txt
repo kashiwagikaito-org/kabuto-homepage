@@ -1,0 +1,37 @@
+Total videos fetched: 123
+Matched videos: 120
+  2008: 2 videos
+  2009: 10 videos
+  2010: 2 videos
+  2011: 5 videos
+  2012: 12 videos
+  2014: 4 videos
+  2015: 3 videos
+  2016: 2 videos
+  2017: 3 videos
+  2018: 5 videos
+  2019: 12 videos
+  2020: 4 videos
+  2022: 1 videos
+  2023: 22 videos
+  2024: 14 videos
+  2025: 18 videos
+  2026: 1 videos
+video_2008.json: added=0, total=2
+video_2009.json: added=0, total=10
+video_2010.json: added=0, total=2
+video_2011.json: added=0, total=5
+video_2012.json: added=0, total=12
+video_2014.json: added=0, total=4
+video_2015.json: added=0, total=3
+video_2016.json: added=0, total=2
+video_2017.json: added=0, total=3
+video_2018.json: added=0, total=5
+video_2019.json: added=0, total=12
+video_2020.json: added=0, total=4
+video_2022.json: added=0, total=1
+video_2023.json: added=0, total=22
+video_2024.json: added=0, total=14
+video_2025.json: added=0, total=18
+video_2026.json: added=0, total=10
+Done.

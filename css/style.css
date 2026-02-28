@@ -1914,9 +1914,10 @@ a {
   color: var(--dark-gray);
 }
 
-/* テーマ曲名列（3列目）は折り返しなし */
-.ov-history-table tbody td:nth-child(3) {
-  white-space: nowrap;
+/* テーマ・曲名列（2列目）は最小幅を確保 */
+.ov-history-table th:nth-child(2),
+.ov-history-table td:nth-child(2) {
+  min-width: 12em;
 }
 
 .ov-video-link {

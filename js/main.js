@@ -1,78 +1,86 @@
 // ========================================
-// モバイルメニュートグル
+// ハンバーガーメニュー開閉
 // ========================================
 document.addEventListener('DOMContentLoaded', function() {
-  const menuToggle = document.getElementById('menuToggle');
-  const nav = document.getElementById('nav');
-  
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', function() {
-      this.classList.toggle('active');
-      nav.classList.toggle('active');
-    });
+  var menuToggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('nav');
 
-    // メニュー項目をクリックしたらメニューを閉じる
-    const navLinks = nav.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        nav.classList.remove('active');
-      });
-    });
+  if (!menuToggle || !nav) return;
 
-    // メニュー外をクリックしたら閉じる
-    document.addEventListener('click', function(e) {
-      if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-        menuToggle.classList.remove('active');
-        nav.classList.remove('active');
-      }
+  // ハンバーガーボタン
+  menuToggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+
+  // ナビリンクをクリック → メニューを閉じる（サブメニュー親は除く）
+  nav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (link.classList.contains('submenu-toggle')) return;
+      menuToggle.classList.remove('active');
+      nav.classList.remove('active');
     });
-  }
+  });
+
+  // メニュー外クリック → 閉じる
+  document.addEventListener('click', function(e) {
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.classList.remove('active');
+      nav.classList.remove('active');
+    }
+  });
+});
+
+// ========================================
+// NEXT EVENT 場所トグル（▼ボタン）
+// ========================================
+document.querySelectorAll('.hero-event-toggle').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var card = btn.closest('.hero-event-card');
+    var loc = card.querySelector('.hero-event-location');
+    var isOpen = !loc.hidden;
+    loc.hidden = isOpen;
+    btn.classList.toggle('is-open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
 });
 
 // ========================================
 // ヘッダーのスクロール制御
 // ========================================
-let lastScroll = 0;
-const header = document.querySelector('.site-header');
+var lastScroll = 0;
+var header = document.querySelector('.site-header');
 
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  
+window.addEventListener('scroll', function() {
+  var currentScroll = window.pageYOffset;
+
   if (currentScroll <= 0) {
     header.classList.remove('hidden');
     return;
   }
-  
+
   if (currentScroll > lastScroll && currentScroll > 100) {
     header.classList.add('hidden');
   } else {
     header.classList.remove('hidden');
   }
-  
+
   lastScroll = currentScroll;
 });
 
 // ========================================
 // スムーススクロール
 // ========================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
   anchor.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    
-    // 空のハッシュまたは#のみの場合はスキップ
-    if (!href || href === '#') {
-      return;
-    }
-    
-    const target = document.querySelector(href);
+    var href = this.getAttribute('href');
+    if (!href || href === '#') return;
+    var target = document.querySelector(href);
     if (target) {
       e.preventDefault();
-      const offsetTop = target.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
     }
   });
 });
@@ -80,56 +88,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ========================================
 // 年別ナビゲーションのアクティブ状態管理
 // ========================================
-const yearLinks = document.querySelectorAll('.year-link');
-const sections = document.querySelectorAll('.member-section');
+var yearLinks = document.querySelectorAll('.year-link');
+var sections = document.querySelectorAll('.member-section');
 
 if (yearLinks.length > 0 && sections.length > 0) {
-  const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '-100px 0px -50% 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        yearLinks.forEach(link => {
+        var id = entry.target.getAttribute('id');
+        yearLinks.forEach(function(link) {
           link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
+          if (link.getAttribute('href') === '#' + id) {
             link.classList.add('active');
           }
         });
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
 
-  sections.forEach(section => observer.observe(section));
+  sections.forEach(function(section) { observer.observe(section); });
 }
 
 // ========================================
 // コンソールメッセージ
 // ========================================
-console.log(
-  '%c風舞人 KABUTO',
-  'color: #dc143c; font-size: 24px; font-weight: bold;'
-);
-console.log(
-  '%c松山市のよさこいチーム - 宴会も全力！',
-  'color: #666; font-size: 14px;'
-);
-// ========================================
-// サブメニュー制御(モバイル)
-// ========================================
-document.addEventListener('DOMContentLoaded', function() {
-  const submenuToggles = document.querySelectorAll('.submenu-toggle');
-  
-  submenuToggles.forEach(toggle => {
-    toggle.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const parent = this.closest('.has-submenu');
-        parent.classList.toggle('active');
-      }
-    });
-  });
-});
+console.log('%c風舞人 KABUTO', 'color: #dc143c; font-size: 24px; font-weight: bold;');
+console.log('%c松山市のよさこいチーム - 宴会も全力！', 'color: #666; font-size: 14px;');

@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -135,70 +136,6 @@
     </footer>
 
     <script src="../js/main.js"></script>
-    <script>
-    // =============================================
-    // 写真データ
-    // 新しいアルバムを追加するときはここに追記（新しいものを上に）
-    // albumUrl: Googleフォト共有リンク
-    // =============================================
-    var PHOTO_DATA = {
-      2026: [
-        { title: '2026年 活動記録', albumUrl: 'https://photos.app.goo.gl/MFDKdau4xCje2LnR9' }
-        // 追加例:
-        // , { title: '2026年 ○○イベント', albumUrl: 'https://photos.app.goo.gl/XXXXXXXXX' }
-      ]
-    };
-
-    // =============================================
-    // グリッド描画
-    // =============================================
-    function renderGrid(year) {
-      var grid = document.getElementById('photoGrid');
-      if (year === 'old') {
-        grid.innerHTML = [
-          '<div class="fam-old-site-cta">',
-          '  <p>2025年以前の写真は旧サイトでご覧いただけます。</p>',
-          '  <a href="../member/before19/index.html" class="btn-primary" target="_blank" rel="noopener">',
-          '    旧サイトへ &nbsp;<i class="fas fa-external-link-alt" style="font-size:0.8em;"></i>',
-          '  </a>',
-          '</div>'
-        ].join('');
-        return;
-      }
-      var data = PHOTO_DATA[year];
-      if (!data || data.length === 0) {
-        grid.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">写真アルバムはまだありません</p>';
-        return;
-      }
-      grid.innerHTML = data.map(function(p) {
-        return [
-          '<a class="photo-card" href="' + p.albumUrl + '" target="_blank" rel="noopener">',
-          '  <div class="photo-card-thumb">',
-          '    <i class="fas fa-images"></i>',
-          '  </div>',
-          '  <div class="photo-card-body">',
-          '    <p class="photo-card-title">' + p.title + '</p>',
-          '    <span class="photo-card-btn"><i class="fas fa-external-link-alt"></i> アルバムを開く</span>',
-          '  </div>',
-          '</a>'
-        ].join('');
-      }).join('');
-    }
-
-    // =============================================
-    // 年度タブ切り替え
-    // =============================================
-    document.querySelectorAll('.fam-year-btn[data-year]').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.fam-year-btn').forEach(function(b) { b.classList.remove('is-active'); });
-        btn.classList.add('is-active');
-        var year = btn.dataset.year === 'old' ? 'old' : parseInt(btn.dataset.year);
-        renderGrid(year);
-      });
-    });
-
-    // 初期描画
-    renderGrid(2026);
-    </script>
+    <script src="../js/photo.js"></script>
   </body>
 </html>

@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -20,7 +21,11 @@
       <div class="header-inner">
         <h1 class="logo">
           <a href="../index.html">
-            <img src="../images/logo.png" alt="松山よさこい風舞人" class="logo-img" />
+            <img
+              src="../images/logo.png"
+              alt="松山よさこい風舞人"
+              class="logo-img"
+            />
           </a>
         </h1>
         <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
@@ -48,21 +53,27 @@
                 <li><a href="../contents/board.html">掲示板</a></li>
               </ul>
             </li>
-            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
+            <li>
+              <a href="../contact/contact.html">演舞依頼・お問い合わせ</a>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main class="page-main">
-
       <!-- ページヒーロー -->
       <section
         class="page-hero-header"
-        style="background-image: url('../images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg');"
+        style="
+          background-image: url(&quot;../images/top/LINE_ALBUM_250802三津浜花火大会_260211_1.jpg&quot;);
+        "
       >
         <div class="page-hero-overlay"></div>
-        <div class="container" style="position:relative; z-index:1; text-align:center;">
+        <div
+          class="container"
+          style="position: relative; z-index: 1; text-align: center"
+        >
           <nav class="ov-breadcrumb">
             <a href="../index.html">ホーム</a>
             <span> &gt; </span>
@@ -75,69 +86,14 @@
         </div>
       </section>
 
-      <!-- ① 風舞人ファミリーの約束事 -->
-      <section class="ov-section">
-        <div class="container">
-          <h2 class="ov-section-title">
-            <span class="ov-title-ja">風舞人ファミリーの約束事</span>
-            <span class="ov-title-en">FAMILY RULES</span>
-          </h2>
-          <p class="org-rules-lead">
-            風舞人ファミリーとして、私たちが大切にしている約束事です。<br />
-            踊りを楽しみ、仲間を大切にし、チームを盛り上げるために。
-          </p>
-          <div class="org-rules-grid">
-            <div class="org-rule-card">
-              <div class="org-rule-num">01</div>
-              <div class="org-rule-icon"><i class="fas fa-heart"></i></div>
-              <h3>楽しむこと</h3>
-              <p>よさこいを心から楽しみましょう。笑顔が一番の衣装です。</p>
-            </div>
-            <div class="org-rule-card">
-              <div class="org-rule-num">02</div>
-              <div class="org-rule-icon"><i class="fas fa-users"></i></div>
-              <h3>仲間を大切に</h3>
-              <p>ファミリー全員がかけがえない存在。お互いを尊重し、支え合いましょう。</p>
-            </div>
-            <div class="org-rule-card">
-              <div class="org-rule-num">03</div>
-              <div class="org-rule-icon"><i class="fas fa-star"></i></div>
-              <h3>全力で踊る</h3>
-              <p>練習も本番も全力で。一つひとつの演舞に魂を込めましょう。</p>
-            </div>
-            <div class="org-rule-card">
-              <div class="org-rule-num">04</div>
-              <div class="org-rule-icon"><i class="fas fa-hands-helping"></i></div>
-              <h3>地域への感謝</h3>
-              <p>地元松山への愛と感謝を胸に、演舞で恩返しをしましょう。</p>
-            </div>
-            <div class="org-rule-card">
-              <div class="org-rule-num">05</div>
-              <div class="org-rule-icon"><i class="fas fa-fire"></i></div>
-              <h3>情熱を忘れずに</h3>
-              <p>いつでも熱い心を持ち続け、仲間と共に燃え続けましょう。</p>
-            </div>
-            <div class="org-rule-card">
-              <div class="org-rule-num">06</div>
-              <div class="org-rule-icon"><i class="fas fa-glass-cheers"></i></div>
-              <h3>オフも全力で</h3>
-              <p>宴も練習と同じくらい大切。飲んで食べて笑って、仲を深めましょう。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ② 風舞人組織図 -->
+      <!-- ① 風舞人組織図 -->
       <section class="ov-section ov-section--gray">
         <div class="container">
-          <h2 class="ov-section-title">
+          <!-- <h2 class="ov-section-title">
             <span class="ov-title-ja">風舞人組織図</span>
             <span class="ov-title-en">ORGANIZATION CHART</span>
-          </h2>
-          <p class="org-chart-note">※ 役職・担当者は変動する場合があります。</p>
-
+          </h2> -->
           <div class="octree">
-
             <!-- 統括：総長 → 副長 -->
             <div class="octree-root">
               <div class="octree-card octree-card--chief">
@@ -154,7 +110,6 @@
 
             <!-- コアファミリー（LINEリーダー）：4グループ + 各メンバー -->
             <div class="octree-core-row">
-
               <!-- 業界人 → 業界人・キャメラマン -->
               <div class="octree-core-group">
                 <div class="octree-card octree-card--core">
@@ -195,17 +150,17 @@
                 </div>
               </div>
 
-              <!-- 踊りリーダー → 踊りリーダー・練習リーダー -->
+              <!-- 踊リーダー → 踊リーダー・練習リーダー -->
               <div class="octree-core-group">
                 <div class="octree-card octree-card--core">
-                  <div class="octree-role">踊りリーダー</div>
+                  <div class="octree-role">踊リーダー</div>
                   <div class="octree-name">そると</div>
                 </div>
                 <div class="octree-members-conn"></div>
                 <div class="octree-members octree-members--2">
                   <div class="octree-member-item">
                     <div class="octree-card octree-card--member">
-                      <div class="octree-role">踊りリーダー</div>
+                      <div class="octree-role">踊リーダー</div>
                       <div class="octree-name">名前1、名前2、名前3</div>
                     </div>
                   </div>
@@ -234,10 +189,71 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <!-- /.octree-core-row -->
+          </div>
+          <!-- /.octree -->
+          <p class="org-chart-note">※ 役職・担当者は変動する場合があります。</p>
+        </div>
+      </section>
 
-            </div><!-- /.octree-core-row -->
-
-          </div><!-- /.octree -->
+      <!-- ② 風舞人ファミリーの約束事 -->
+      <section class="ov-section">
+        <div class="container">
+          <h2 class="ov-section-title">
+            <span class="ov-title-ja">風舞人ファミリーの約束事</span>
+            <span class="ov-title-en">FAMILY RULES</span>
+          </h2>
+          <p class="org-rules-lead">
+            風舞人ファミリーとして、私たちが大切にしている約束事です。<br />
+            踊りを楽しみ、仲間を大切にし、チームを盛り上げるために。
+          </p>
+          <div class="org-rules-grid">
+            <div class="org-rule-card">
+              <div class="org-rule-num">01</div>
+              <div class="org-rule-icon"><i class="fas fa-heart"></i></div>
+              <h3>楽しむこと</h3>
+              <p>よさこいを心から楽しみましょう。笑顔が一番の衣装です。</p>
+            </div>
+            <div class="org-rule-card">
+              <div class="org-rule-num">02</div>
+              <div class="org-rule-icon"><i class="fas fa-users"></i></div>
+              <h3>仲間を大切に</h3>
+              <p>
+                ファミリー全員がかけがえない存在。お互いを尊重し、支え合いましょう。
+              </p>
+            </div>
+            <div class="org-rule-card">
+              <div class="org-rule-num">03</div>
+              <div class="org-rule-icon"><i class="fas fa-star"></i></div>
+              <h3>全力で踊る</h3>
+              <p>練習も本番も全力で。一つひとつの演舞に魂を込めましょう。</p>
+            </div>
+            <div class="org-rule-card">
+              <div class="org-rule-num">04</div>
+              <div class="org-rule-icon">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+              <h3>地域への感謝</h3>
+              <p>地元松山への愛と感謝を胸に、演舞で恩返しをしましょう。</p>
+            </div>
+            <div class="org-rule-card">
+              <div class="org-rule-num">05</div>
+              <div class="org-rule-icon"><i class="fas fa-fire"></i></div>
+              <h3>情熱を忘れずに</h3>
+              <p>いつでも熱い心を持ち続け、仲間と共に燃え続けましょう。</p>
+            </div>
+            <div class="org-rule-card">
+              <div class="org-rule-num">06</div>
+              <div class="org-rule-icon">
+                <i class="fas fa-glass-cheers"></i>
+              </div>
+              <h3>オフも全力で</h3>
+              <p>
+                宴も練習と同じくらい大切。飲んで食べて笑って、仲を深めましょう。
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -247,14 +263,15 @@
           <div class="ov-recruit-inner">
             <h3>一緒に踊りませんか？</h3>
             <p>
-              風舞人では新メンバーを随時募集しています。<br />
-              経験や年齢は問いません。まずは見学からでもOK！
+              風舞人では新メンバーを随時募集中です。<br />
+              経験は問いません。まずは見学からでもOK
             </p>
-            <a href="../member/recruit.html" class="btn-primary">メンバー募集ページへ</a>
+            <a href="../member/recruit.html" class="btn-primary"
+              >メンバー募集ページへ</a
+            >
           </div>
         </div>
       </section>
-
     </main>
 
     <footer class="site-footer">
@@ -286,7 +303,9 @@
             <li><a href="../contents/photo.html">写真館</a></li>
             <li><a href="../contents/video.html">動画館</a></li>
             <li><a href="../contents/board.html">掲示板</a></li>
-            <li><a href="../contact/contact.html">演舞依頼・お問い合わせ</a></li>
+            <li>
+              <a href="../contact/contact.html">演舞依頼・お問い合わせ</a>
+            </li>
           </ul>
         </div>
       </div>

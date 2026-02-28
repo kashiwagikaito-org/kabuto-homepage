@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -78,9 +79,28 @@
       <!-- 年度タブ -->
       <nav class="fam-year-nav">
         <div class="container">
-          <div class="fam-year-tabs">
+          <div class="fam-year-tabs-wrapper">
+            <button class="fam-year-arrow fam-year-arrow--prev" id="tabPrev" aria-label="前へ">&#8249;</button>
+            <div class="fam-year-tabs">
             <button class="fam-year-btn is-active" data-year="2026">2026年</button>
-            <button class="fam-year-btn" data-year="old">2025年以前</button>
+            <button class="fam-year-btn" data-year="2025">2025年</button>
+            <button class="fam-year-btn" data-year="2024">2024年</button>
+            <button class="fam-year-btn" data-year="2023">2023年</button>
+            <button class="fam-year-btn" data-year="2022">2022年</button>
+            <button class="fam-year-btn" data-year="2020">2020年</button>
+            <button class="fam-year-btn" data-year="2019">2019年</button>
+            <button class="fam-year-btn" data-year="2018">2018年</button>
+            <button class="fam-year-btn" data-year="2017">2017年</button>
+            <button class="fam-year-btn" data-year="2016">2016年</button>
+            <button class="fam-year-btn" data-year="2015">2015年</button>
+            <button class="fam-year-btn" data-year="2014">2014年</button>
+            <button class="fam-year-btn" data-year="2012">2012年</button>
+            <button class="fam-year-btn" data-year="2011">2011年</button>
+            <button class="fam-year-btn" data-year="2010">2010年</button>
+            <button class="fam-year-btn" data-year="2009">2009年</button>
+            <button class="fam-year-btn" data-year="2008">2008年</button>
+            </div>
+            <button class="fam-year-arrow fam-year-arrow--next" id="tabNext" aria-label="次へ">&#8250;</button>
           </div>
         </div>
       </nav>
@@ -91,6 +111,7 @@
           <div class="video-grid" id="videoGrid">
             <!-- JavaScriptで生成 -->
           </div>
+          <div class="news-pagination" id="videoPagination"></div>
         </div>
       </section>
 
@@ -135,69 +156,6 @@
     </footer>
 
     <script src="../js/main.js"></script>
-    <script>
-    // =============================================
-    // 動画データ
-    // 新しい動画を追加するときはここに追記（新しいものを上に）
-    // embedUrl: YouTube の埋め込みURL (https://www.youtube.com/embed/動画ID)
-    // =============================================
-    var VIDEO_DATA = {
-      2026: [
-        { title: '風舞人の舞2026', embedUrl: 'https://www.youtube.com/embed/pmT6-Jjhjg8' }
-        // 追加例:
-        // , { title: 'タイトル', embedUrl: 'https://www.youtube.com/embed/XXXXXXXXX' }
-      ]
-    };
-
-    // =============================================
-    // グリッド描画
-    // =============================================
-    function renderGrid(year) {
-      var grid = document.getElementById('videoGrid');
-      if (year === 'old') {
-        grid.innerHTML = [
-          '<div class="fam-old-site-cta">',
-          '  <p>2025年以前の動画は旧サイトでご覧いただけます。</p>',
-          '  <a href="../member/before19/index.html" class="btn-primary" target="_blank" rel="noopener">',
-          '    旧サイトへ &nbsp;<i class="fas fa-external-link-alt" style="font-size:0.8em;"></i>',
-          '  </a>',
-          '</div>'
-        ].join('');
-        return;
-      }
-      var data = VIDEO_DATA[year];
-      if (!data || data.length === 0) {
-        grid.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">動画はまだありません</p>';
-        return;
-      }
-      grid.innerHTML = data.map(function(v) {
-        return [
-          '<div class="video-card">',
-          '  <div class="video-card-embed">',
-          '    <iframe src="' + v.embedUrl + '" title="' + v.title + '" allowfullscreen></iframe>',
-          '  </div>',
-          '  <div class="video-card-body">',
-          '    <p class="video-card-title">' + v.title + '</p>',
-          '  </div>',
-          '</div>'
-        ].join('');
-      }).join('');
-    }
-
-    // =============================================
-    // 年度タブ切り替え
-    // =============================================
-    document.querySelectorAll('.fam-year-btn[data-year]').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.fam-year-btn').forEach(function(b) { b.classList.remove('is-active'); });
-        btn.classList.add('is-active');
-        var year = btn.dataset.year === 'old' ? 'old' : parseInt(btn.dataset.year);
-        renderGrid(year);
-      });
-    });
-
-    // 初期描画
-    renderGrid(2026);
-    </script>
+    <script src="../js/video.js"></script>
   </body>
 </html>

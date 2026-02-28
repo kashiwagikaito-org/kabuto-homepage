@@ -116,8 +116,8 @@ function openModal(id, year) {
   // 椿アイコン（背景画像・color に応じて切り替え）
   var kamonEl = document.getElementById('fmKamon');
   var kamonImg = m.color === 'shiro'
-    ? '../images/shirotsubaki1.png'
-    : '../images/akatsubaki1.png';
+    ? '../images/akatsubaki1.png'
+    : '../images/shirotsubaki1.png';
   kamonEl.style.backgroundImage = 'url("' + kamonImg + '")';
 
   var overlay = document.getElementById('famModal');

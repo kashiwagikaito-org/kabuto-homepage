@@ -1990,6 +1990,42 @@ a {
   .ov-history-table-wrap { font-size: 0.85rem; overflow-x: visible; }
   .ov-history-table thead th,
   .ov-history-table tbody td { padding: 0.55rem 0.6rem; }
+
+  /* 4大活動カード: アイコン・名前・番号を横1行に */
+  .ov-activity-card {
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 0.6rem;
+  }
+  .ov-activity-icon {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    order: 1;
+    flex-shrink: 0;
+  }
+  .ov-activity-card h3 {
+    order: 2;
+    flex: 1;
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .ov-activity-num {
+    position: static;
+    font-size: 2rem;
+    order: 3;
+    margin-left: auto;
+  }
+  .ov-activity-card p {
+    order: 4;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+    margin-bottom: 0;
+  }
 }
 
 /* テーマ・曲名の改行: PC非表示 / スマホ表示 */
@@ -2461,7 +2497,42 @@ a {
 }
 
 @media (max-width: 600px) {
-  .rec-flow-grid { grid-template-columns: 1fr 1fr; }
+  .rec-flow-grid { grid-template-columns: 1fr; }
+  .rec-flow-card {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 0.75rem;
+  }
+  .rec-flow-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    margin: 0;
+    order: 1;
+    flex-shrink: 0;
+  }
+  .rec-flow-card h3 {
+    order: 2;
+    flex: 1;
+    margin-bottom: 0;
+  }
+  .rec-flow-num {
+    position: static;
+    font-size: 2rem;
+    order: 3;
+    margin-left: auto;
+  }
+  .rec-flow-card p {
+    order: 4;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+    margin-bottom: 0;
+  }
 }
 
 /* ========================================

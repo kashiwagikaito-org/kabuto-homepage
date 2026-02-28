@@ -1914,6 +1914,11 @@ a {
   color: var(--dark-gray);
 }
 
+/* テーマ曲名列（3列目）は折り返しなし */
+.ov-history-table tbody td:nth-child(3) {
+  white-space: nowrap;
+}
+
 .ov-video-link {
   color: #ff0000;
   font-size: 1.3rem;

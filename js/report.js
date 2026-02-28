@@ -69,11 +69,11 @@ function renderContent(year) {
     var sub2 = r.sub2 || '-';
     return [
       '<tr>',
-      '  <td data-label="日にち" class="report-td-date">' + r.date + '</td>',
-      '  <td data-label="イベント・祭り名" class="report-td-event">' + r.event + '</td>',
+      '  <td data-label="開催日" class="report-td-date">' + r.date + '</td>',
+      '  <td data-label="祭り・イベント" class="report-td-event">' + r.event + '</td>',
       '  <td data-label="隊長">' + r.leader + '</td>',
-      '  <td data-label="副隊長①">' + r.sub1 + '</td>',
-      '  <td data-label="副隊長②">' + sub2 + '</td>',
+      '  <td data-label="副隊長">' + r.sub1 + '</td>',
+      '  <td data-label="副隊長">' + sub2 + '</td>',
       '  <td data-label="Photo">' + photo + '</td>',
       '  <td data-label="Blog">' + blog + '</td>',
       '</tr>'

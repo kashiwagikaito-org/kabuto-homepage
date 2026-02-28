@@ -1986,10 +1986,16 @@ a {
 @media (max-width: 600px) {
   .page-hero-header { min-height: 260px; padding: 5rem 0 3rem; }
   .ov-concept-grid { grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
-  .ov-activity-grid { grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
+  .ov-activity-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); }
   .ov-history-table-wrap { font-size: 0.85rem; overflow-x: visible; }
   .ov-history-table thead th,
   .ov-history-table tbody td { padding: 0.55rem 0.6rem; }
+}
+
+/* テーマ・曲名の改行: PC非表示 / スマホ表示 */
+.ov-br-sp { display: none; }
+@media (max-width: 600px) {
+  .ov-br-sp { display: block; }
 }
 
 /* ========================================

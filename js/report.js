@@ -1,39 +1,11 @@
 // =============================================
 // 活動報告 JS
-// 新しい報告を追加するときはここに追記（新しいものを上に）
+// 新しい年度を追加するときは js/json/report/report_XXXX.json を作成
 // photoUrl / blogUrl が null のときはリンクを表示しない
 // =============================================
-var REPORT_DATA = {
-  2026: [
-    {
-      date: '2026.02.28',
-      event: 'とにかく宴！',
-      leader: '山田 太郎',
-      sub1: '鈴木 花子',
-      sub2: '田中 一郎',
-      photoUrl: 'https://photos.app.goo.gl/MFDKdau4xCje2LnR9',
-      blogUrl: 'https://yosakoikabuto2006.blog.fc2.com/blog-entry-1.htm'
-    },
-    {
-      date: '2026.01.25',
-      event: '松山よさこい新春演舞',
-      leader: '山田 太郎',
-      sub1: '鈴木 花子',
-      sub2: '佐藤 次郎',
-      photoUrl: 'https://photos.app.goo.gl/MFDKdau4xCje2LnR9',
-      blogUrl: 'https://yosakoikabuto2006.blog.fc2.com/blog-entry-1.htm'
-    },
-    {
-      date: '2026.01.01',
-      event: '新年初詣演舞（松山城）',
-      leader: '山田 太郎',
-      sub1: '高橋 美咲',
-      sub2: null,
-      photoUrl: 'https://photos.app.goo.gl/MFDKdau4xCje2LnR9',
-      blogUrl: null
-    }
-  ]
-};
+
+// 活動報告データキャッシュ
+var REPORT_DATA = {};
 
 // =============================================
 // コンテンツ描画
@@ -53,7 +25,32 @@ function renderContent(year) {
     return;
   }
 
+  // キャッシュがあればすぐ描画
+  if (REPORT_DATA[year]) {
+    _renderTable(year);
+    return;
+  }
+
+  // JSONを取得（パスはreport.htmlからの相対パス）
+  fetch('../js/json/report/report_' + year + '.json')
+    .then(function(res) {
+      if (!res.ok) throw new Error('fetch failed');
+      return res.json();
+    })
+    .then(function(data) {
+      REPORT_DATA[year] = data;
+      _renderTable(year);
+    })
+    .catch(function() {
+      document.getElementById('reportContent').innerHTML =
+        '<p style="text-align:center;color:#999;">データを読み込めませんでした</p>';
+    });
+}
+
+function _renderTable(year) {
+  var wrap = document.getElementById('reportContent');
   var data = REPORT_DATA[year];
+
   if (!data || data.length === 0) {
     wrap.innerHTML = '<p style="text-align:center;color:#999;">活動報告はまだありません</p>';
     return;

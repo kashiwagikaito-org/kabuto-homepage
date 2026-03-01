@@ -9,7 +9,7 @@
     "photo": "",
     "favorite": "",
     "hobby": "",
-    "message": "ー"
+    "message": "未入会"
   },
   {
     "id": 2,
@@ -33,19 +33,19 @@
     "photo": "../images/member/20/soruto.jpg",
     "favorite": "チョコレート・海老",
     "hobby": "簡単に作れる料理を探すこと",
-    "message": "20周年！！おめでとう！！\n元気に踊れるように体力作りを頑張ります！"
+    "message": "20周年！！おめでたい！！\n元気に踊れるように体力作りを頑張ります！"
   },
   {
     "id": 4,
     "kabutoName": "たると",
-    "role": "役職確認",
+    "role": "地方車隊長",
     "core": true,
     "color": "aka",
     "facePhoto": "../images/member/20/taruto_face.jpg",
     "photo": "../images/member/20/taruto.jpg",
     "favorite": "クワトロ・フォルマッジ！",
     "hobby": "ヨガ",
-    "message": "今年も健康第一！食べて踊って寝て食べて！春夏秋冬、それぞれのお祭りを楽しみます～！"
+    "message": "今年も健康第一！食べて踊って寝て食べて！春夏秋冬、それぞれのお祭りを楽しみま～す！"
   },
   {
     "id": 5,
@@ -53,23 +53,11 @@
     "role": "宴会係長",
     "core": true,
     "color": "shiro",
-    "facePhoto": "",
-    "photo": "",
-    "favorite": "クリークヨーグルト",
+    "facePhoto": "../images/member/20/wachi_face.jpg",
+    "photo": "../images/member/20/wachi.jpg",
+    "favorite": "グリークヨーグルト",
     "hobby": "YouTubeごっこ",
     "message": "自分でもびっくりするぐらい風舞人大好きすぎます♡"
-  },
-  {
-    "id": 6,
-    "kabutoName": "レイザー",
-    "role": "宴会係長",
-    "core": true,
-    "color": "shiro",
-    "facePhoto": "",
-    "photo": "",
-    "favorite": "アイスクリーム",
-    "hobby": "ランニング",
-    "message": "来年はよりカッコよく踊り、よりカッコよく大旗が振れるように厳練を積み重ねて参ります。今年も楽しみましょうよ～！"
   },
   {
     "id": 103,
@@ -77,11 +65,35 @@
     "role": "踊リーダー",
     "core": false,
     "color": "aka",
-    "facePhoto": "",
-    "photo": "",
+    "facePhoto": "../images/member/20/pyon_face.jpg",
+    "photo": "../images/member/20/pyon.jpg",
     "favorite": "おそば",
     "hobby": "総踊り",
-    "message": "風舞人20周年おめでとう御座います！今年も、たくさんのお祭りに出て、楽しんでいこうと思います！！"
+    "message": "風舞人20周年おめでとう御座います！\n今年も、たくさんのお祭りに出て、楽しんでいこうと思います！！"
+  },
+  {
+    "id": 6,
+    "kabutoName": "レイザー",
+    "role": "宴会係長",
+    "core": true,
+    "color": "shiro",
+    "facePhoto": "../images/member/20/rayzer_face.jpg",
+    "photo": "../images/member/20/rayzer.jpg",
+    "favorite": "アイスクリーム",
+    "hobby": "ランニング",
+    "message": "今年はよりカッコよく踊り、よりカッコよく大旗が振れるように鍛錬を積み重ねて参ります。今年も楽しみまくるよ〜！"
+  },
+  {
+    "id": 107,
+    "kabutoName": "AYA",
+    "role": "踊リーダー",
+    "core": false,
+    "color": "aka",
+    "facePhoto": "../images/member/20/aya_face.jpg",
+    "photo": "../images/member/20/aya.jpg",
+    "favorite": "ラーメン",
+    "hobby": "よさこい♡",
+    "message": "いよいよ20周年⭐︎\n今年も親子で頑張ります！"
   },
   {
     "id": 11,
@@ -94,18 +106,6 @@
     "favorite": "ジャン麺、炒飯、レモンサワー",
     "hobby": "よさこい、ドライブ、街ブラ",
     "message": "昨年はよさこい歴10周年、今年はいよいよ風舞人20周年&30歳をむかえるので、より楽しく！より元気にお祭りに参加したいです！"
-  },
-  {
-    "id": 107,
-    "kabutoName": "AYA",
-    "role": "踊リーダー",
-    "core": false,
-    "color": "aka",
-    "facePhoto": "",
-    "photo": "",
-    "favorite": "ラーメン",
-    "hobby": "よさこい♡",
-    "message": "いよいよ20周年♡\n今年も親子で頑張ります！"
   },
   {
     "id": 12,

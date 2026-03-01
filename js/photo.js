@@ -12,11 +12,12 @@ var PHOTO_DATA = {};
 function renderGrid(year) {
   var grid = document.getElementById('photoGrid');
 
-  if (year === 'old') {
+  // 2017年以前は旧サイトへ誘導
+  if (year === 'old' || (typeof year === 'number' && year <= 2017)) {
     grid.innerHTML = [
       '<div class="fam-old-site-cta">',
-      '  <p>2025年以前の写真は旧サイトでご覧いただけます。</p>',
-      '  <a href="../before19/index.html" class="btn-primary" target="_blank" rel="noopener">',
+      '  <p>2017年以前の写真は旧サイトでご覧いただけます。</p>',
+      '  <a href="http://yosakoikabuto.com/" class="btn-primary" target="_blank" rel="noopener">',
       '    旧サイトへ &nbsp;<i class="fas fa-external-link-alt" style="font-size:0.8em;"></i>',
       '  </a>',
       '</div>'
@@ -31,7 +32,7 @@ function renderGrid(year) {
   }
 
   // JSONを取得（パスはphoto.htmlからの相対パス）
-  fetch('../js/photo_' + year + '.json')
+  fetch('../js/json/photo/photo_' + year + '.json')
     .then(function(res) {
       if (!res.ok) throw new Error('fetch failed');
       return res.json();
@@ -79,10 +80,31 @@ document.querySelectorAll('.fam-year-btn[data-year]').forEach(function(btn) {
   btn.addEventListener('click', function() {
     document.querySelectorAll('.fam-year-btn').forEach(function(b) { b.classList.remove('is-active'); });
     btn.classList.add('is-active');
-    var year = btn.dataset.year === 'old' ? 'old' : parseInt(btn.dataset.year);
+    var year = (btn.dataset.year === 'old' || btn.dataset.type === 'old')
+      ? 'old'
+      : parseInt(btn.dataset.year);
     renderGrid(year);
   });
 });
+
+// =============================================
+// PC用 タブスクロール矢印ボタン
+// =============================================
+(function() {
+  var tabs = document.querySelector('.fam-year-tabs');
+  var prev = document.getElementById('tabPrev');
+  var next = document.getElementById('tabNext');
+  if (!tabs || !prev || !next) return;
+
+  var STEP = 200;
+
+  prev.addEventListener('click', function() {
+    tabs.scrollBy({ left: -STEP, behavior: 'smooth' });
+  });
+  next.addEventListener('click', function() {
+    tabs.scrollBy({ left: STEP, behavior: 'smooth' });
+  });
+})();
 
 // 初期描画
 renderGrid(2026);

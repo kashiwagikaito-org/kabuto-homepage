@@ -23,7 +23,7 @@ function renderGrid(year, page) {
   }
 
   // JSONを取得
-  fetch('../js/video_' + year + '.json')
+  fetch('../js/json/video/video_' + year + '.json')
     .then(function(res) {
       if (!res.ok) throw new Error('fetch failed');
       return res.json();

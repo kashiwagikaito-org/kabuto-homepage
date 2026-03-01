@@ -3227,6 +3227,31 @@ a {
   }
 }
 
+.cal-click-note {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 600px) {
+  /* iframeをスケールダウンして横スクロールを消す */
+  .cal-frame-wrap {
+    overflow: hidden;
+  }
+  .cal-iframe {
+    transform-origin: top left;
+    transform: scale(0.6);
+    width: calc(100% / 0.6);
+    min-width: 0;
+  }
+  /* scaleはレイアウトに影響しないため高さを手動補正 */
+  .cal-wrap {
+    height: calc(560px * 0.6);
+    overflow: hidden;
+  }
+}
+
 /* ========================================
    Contact Page
 ======================================== */
@@ -3873,25 +3898,225 @@ a {
 }
 
 /* =============================================
-   掲示板
+   SNS
    ============================================= */
 
-.board-frame-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+.sns-intro {
+  text-align: center;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  font-size: 1rem;
 }
 
-.board-iframe {
+.sns-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.sns-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sns-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.2rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.sns-card-header i {
+  font-size: 1.4rem;
+}
+
+.sns-card--instagram .sns-card-header {
+  background: linear-gradient(135deg, #405de6 0%, #833ab4 40%, #e1306c 70%, #fd1d1d 100%);
+}
+
+.sns-card--tiktok .sns-card-header {
+  background: #010101;
+}
+
+.sns-card--youtube .sns-card-header {
+  background: #ff0000;
+}
+
+.sns-card--x .sns-card-header {
+  background: #000;
+}
+
+.sns-card-body {
+  flex: 1;
+  padding: 1rem;
+}
+
+.sns-card-footer {
+  padding: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.sns-follow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.sns-follow-btn:hover {
+  opacity: 0.82;
+}
+
+.sns-follow-btn--instagram {
+  background: linear-gradient(135deg, #833ab4, #e1306c, #fd1d1d);
+  color: #fff;
+}
+
+.sns-follow-btn--tiktok {
+  background: #010101;
+  color: #fff;
+}
+
+.sns-follow-btn--youtube {
+  background: #ff0000;
+  color: #fff;
+}
+
+.sns-follow-btn--x {
+  background: #000;
+  color: #fff;
+}
+
+/* プロフィール行 */
+.sns-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 1rem;
+}
+
+.sns-profile-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.sns-card--instagram .sns-profile-icon {
+  background: linear-gradient(135deg, #405de6, #e1306c, #fd1d1d);
+}
+
+.sns-card--tiktok .sns-profile-icon {
+  background: #010101;
+}
+
+.sns-card--youtube .sns-profile-icon {
+  background: #ff0000;
+}
+
+.sns-profile-handle {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--dark-gray);
+  margin: 0;
+}
+
+.sns-profile-name {
+  font-size: 0.82rem;
+  color: var(--gray);
+  margin: 0.15rem 0 0;
+}
+
+/* CTA ビジュアル (Instagram / TikTok / YouTube) */
+.sns-cta-visual {
+  text-align: center;
+  padding: 1.5rem 0.5rem 0.5rem;
+  color: var(--gray);
+}
+
+.sns-cta-visual > i {
+  font-size: 2.8rem;
+  margin-bottom: 0.75rem;
   display: block;
+}
+
+.sns-card--instagram .sns-cta-visual > i { color: #e1306c; }
+.sns-card--tiktok   .sns-cta-visual > i { color: #010101; }
+.sns-card--youtube  .sns-cta-visual > i { color: #ff0000; }
+
+.sns-cta-visual p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* YouTube 動画埋め込み */
+.sns-card-body--embed {
+  padding: 0.75rem;
+}
+
+.sns-yt-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+.sns-yt-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-width: 320px;
-  height: 800px;
-  border: none;
+  height: 100%;
+  border: 0;
+}
+
+.sns-yt-subscribe {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0 0.25rem;
+}
+
+/* X タイムライン */
+.sns-timeline-wrap {
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+}
+
+@media (max-width: 960px) {
+  .sns-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 600px) {
-  .board-iframe {
-    height: 600px;
+  .sns-grid {
+    grid-template-columns: 1fr;
   }
 }
 

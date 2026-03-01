@@ -31,7 +31,7 @@ function renderGrid(year) {
   }
 
   // JSONを取得（パスはfamily.htmlからの相対パス）
-  fetch('../js/member_' + year + '.json')
+  fetch('../js/json/member/member_' + year + '.json')
     .then(function(res) {
       if (!res.ok) throw new Error('fetch failed');
       return res.json();

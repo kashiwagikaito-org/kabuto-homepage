@@ -4101,6 +4101,14 @@ a {
   padding: 0.5rem 0 0.25rem;
 }
 
+/* X フォローボタン */
+.sns-x-follow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
 /* X タイムライン */
 .sns-timeline-wrap {
   overflow: hidden;

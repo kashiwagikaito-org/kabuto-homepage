@@ -415,9 +415,9 @@
     "color": "shiro",
     "facePhoto": "",
     "photo": "",
-    "favorite": "明太クリームパスタ・ジャスミンティー",
-    "hobby": "SnowMan&東海オンエアを観ること🌷",
-    "message": "10期の時に入会して8年ぶりに踊ります❤そして自発的に挑戦します♡大人になった踊りができるよう頑張ります ✲"
+    "favorite": "明太クリームパスタ･ジャスミンティー",
+    "hobby": "SnowMan＆東海オンエアを観ること✨",
+    "message": "10期の時に入会して8年ぶりに踊ります❤️そして白椿に挑戦します🤍大人になった踊りができるよう頑張ります✨️"
   },
   {
     "id": 116,
@@ -425,11 +425,11 @@
     "role": "練習リーダー",
     "core": false,
     "color": "aka",
-    "facePhoto": "",
-    "photo": "",
+    "facePhoto": "../images/member/20/momone_face.jpg",
+    "photo": "../images/member/20/momone.jpg",
     "favorite": "ちくわ、ミレーのビスケット、冷やし中華",
     "hobby": "ピアノ、ダンス、書道",
-    "message": "高校生活最後、受験勉強もよさこいも全力で頑張ります！そして、よさこいでの出会いを大切にしたいです！！"
+    "message": "高校生活最後、受験勉強もよさこいも全力で頑張ります！\nそして、よさこいでの出会いを大切にしたいです！"
   },
   {
     "id": 23,
@@ -437,11 +437,11 @@
     "role": "コーディネーター",
     "core": false,
     "color": "shiro",
-    "facePhoto": "",
-    "photo": "",
+    "facePhoto": "../images/member/20/fussan_face.jpg",
+    "photo": "../images/member/20/fussan.jpg",
     "favorite": "刺身",
     "hobby": "裁縫・小物作り",
-    "message": "今期も存在していた奇跡を大切にしたい。体力が落ちてきてるのでおかわいながら楽しく踊ります♪"
+    "message": "今期も存在していた奇跡を大切にしたい。体力が落ちてきてるのであがらいながら楽しく踊ります♪"
   },
   {
     "id": 117,
@@ -461,11 +461,11 @@
     "role": "足班・ホテリアー",
     "core": false,
     "color": "shiro",
-    "facePhoto": "",
-    "photo": "",
+    "facePhoto": "../images/member/20/chiaki_face.jpg",
+    "photo": "../images/member/20/chiaki.jpg",
     "favorite": "塩ラーメン",
     "hobby": "カラオケ、パチンコ、旅行",
-    "message": "20周年楽しもぞ！"
+    "message": "20周年楽しむぞ！"
   },
   {
     "id": 25,
@@ -473,8 +473,8 @@
     "role": "足班・ホテリアー",
     "core": false,
     "color": "shiro",
-    "facePhoto": "",
-    "photo": "",
+    "facePhoto": "../images/member/20/judy_face.jpg",
+    "photo": "../images/member/20/judy.jpg",
     "favorite": "唐揚げ　コーラ",
     "hobby": "フェス　野球",
     "message": "最高でーす！"
@@ -488,8 +488,8 @@
     "facePhoto": "",
     "photo": "",
     "favorite": "チョコ",
-    "hobby": "今はないです.🐷",
-    "message": "独身でも結婚しても、母になっても大旗です！☺"
+    "hobby": "今はないです💦",
+    "message": "独身でも結婚しても、母になっても大旗です🏳"
   },
   {
     "id": 28,
@@ -501,7 +501,7 @@
     "photo": "",
     "favorite": "湯菓",
     "hobby": "写経",
-    "message": "また皆さんと踊るのが楽しみです。\n風舞人に入って2年目ですが去年お祭りにあまり参加出来なかったので今年は沢山参加したいと思います！"
+    "message": "また皆さんと踊れるのが楽しみです。"
   },
   {
     "id": 29,
@@ -509,8 +509,8 @@
     "role": "イベンター",
     "core": false,
     "color": "shiro",
-    "facePhoto": "",
-    "photo": "",
+    "facePhoto": "../images/member/20/naja_face.jpg",
+    "photo": "../images/member/20/naja.jpg",
     "favorite": "肉！",
     "hobby": "お菓子作り",
     "message": "風舞人に入って2年目ですが去年お祭りにあまり参加出来なかったので今年は沢山参加したいと思います！"
@@ -521,8 +521,8 @@
     "role": "業界人",
     "core": false,
     "color": "shiro",
-    "facePhoto": "",
-    "photo": "",
+    "facePhoto": "../images/member/20/jasmin_face.jpg",
+    "photo": "../images/member/20/jasmin.jpg",
     "favorite": "ビール🍺ワイン🍷ウイスキー🥃",
     "hobby": "Disney",
     "message": "健康第一で頑張ります…"
@@ -573,6 +573,6 @@
     "photo": "",
     "favorite": "きつねうどん",
     "hobby": "運動とゲーム",
-    "message": "みんないい思い出をたくさん作りたいです！"
+    "message": "みんなといい思い出をたくさん作りたいです！"
   }
 ]

@@ -7,10 +7,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!menuToggle || !nav) return;
 
+  // サブメニューをすべて閉じる
+  function closeSubmenus() {
+    nav.querySelectorAll('.has-submenu').forEach(function(item) {
+      item.classList.remove('is-open');
+      var t = item.querySelector('.submenu-toggle');
+      if (t) t.classList.remove('is-open');
+    });
+  }
+
   // ハンバーガーボタン
   menuToggle.addEventListener('click', function() {
     this.classList.toggle('active');
     nav.classList.toggle('active');
+    if (!nav.classList.contains('active')) closeSubmenus();
+  });
+
+  // サブメニュートグル（▽/△ クリックで展開・たたむ）
+  nav.querySelectorAll('.submenu-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      var parent = toggle.closest('.has-submenu');
+      var isOpen = parent.classList.contains('is-open');
+      closeSubmenus();
+      if (!isOpen) {
+        parent.classList.add('is-open');
+        toggle.classList.add('is-open');
+      }
+    });
   });
 
   // ナビリンクをクリック → メニューを閉じる（サブメニュー親は除く）
@@ -19,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (link.classList.contains('submenu-toggle')) return;
       menuToggle.classList.remove('active');
       nav.classList.remove('active');
+      closeSubmenus();
     });
   });
 
@@ -27,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
       menuToggle.classList.remove('active');
       nav.classList.remove('active');
+      closeSubmenus();
     }
   });
 });

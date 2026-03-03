@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
   menuToggle.addEventListener('click', function() {
     this.classList.toggle('active');
     nav.classList.toggle('active');
-    if (!nav.classList.contains('active')) closeSubmenus();
+    closeSubmenus();
   });
 
   // サブメニュートグル（▽/△ クリックで展開・たたむ）

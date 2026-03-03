@@ -2013,10 +2013,10 @@ a {
   cursor: default;
 }
 @media (max-width: 768px) {
-  /* スマホ: サブメニューは初期状態でたたむ */
-  .submenu {
-    position: static;
-    display: none;
+  /* スマホ: サブメニューは is-open がない限り非表示 */
+  .main-nav .submenu {
+    position: static !important;
+    display: none !important;
     box-shadow: none;
     background: var(--light-gray);
     padding-left: 2rem;
@@ -2026,16 +2026,8 @@ a {
     transition: none;
   }
   /* JS で .is-open が付いたら展開 */
-  .has-submenu.is-open > .submenu {
-    display: block;
-  }
-  /* スマホ: hover による表示変化を無効化 */
-  .has-submenu:hover .submenu {
-    display: none;
-    transform: none;
-  }
-  .has-submenu.is-open:hover > .submenu {
-    display: block;
+  .main-nav .has-submenu.is-open > .submenu {
+    display: block !important;
   }
   /* スマホ: 親メニュー（チーム紹介・コンテンツ）はクリックで展開 */
   .submenu-toggle {
@@ -2048,7 +2040,7 @@ a {
   }
   /* ▽/△ インジケーター（デスクトップの下線アニメ ::after を上書き） */
   .submenu-toggle::after {
-    content: '▽' !important;
+    content: '▼' !important;
     position: static !important;
     width: auto !important;
     height: auto !important;
@@ -2058,7 +2050,7 @@ a {
     opacity: 0.6;
   }
   .submenu-toggle.is-open::after {
-    content: '△' !important;
+    content: '▲' !important;
   }
   .flow-steps {
     flex-direction: column;

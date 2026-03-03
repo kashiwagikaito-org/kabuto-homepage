@@ -144,36 +144,22 @@
     <script src="../js/main.js"></script>
     <script>
       // =============================================
-      // お知らせデータ
-      // 新しいお知らせを追加するときはここに追記する（新しいものを上に）
-      // badge クラス: '' = 赤（デフォルト）, 'news-badge--info' = 青
+      // お知らせ一覧
+      // データは js/json/news/news.json で管理（新しいものを上に追記）
       // =============================================
-      var NEWS_DATA = [
-        {
-          date: "2026.02.01",
-          badge: "動画",
-          badgeClass: "news-badge--info",
-          text: "風舞人の舞2025「躍導」PV公開中！",
-          href: "../contents/video.html",
-        },
-        {
-          date: "2026.01.15",
-          badge: "募集中",
-          badgeClass: "",
-          text: "まもなく20周年！新メンバー募集中",
-          href: "../member/recruit.html",
-        },
-        {
-          date: "2026.01.10",
-          badge: "イベント",
-          badgeClass: "",
-          text: "次回イベント：2月28日（土）とにかく宴！",
-          href: "../schedule/schedule.html",
-        },
-        // 追加例:
-        // , { date: '2026.03.01', badge: 'お知らせ', badgeClass: '', text: '新しいお知らせ内容', href: '#' }
-      ];
 
+      // カテゴリー定義（label: バッジ表示名, cls: CSSクラス）
+      var CATEGORY_MAP = {
+        report:   { label: '活動報告',   cls: 'news-badge--report'   },
+        greeting: { label: 'ご挨拶',     cls: 'news-badge--greeting' },
+        event:    { label: 'イベント',   cls: 'news-badge--event'    },
+        party:    { label: '宴会',       cls: 'news-badge--party'    },
+        notice:   { label: 'お知らせ',   cls: 'news-badge--notice'   },
+        media:    { label: '動画・写真', cls: 'news-badge--media'    },
+        sns:      { label: 'SNS',        cls: 'news-badge--sns'      }
+      };
+
+      var NEWS_DATA = [];
       var PER_PAGE = 30;
       var currentPage = 1;
 
@@ -188,17 +174,19 @@
 
         for (var i = start; i < end; i++) {
           var n = NEWS_DATA[i];
-          html += '<div class="news-item">';
-          html += '  <span class="news-date">' + n.date + "</span>";
-          html +=
-            '  <span class="news-badge ' +
-            n.badgeClass +
-            '">' +
-            n.badge +
-            "</span>";
-          html += '  <p class="news-text">' + n.text + "</p>";
-          html += '  <a href="' + n.href + '" class="news-link">詳細 →</a>';
-          html += "</div>";
+          var cat = CATEGORY_MAP[n.category] || { label: n.category || '', cls: '' };
+          html += '<div class="news-item' + (n.thumb ? ' news-item--has-thumb' : '') + '">';
+          if (n.thumb) {
+            html += '<img class="news-item-thumb" src="../' + n.thumb + '" alt="' + (n.alt || '') + '" />';
+          }
+          html += '<div class="news-item-body">';
+          html += '<div class="news-item-meta">';
+          html += '<span class="news-item-date">' + n.date + '</span>';
+          html += '<span class="news-badge ' + cat.cls + '">' + cat.label + '</span>';
+          html += '</div>';
+          html += '<p class="news-text">' + n.text + '</p>';
+          html += '<a href="../' + n.href + '" class="news-link" style="margin-left:0">詳細 →</a>';
+          html += '</div></div>';
         }
 
         list.innerHTML =
@@ -265,9 +253,14 @@
           .scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
-      // 初期描画
-      renderNews(1);
-      renderPagination();
+      // JSONから読み込んで初期描画
+      fetch('../js/json/news/news.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          NEWS_DATA = data;
+          renderNews(1);
+          renderPagination();
+        });
     </script>
   </body>
 </html>

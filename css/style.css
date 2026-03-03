@@ -629,9 +629,14 @@ a {
   white-space: nowrap;
 }
 
-.news-badge--info {
-  background: #2a7bbf;
-}
+.news-badge--info,
+.news-badge--media    { background: #2a7bbf; }   /* 動画・写真：水色に近い青 */
+.news-badge--report   { background: #b8860b; }   /* 活動報告：暗めの黄色    */
+.news-badge--greeting { background: #707070; }   /* ご挨拶：グレー          */
+.news-badge--event    { background: var(--primary-red); } /* イベント：赤    */
+.news-badge--party    { background: #e07820; }   /* 宴会：オレンジ          */
+.news-badge--notice   { background: #28903c; }   /* お知らせ：緑            */
+.news-badge--sns      { background: #8040a8; }   /* SNS：紫                 */
 
 /* サムネ付きカード — 常に横並び */
 .news-item--has-thumb {

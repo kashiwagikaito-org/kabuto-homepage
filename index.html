@@ -230,68 +230,7 @@
             <span class="title-ja">最新のお知らせ</span>
             <span class="title-en">NEWS</span>
           </h2>
-          <div class="news-list">
-            <div class="news-item news-item--has-thumb">
-              <img
-                class="news-item-thumb"
-                src="images/info/tsubakishin.jpg"
-                alt="新メンバー募集"
-              />
-              <div class="news-item-body">
-                <div class="news-item-meta">
-                  <span class="news-item-date">2026.02.01</span>
-                  <span class="news-badge">募集中</span>
-                </div>
-                <p class="news-text">まもなく20周年！新メンバー募集中</p>
-                <a
-                  href="member/recruit.html"
-                  class="news-link"
-                  style="margin-left: 0"
-                  >詳細 →</a
-                >
-              </div>
-            </div>
-            <div class="news-item news-item--has-thumb">
-              <img
-                class="news-item-thumb"
-                src="images/info/sakuyosa.jpg"
-                alt="プチ今治よさこい"
-              />
-              <div class="news-item-body">
-                <div class="news-item-meta">
-                  <span class="news-item-date">2026.01.15</span>
-                  <span class="news-badge">イベント</span>
-                </div>
-                <p class="news-text">次回イベント：2月28日（土）とにかく宴！</p>
-                <a
-                  href="schedule/schedule.html"
-                  class="news-link"
-                  style="margin-left: 0"
-                  >詳細 →</a
-                >
-              </div>
-            </div>
-            <div class="news-item news-item--has-thumb">
-              <img
-                class="news-item-thumb"
-                src="images/info/11InstagramX2.png"
-                alt="風舞人の舞2025 躍導"
-              />
-              <div class="news-item-body">
-                <div class="news-item-meta">
-                  <span class="news-item-date">2025.12.20</span>
-                  <span class="news-badge news-badge--info">動画</span>
-                </div>
-                <p class="news-text">風舞人の舞2025「躍導」PV公開中！</p>
-                <a
-                  href="contents/video.html"
-                  class="news-link"
-                  style="margin-left: 0"
-                  >詳細 →</a
-                >
-              </div>
-            </div>
-          </div>
+          <div class="news-list" id="newsListTop"></div>
           <div class="btn-center">
             <a href="news/news.html" class="btn-primary">お知らせ一覧へ</a>
           </div>
@@ -488,6 +427,43 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+      // カテゴリー定義（label: バッジ表示名, cls: CSSクラス）
+      var CATEGORY_MAP = {
+        report:   { label: '活動報告',   cls: 'news-badge--report'   },
+        greeting: { label: 'ご挨拶',     cls: 'news-badge--greeting' },
+        event:    { label: 'イベント',   cls: 'news-badge--event'    },
+        party:    { label: '宴会',       cls: 'news-badge--party'    },
+        notice:   { label: 'お知らせ',   cls: 'news-badge--notice'   },
+        media:    { label: '動画・写真', cls: 'news-badge--media'    },
+        sns:      { label: 'SNS',        cls: 'news-badge--sns'      }
+      };
+
+      // 最新のお知らせ（5件）
+      fetch('js/json/news/news.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var items = data.slice(0, 5);
+          var html = '';
+          items.forEach(function(n) {
+            var cat = CATEGORY_MAP[n.category] || { label: n.category || '', cls: '' };
+            html += '<div class="news-item' + (n.thumb ? ' news-item--has-thumb' : '') + '">';
+            if (n.thumb) {
+              html += '<img class="news-item-thumb" src="' + n.thumb + '" alt="' + (n.alt || '') + '" />';
+            }
+            html += '<div class="news-item-body">';
+            html += '<div class="news-item-meta">';
+            html += '<span class="news-item-date">' + n.date + '</span>';
+            html += '<span class="news-badge ' + cat.cls + '">' + cat.label + '</span>';
+            html += '</div>';
+            html += '<p class="news-text">' + n.text + '</p>';
+            html += '<a href="' + n.href + '" class="news-link" style="margin-left:0">詳細 →</a>';
+            html += '</div></div>';
+          });
+          document.getElementById('newsListTop').innerHTML =
+            html || '<p style="text-align:center;color:#999;">お知らせはありません</p>';
+        });
+    </script>
     <script>
       // 動画が読み込めない・再生できない場合のフォールバック処理
       const video = document.getElementById("heroVideo");

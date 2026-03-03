@@ -1,0 +1,68 @@
+[
+  {
+    "date": "2026.03.01",
+    "category": "event",
+    "text": "春のお花見演舞、参加決定！",
+    "href": "schedule/schedule.html"
+  },
+  {
+    "date": "2026.02.20",
+    "category": "notice",
+    "text": "20周年記念　特設ページ公開",
+    "href": "news/news.html"
+  },
+  {
+    "date": "2026.02.10",
+    "category": "sns",
+    "text": "インスタグラムフォロワー2000人達成！",
+    "href": "contents/board.html"
+  },
+  {
+    "date": "2026.02.01",
+    "category": "notice",
+    "text": "まもなく20周年！新メンバー募集中",
+    "href": "member/recruit.html",
+    "thumb": "images/info/tsubakishin.jpg",
+    "alt": "新メンバー募集"
+  },
+  {
+    "date": "2026.01.25",
+    "category": "party",
+    "text": "新年宴会　開催報告",
+    "href": "contents/report.html"
+  },
+  {
+    "date": "2026.01.15",
+    "category": "event",
+    "text": "次回イベント：2月28日（土）とにかく宴！",
+    "href": "schedule/schedule.html",
+    "thumb": "images/info/sakuyosa.jpg",
+    "alt": "プチ今治よさこい"
+  },
+  {
+    "date": "2026.01.05",
+    "category": "greeting",
+    "text": "新年のご挨拶",
+    "href": "news/news.html"
+  },
+  {
+    "date": "2025.12.25",
+    "category": "report",
+    "text": "12月度　活動報告",
+    "href": "contents/report.html"
+  },
+  {
+    "date": "2025.12.20",
+    "category": "media",
+    "text": "風舞人の舞2025「躍導」PV公開中！",
+    "href": "contents/video.html",
+    "thumb": "images/info/11InstagramX2.png",
+    "alt": "風舞人の舞2025 躍導"
+  },
+  {
+    "date": "2025.11.30",
+    "category": "report",
+    "text": "11月度　活動報告",
+    "href": "contents/report.html"
+  }
+]

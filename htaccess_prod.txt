@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# http → https リダイレクト
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# 新サイト（/v2/）へのリダイレクト ※切り替え時にコメントアウトを外す
+# RewriteCond %{REQUEST_URI} !^/v2/
+# RewriteRule ^(.*)$ /v2/$1 [R=301,L]
+
+# 旧URL → 新URL リダイレクト
+# RewriteRule ^kabutotoha\.html$ /about/overview.html [R=301,L]
+# RewriteRule ^soshikizu\.html$ /about/organization.html [R=301,L]
+# RewriteRule ^bosyu\.html$ /member/recruit.html [R=301,L]
+# RewriteRule ^family\.html$ /member/family.html [R=301,L]
+# RewriteRule ^schedule\.html$ /schedule/schedule.html [R=301,L]
+# RewriteRule ^event\.html$ /contents/report.html [R=301,L]
+# RewriteRule ^photo2\.html$ /contents/photo.html [R=301,L]
+# RewriteRule ^movie\.html$ /contents/video.html [R=301,L]
+# RewriteRule ^contact\.html$ /contact/contact.html [R=301,L]
+# RewriteRule ^bbs\.html$ /contents/board.html [R=301,L]
+# RewriteRule ^koushin\.html$ /news/news.html [R=301,L]

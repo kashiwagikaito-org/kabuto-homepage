@@ -660,7 +660,7 @@ a {
   flex-direction: column;
   flex: 1;
   min-width: 0;
-  padding: 0.75rem 8rem 0.75rem 1rem;
+  padding: 0.75rem 1rem;
   gap: 0.3rem;
 }
 
@@ -668,9 +668,10 @@ a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding-right: 5.5rem; /* バッジ分の余白（絶対配置と重ならないよう） */
 }
 
-/* バッジをカード右端に絶対配置（サムネ有無に関わらず位置を揃える） */
+/* バッジはカード全体の右上に固定（サムネ有無で位置がぶれない） */
 .news-item .news-badge {
   position: absolute;
   right: 1rem;
@@ -1458,14 +1459,6 @@ a {
   .news-item--has-thumb .news-item-thumb {
     width: 90px;
   }
-  .news-item-body {
-    padding-right: 6.5rem;
-  }
-  .news-item .news-badge {
-    top: 1rem;
-    transform: none;
-  }
-
   .news-item-date {
     font-size: 0.78rem;
     color: var(--gray);
@@ -4431,14 +4424,6 @@ a {
   .news-item--has-thumb .news-item-thumb {
     width: 90px;
   }
-  .news-item-body {
-    padding-right: 6.5rem;
-  }
-  .news-item .news-badge {
-    top: 1rem;
-    transform: none;
-  }
-
   .news-item-date {
     font-size: 0.78rem;
     color: var(--gray);

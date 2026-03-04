@@ -2651,30 +2651,21 @@ a {
   margin: 0 auto;
 }
 
-/* 副長→コアファミリー行のブランチ */
+/* 副長→コアファミリー行 */
 .octree-core-row {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   position: relative;
   width: 100%;
-  /* padding-topを設けてその空間に横線を引く */
-  padding-top: 0;
 }
 
-/* 横線（コアファミリー全体をまたぐ）
-   gap: 1rem × 3 を考慮したグループ中心算出: (100% - 3rem) / 8 */
-.octree-core-row::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: calc((100% - 3rem) / 8);
-  right: calc((100% - 3rem) / 8);
-  height: 2px;
-  background: var(--primary-red);
-}
-
-/* 各コアグループ：横線から下に縦線を伸ばす */
+/*
+ * 各コアグループ
+ * padding-top でブランチ線のスペースを確保する。
+ * position: relative を基準に ::before/::after を配置するため、
+ * padding-top は group 側に置く（row 側に置くと top:0 がずれる）
+ */
 .octree-core-group {
   flex: 1;
   display: flex;
@@ -2684,7 +2675,27 @@ a {
   padding-top: 22px;
 }
 
-.octree-core-group::before {
+/*
+ * 横線：各グループが自分の担当範囲を描画
+ * - 先頭グループ : 右半分のみ（left: 50%）
+ * - 末尾グループ : 左半分のみ（right: 50%）
+ * - 中間グループ : 全幅＋両隣の gap 半分まで伸ばす（gap:1rem → ±0.5rem）
+ * → グループ数が何個になっても自動で伸縮
+ */
+.octree-core-group:not(:only-child)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -0.5rem;  /* gap(1rem)の半分だけ左に伸ばして隣グループとつなぐ */
+  right: -0.5rem;
+  height: 2px;
+  background: var(--primary-red);
+}
+.octree-core-group:first-child:not(:only-child)::before { left: 50%; }
+.octree-core-group:last-child:not(:only-child)::before  { right: 50%; }
+
+/* 縦線：横線 → コアカード */
+.octree-core-group::after {
   content: "";
   position: absolute;
   top: 0;
@@ -2703,62 +2714,40 @@ a {
   margin: 0 auto;
 }
 
-/* メンバー行 */
+/* メンバー行：縦積み（横スクロール不要、人数増減に対応） */
 .octree-members {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   width: 100%;
-  position: relative;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
-/* 2子の場合：横線 */
-.octree-members--2 {
-  padding-top: 0;
-}
-
-.octree-members--2::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 25%;
-  right: 25%;
-  height: 2px;
-  background: var(--primary-red);
-}
-
-/* 各メンバーアイテム */
+/* 各メンバーアイテム：縦並びで全幅 */
 .octree-member-item {
-  flex: 1;
+  width: 100%;
   display: flex;
+  justify-content: stretch;
+}
+
+/* メンバー名タグ一覧 */
+.octree-member-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-top: 0.3rem;
   justify-content: center;
-  position: relative;
 }
 
-/* 2子の場合：各メンバーへの縦線 */
-.octree-members--2 .octree-member-item {
-  padding-top: 20px;
-  align-items: flex-start;
-}
-
-.octree-members--2 .octree-member-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 20px;
-  background: var(--primary-red);
-}
-
-/* 1子の場合：横線・縦線不要（members-connで済む） */
-.octree-members--1 {
-  padding-top: 0;
-}
-
-.octree-members--1 .octree-member-item {
-  padding-top: 0;
+/* 個人タグ */
+.octree-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: var(--dark-gray);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  white-space: nowrap;
+  background: var(--white);
 }
 
 /* レスポンシブ：スマホは縦積み＋左インデント */
@@ -2783,11 +2772,9 @@ a {
     width: 100%;
   }
 
-  /* 横線・縦コネクタを非表示 */
-  .octree-core-row::before,
+  /* 横線・縦コネクタを非表示（スマホは左ボーダーでインデント表現） */
   .octree-core-group::before,
-  .octree-members--2::before,
-  .octree-members--2 .octree-member-item::before {
+  .octree-core-group::after {
     display: none;
   }
 
@@ -2809,10 +2796,6 @@ a {
     margin-top: 0.5rem;
     border-left: 3px solid var(--primary-red);
     gap: 0.5rem;
-  }
-
-  .octree-members--2 {
-    padding-top: 0;
   }
 
   .octree-member-item {

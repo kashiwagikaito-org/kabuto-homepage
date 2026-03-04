@@ -94,7 +94,7 @@
             <span class="ov-title-en">ORGANIZATION CHART</span>
           </h2> -->
           <div class="octree">
-            <!-- 統括：総長 → 副長 -->
+            <!-- 総長 → 副長 -->
             <div class="octree-root">
               <div class="octree-card octree-card--chief">
                 <div class="octree-role">総長・デザイナー・ミュージシャン</div>
@@ -108,9 +108,15 @@
               <div class="octree-vline"></div>
             </div>
 
-            <!-- コアファミリー（LINEリーダー）：4グループ + 各メンバー -->
+            <!--
+              コアファミリー（LINEリーダー）一覧
+              ※ グループや担当の追加・削除は octree-core-group ブロックを丸ごと増減するだけでOK
+              ※ メンバーカードの追加・削除は octree-member-item ブロックを増減するだけでOK
+                 接続線は CSS が自動で伸縮します
+            -->
             <div class="octree-core-row">
-              <!-- 業界人 → 業界人・キャメラマン -->
+
+              <!-- 業界人グループ -->
               <div class="octree-core-group">
                 <div class="octree-card octree-card--core">
                   <div class="octree-core-tag">コアファミリー</div>
@@ -118,23 +124,42 @@
                   <div class="octree-name">のぼる</div>
                 </div>
                 <div class="octree-members-conn"></div>
-                <div class="octree-members octree-members--2">
+                <div class="octree-members">
                   <div class="octree-member-item">
                     <div class="octree-card octree-card--member">
                       <div class="octree-role">業界人</div>
-                      <div class="octree-name">名前1、名前2、名前3</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">キッド</span>
+                        <span class="octree-tag">吹雪</span>
+                        <span class="octree-tag">ジャスミン</span>
+                        <span class="octree-tag">こころ</span>
+                      </div>
                     </div>
                   </div>
                   <div class="octree-member-item">
                     <div class="octree-card octree-card--member">
                       <div class="octree-role">キャメラマン</div>
-                      <div class="octree-name">名前1、名前2、名前3</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">のぼる</span>
+                        <span class="octree-tag">わち</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="octree-member-item">
+                    <div class="octree-card octree-card--member">
+                      <div class="octree-role">デルモ</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">ぴょん</span>
+                        <span class="octree-tag">そると</span>
+                        <span class="octree-tag">たると</span>
+                        <span class="octree-tag">こころ</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- 金融庁 → コーディネーター -->
+              <!-- 金融庁グループ -->
               <div class="octree-core-group">
                 <div class="octree-card octree-card--core">
                   <div class="octree-core-tag">コアファミリー</div>
@@ -142,17 +167,43 @@
                   <div class="octree-name">とっすぃ～</div>
                 </div>
                 <div class="octree-members-conn"></div>
-                <div class="octree-members octree-members--1">
+                <div class="octree-members">
                   <div class="octree-member-item">
                     <div class="octree-card octree-card--member">
                       <div class="octree-role">コーディネーター</div>
-                      <div class="octree-name">名前1、名前2、名前3</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">たがし～</span>
+                        <span class="octree-tag">リーフ</span>
+                        <span class="octree-tag">ふっさん</span>
+                        <span class="octree-tag">海</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="octree-member-item">
+                    <div class="octree-card octree-card--member">
+                      <div class="octree-role">ボランティアー</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">チョッピー</span>
+                        <span class="octree-tag">鶴</span>
+                        <span class="octree-tag">ホイップ</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="octree-member-item">
+                    <div class="octree-card octree-card--member">
+                      <div class="octree-role">大道具さん</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">なつめ</span>
+                        <span class="octree-tag">吹雪</span>
+                        <span class="octree-tag">てんちゃん</span>
+                        <span class="octree-tag">ベル</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- 踊リーダー → 踊リーダー・練習リーダー -->
+              <!-- 踊リーダーグループ -->
               <div class="octree-core-group">
                 <div class="octree-card octree-card--core">
                   <div class="octree-core-tag">コアファミリー</div>
@@ -160,23 +211,41 @@
                   <div class="octree-name">そると</div>
                 </div>
                 <div class="octree-members-conn"></div>
-                <div class="octree-members octree-members--2">
+                <div class="octree-members">
                   <div class="octree-member-item">
                     <div class="octree-card octree-card--member">
                       <div class="octree-role">踊リーダー</div>
-                      <div class="octree-name">名前1、名前2、名前3</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">ぴょん</span>
+                        <span class="octree-tag">シャーリー</span>
+                        <span class="octree-tag">たると</span>
+                        <span class="octree-tag">こころ</span>
+                        <span class="octree-tag">ペコ</span>
+                        <span class="octree-tag">AYA</span>
+                      </div>
                     </div>
                   </div>
                   <div class="octree-member-item">
                     <div class="octree-card octree-card--member">
                       <div class="octree-role">練習リーダー</div>
-                      <div class="octree-name">名前1、名前2、名前3</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">わち</span>
+                        <span class="octree-tag">KIRISHIMA</span>
+                        <span class="octree-tag">周平</span>
+                        <span class="octree-tag">キッド</span>
+                        <span class="octree-tag">りあら</span>
+                        <span class="octree-tag">ももね</span>
+                        <span class="octree-tag">てんちゃん</span>
+                        <span class="octree-tag">ポニー</span>
+                        <span class="octree-tag">はづき</span>
+                        <span class="octree-tag">鶴</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- 宴会係長 → 宴会係長 -->
+              <!-- 宴会係長グループ -->
               <div class="octree-core-group">
                 <div class="octree-card octree-card--core">
                   <div class="octree-core-tag">コアファミリー</div>
@@ -184,15 +253,102 @@
                   <div class="octree-name">わち</div>
                 </div>
                 <div class="octree-members-conn"></div>
-                <div class="octree-members octree-members--1">
+                <div class="octree-members">
                   <div class="octree-member-item">
                     <div class="octree-card octree-card--member">
                       <div class="octree-role">宴会係長</div>
-                      <div class="octree-name">名前1、名前2、名前3</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">もえちゃん</span>
+                        <span class="octree-tag">レイザー</span>
+                        <span class="octree-tag">壱</span>
+                        <span class="octree-tag">ポニー</span>
+                        <span class="octree-tag">リーフ</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="octree-member-item">
+                    <div class="octree-card octree-card--member">
+                      <div class="octree-role">イベンター</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">ペコ</span>
+                        <span class="octree-tag">きくりん</span>
+                        <span class="octree-tag">ナージャ</span>
+                        <span class="octree-tag">海</span>
+                        <span class="octree-tag">リポ</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- 地方車隊長グループ -->
+              <div class="octree-core-group">
+                <div class="octree-card octree-card--core">
+                  <div class="octree-core-tag">コアファミリー</div>
+                  <div class="octree-role">地方車隊長</div>
+                  <div class="octree-name">たると</div>
+                </div>
+                <div class="octree-members-conn"></div>
+                <div class="octree-members">
+                  <div class="octree-member-item">
+                    <div class="octree-card octree-card--member">
+                      <div class="octree-role">地方車副隊長</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">シャーリー</span>
+                        <span class="octree-tag">そると</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="octree-member-item">
+                    <div class="octree-card octree-card--member">
+                      <div class="octree-role">地方車棟梁</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">レイザー</span>
+                        <span class="octree-tag">周平</span>
+                        <span class="octree-tag">きくりん</span>
+                        <span class="octree-tag">ジョッキー</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 足班・ホテリアーグループ -->
+              <div class="octree-core-group">
+                <div class="octree-card octree-card--core">
+                  <div class="octree-core-tag">コアファミリー</div>
+                  <div class="octree-role">足班・ホテリアー</div>
+                  <div class="octree-name">レイザー</div>
+                </div>
+                <div class="octree-members-conn"></div>
+                <div class="octree-members">
+                  <div class="octree-member-item">
+                    <div class="octree-card octree-card--member">
+                      <div class="octree-role">足班・ホテリアー</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">こころ</span>
+                        <span class="octree-tag">くくり</span>
+                        <span class="octree-tag">ちあき</span>
+                        <span class="octree-tag">ジュディー</span>
+                        <span class="octree-tag">バンギラス</span>
+                        <span class="octree-tag">ジャスミン</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="octree-member-item">
+                    <div class="octree-card octree-card--member">
+                      <div class="octree-role">写真屋さん</div>
+                      <div class="octree-member-tags">
+                        <span class="octree-tag">もえちゃん</span>
+                        <span class="octree-tag">ちあき</span>
+                        <span class="octree-tag">ベル</span>
+                        <span class="octree-tag">なかちゃん</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
             <!-- /.octree-core-row -->
           </div>
@@ -210,17 +366,44 @@
           </h2>
           <div class="org-rules-list">
             <div class="org-rules-important">
-              <p><span class="org-rule-star">★</span> 各決定事項は、総長・副長が最終決定を行います。</p>
-              <p><span class="org-rule-star">★</span> 提案や相談などがある場合はコアファミリーや総長・副長まで連絡をしましょう！</p>
+              <p>
+                <span class="org-rule-star">★</span>
+                各決定事項は、総長・副長が最終決定を行います。
+              </p>
+              <p>
+                <span class="org-rule-star">★</span>
+                提案や相談などがある場合はコアファミリーや総長・副長まで連絡をしましょう！
+              </p>
             </div>
             <ul class="org-rules-items">
-              <li><span class="org-rule-circle">①</span>風舞人ファミリーは各役割を理解し、誰がどの役割を行っているかを確認しましょう。</li>
-              <li><span class="org-rule-circle">②</span>祭りの出欠変更、要返信メールについては必ずLINEリーダーにLINEで伝えましょう。</li>
-              <li><span class="org-rule-circle">③</span>各風舞人ファミリーは、担当する役割について、統括しているコアファミリーと相談を行いましょう。</li>
-              <li><span class="org-rule-circle">④</span>風舞人ファミリー・コアファミリー共にやり取りについては、同じ役割の人とも、情報を共有しましょう。</li>
-              <li><span class="org-rule-circle">⑤</span>各役割は４名ずつが基本ですが、事情により増員を望む場合は、コアファミリーに相談をしましょう。</li>
-              <li><span class="org-rule-circle">⑥</span>風舞人ァミリー・コアファミリー間で決められない事項は総長や副長を利用し解決していこう。</li>
-              <li><span class="org-rule-circle">⑦</span>連絡LINE・要返信LINEを送る場合は、事前に統括コアファミリー＆副長＆総長に送ろう。</li>
+              <li>
+                <span class="org-rule-circle">①</span
+                >風舞人ファミリーは各役割を理解し、誰がどの役割を行っているかを確認しましょう。
+              </li>
+              <li>
+                <span class="org-rule-circle">②</span
+                >祭りの出欠変更、要返信メールについては必ずLINEリーダーにLINEで伝えましょう。
+              </li>
+              <li>
+                <span class="org-rule-circle">③</span
+                >各風舞人ファミリーは、担当する役割について、統括しているコアファミリーと相談を行いましょう。
+              </li>
+              <li>
+                <span class="org-rule-circle">④</span
+                >風舞人ファミリー・コアファミリー共にやり取りについては、同じ役割の人とも、情報を共有しましょう。
+              </li>
+              <li>
+                <span class="org-rule-circle">⑤</span
+                >各役割は４名ずつが基本ですが、事情により増員を望む場合は、コアファミリーに相談をしましょう。
+              </li>
+              <li>
+                <span class="org-rule-circle">⑥</span
+                >風舞人ァミリー・コアファミリー間で決められない事項は総長や副長を利用し解決していこう。
+              </li>
+              <li>
+                <span class="org-rule-circle">⑦</span
+                >連絡LINE・要返信LINEを送る場合は、事前に統括コアファミリー＆副長＆総長に送ろう。
+              </li>
             </ul>
           </div>
         </div>
@@ -269,9 +452,9 @@
           <h4>コンテンツ</h4>
           <ul class="footer-links">
             <li><a href="../contents/board.html">SNS</a></li>
-                <li><a href="../contents/report.html">活動報告</a></li>
-                <li><a href="../contents/photo.html">写真館</a></li>
-                <li><a href="../contents/video.html">動画館</a></li>
+            <li><a href="../contents/report.html">活動報告</a></li>
+            <li><a href="../contents/photo.html">写真館</a></li>
+            <li><a href="../contents/video.html">動画館</a></li>
             <li>
               <a href="../contact/contact.html">お問い合わせ</a>
             </li>

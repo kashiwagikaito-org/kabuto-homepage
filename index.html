@@ -136,10 +136,10 @@
             <!-- イベントカード2 -->
             <div class="hero-event-card">
               <p class="hero-event-category">MONTHLY PARTY</p>
-              <p class="hero-event-title">とにかく宴！</p>
+              <p class="hero-event-title">高級宴</p>
               <div class="hero-event-meta">
                 <p class="hero-event-date">
-                  <i class="fas fa-calendar-alt"></i> 2026年02月28日(土)
+                  <i class="fas fa-calendar-alt"></i> 2026年03月28日(土)
                 </p>
                 <p class="hero-event-location" hidden>
                   <i class="fas fa-map-marker-alt"></i> 松山市内
@@ -230,68 +230,7 @@
             <span class="title-ja">最新のお知らせ</span>
             <span class="title-en">NEWS</span>
           </h2>
-          <div class="news-list">
-            <div class="news-item news-item--has-thumb">
-              <img
-                class="news-item-thumb"
-                src="images/info/tsubakishin.jpg"
-                alt="新メンバー募集"
-              />
-              <div class="news-item-body">
-                <div class="news-item-meta">
-                  <span class="news-item-date">2026.02.01</span>
-                  <span class="news-badge">募集中</span>
-                </div>
-                <p class="news-text">まもなく20周年！新メンバー募集中</p>
-                <a
-                  href="member/recruit.html"
-                  class="news-link"
-                  style="margin-left: 0"
-                  >詳細 →</a
-                >
-              </div>
-            </div>
-            <div class="news-item news-item--has-thumb">
-              <img
-                class="news-item-thumb"
-                src="images/info/sakuyosa.jpg"
-                alt="プチ今治よさこい"
-              />
-              <div class="news-item-body">
-                <div class="news-item-meta">
-                  <span class="news-item-date">2026.01.15</span>
-                  <span class="news-badge">イベント</span>
-                </div>
-                <p class="news-text">次回イベント：2月28日（土）とにかく宴！</p>
-                <a
-                  href="schedule/schedule.html"
-                  class="news-link"
-                  style="margin-left: 0"
-                  >詳細 →</a
-                >
-              </div>
-            </div>
-            <div class="news-item news-item--has-thumb">
-              <img
-                class="news-item-thumb"
-                src="images/info/11InstagramX2.png"
-                alt="風舞人の舞2025 躍導"
-              />
-              <div class="news-item-body">
-                <div class="news-item-meta">
-                  <span class="news-item-date">2025.12.20</span>
-                  <span class="news-badge news-badge--info">動画</span>
-                </div>
-                <p class="news-text">風舞人の舞2025「躍導」PV公開中！</p>
-                <a
-                  href="contents/video.html"
-                  class="news-link"
-                  style="margin-left: 0"
-                  >詳細 →</a
-                >
-              </div>
-            </div>
-          </div>
+          <div class="news-list" id="newsListTop"></div>
           <div class="btn-center">
             <a href="news/news.html" class="btn-primary">お知らせ一覧へ</a>
           </div>
@@ -488,32 +427,6 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-      // 動画が読み込めない・再生できない場合のフォールバック処理
-      const video = document.getElementById("heroVideo");
-      const section = document.getElementById("heroSection");
-
-      function showFallback() {
-        if (!section) return;
-        // poster画像を背景として表示
-        const poster = video ? video.getAttribute("poster") : "";
-        if (poster) {
-          section.style.backgroundImage = `url('${poster}')`;
-          section.style.backgroundSize = "cover";
-          section.style.backgroundPosition = "center";
-        }
-        if (video) video.style.display = "none";
-      }
-
-      if (video) {
-        // ソースエラー時
-        video.addEventListener("error", showFallback);
-
-        // 3秒経っても再生開始しない場合もフォールバック
-        const fallbackTimer = setTimeout(showFallback, 3000);
-        video.addEventListener("playing", () => clearTimeout(fallbackTimer));
-        video.addEventListener("canplay", () => clearTimeout(fallbackTimer));
-      }
-    </script>
+    <script src="js/index.js"></script>
   </body>
 </html>

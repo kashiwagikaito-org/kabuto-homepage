@@ -11,7 +11,10 @@
       "Bash(python fetch_videos.py)",
       "Bash(for f in \"c:/work/風舞人/HP/kabuto-homepage/about/organization.html\" \"c:/work/風舞人/HP/kabuto-homepage/about/overview.html\" \"c:/work/風舞人/HP/kabuto-homepage/contact.html\" \"c:/work/風舞人/HP/kabuto-homepage/contact/contact.html\" \"c:/work/風舞人/HP/kabuto-homepage/contents/board.html\" \"c:/work/風舞人/HP/kabuto-homepage/news/news.html\" \"c:/work/風舞人/HP/kabuto-homepage/schedule/schedule.html\" \"c:/work/風舞人/HP/kabuto-homepage/contents/report.html\" \"c:/work/風舞人/HP/kabuto-homepage/contents/photo.html\" \"c:/work/風舞人/HP/kabuto-homepage/member/family.html\" \"c:/work/風舞人/HP/kabuto-homepage/member/recruit.html\" \"c:/work/風舞人/HP/kabuto-homepage/contents/video.html\")",
       "Bash(do)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(grep -h \"2011akindo2.jpg\\\\|20111.jpg\" before19/*.html)",
+      "Bash(find before19/picture -empty -type d -delete)",
+      "Bash(grep -h \"p000noboru\" before19/*.html)"
     ]
   }
 }

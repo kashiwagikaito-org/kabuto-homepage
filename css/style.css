@@ -246,7 +246,7 @@ a {
   display: flex;
   align-items: flex-end; /* 下揃え */
   justify-content: space-between;
-  padding: 0 6% 8%;
+  padding: 0 6% 4%;
   gap: 2rem;
   z-index: 2;
 }

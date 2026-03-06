@@ -7,6 +7,14 @@
 // 活動報告データキャッシュ
 var REPORT_DATA = {};
 
+// 種類定義
+var REPORT_TYPE_MAP = {
+  event:   { label: 'イベント・祭り', cls: 'report-type--event'   },
+  iventer: { label: 'イベンター企画', cls: 'report-type--iventer' },
+  enkai:   { label: '宴会',          cls: 'report-type--enkai'   },
+  other:   { label: 'その他',        cls: 'report-type--other'   }
+};
+
 // =============================================
 // コンテンツ描画
 // =============================================
@@ -64,10 +72,13 @@ function _renderTable(year) {
       ? '<a href="' + r.blogUrl + '" class="report-link report-link--blog" target="_blank" rel="noopener"><i class="fas fa-pen-to-square"></i> Blog</a>'
       : '<span class="report-link-none">-</span>';
     var sub2 = r.sub2 || '-';
+    var typeInfo = REPORT_TYPE_MAP[r.type] || { label: r.type || '-', cls: 'report-type--other' };
+    var typeTag = '<span class="report-type-tag ' + typeInfo.cls + '">' + typeInfo.label + '</span>';
     return [
       '<tr>',
       '  <td data-label="開催日" class="report-td-date">' + r.date + '</td>',
       '  <td data-label="祭り・イベント" class="report-td-event">' + r.event + '</td>',
+      '  <td data-label="種類">' + typeTag + '</td>',
       '  <td data-label="隊長">' + r.leader + '</td>',
       '  <td data-label="副隊長">' + r.sub1 + '</td>',
       '  <td data-label="副隊長">' + sub2 + '</td>',
@@ -84,9 +95,10 @@ function _renderTable(year) {
     '      <tr>',
     '        <th>日にち</th>',
     '        <th>イベント・祭り名</th>',
+    '        <th>種類</th>',
     '        <th>隊長</th>',
-    '        <th>副隊長①</th>',
-    '        <th>副隊長②</th>',
+    '        <th>副隊長</th>',
+    '        <th>副隊長</th>',
     '        <th>Photo</th>',
     '        <th>Blog</th>',
     '      </tr>',

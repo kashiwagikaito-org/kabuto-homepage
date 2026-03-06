@@ -14,7 +14,9 @@
       "Bash(done)",
       "Bash(grep -h \"2011akindo2.jpg\\\\|20111.jpg\" before19/*.html)",
       "Bash(find before19/picture -empty -type d -delete)",
-      "Bash(grep -h \"p000noboru\" before19/*.html)"
+      "Bash(grep -h \"p000noboru\" before19/*.html)",
+      "Bash(ls js/report*)",
+      "Bash(ls js/*.js)"
     ]
   }
 }

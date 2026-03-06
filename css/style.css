@@ -3880,6 +3880,33 @@ a {
   font-size: 0.87rem;
 }
 
+/* 隊長・副隊長列（4・5・6列目）: 改行なし・全角10文字分幅 */
+.report-table th:nth-child(4),
+.report-table td:nth-child(4),
+.report-table th:nth-child(5),
+.report-table td:nth-child(5),
+.report-table th:nth-child(6),
+.report-table td:nth-child(6) {
+  white-space: nowrap;
+  min-width: 10em;
+  width: 10em;
+}
+
+/* 種類タグ */
+.report-type-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  white-space: nowrap;
+  color: #fff;
+}
+.report-type--event   { background: var(--primary-red, #dc143c); }
+.report-type--iventer { background: #27ae60; }
+.report-type--enkai   { background: #e67e22; }
+.report-type--other   { background: #95a5a6; }
+
 .report-td-event {
   font-weight: 600;
   color: #222;
